@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 d?c. 2015 20:10:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.utc.projetAPI01.beans.EvaluationScore" table="EVALUATIONSCORE">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="feasibiliy" type="java.lang.Integer">
+            <column name="FEASIBILIY" />
+        </property>
+        <property name="marketInterest" type="java.lang.Integer">
+            <column name="MARKETINTEREST" />
+        </property>
+        <property name="impact" type="java.lang.Integer">
+            <column name="IMPACT" />
+        </property>
+        <many-to-one name="utilisateur" class="com.utc.projetAPI01.beans.Utilisateur" fetch="join">
+            <column name="UTILISATEUR" />
+        </many-to-one>
+        <many-to-one name="evaluation" class="com.utc.projetAPI01.beans.Evaluation" fetch="join">
+            <column name="EVALUATION" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 30 d?c. 2015 20:10:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.utc.projetAPI01.beans.Comments" table="COMMENTS">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="description" type="java.lang.String">
+            <column name="DESCRIPTION" />
+        </property>
+        <property name="commentDate" type="java.sql.Date">
+            <column name="COMMENTDATE" />
+        </property>
+        <many-to-one name="utilisateur" class="com.utc.projetAPI01.beans.Utilisateur" fetch="join">
+            <column name="UTILISATEUR" />
+        </many-to-one>
+        <many-to-one name="idea" class="com.utc.projetAPI01.beans.Idea" fetch="join">
+            <column name="IDEA" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
