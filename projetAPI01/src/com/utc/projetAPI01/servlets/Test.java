@@ -19,6 +19,7 @@ import com.utc.projetAPI01.beans.Adress;
 import com.utc.projetAPI01.beans.Comments;
 import com.utc.projetAPI01.beans.Fund;
 import com.utc.projetAPI01.beans.Utilisateur;
+import com.utc.projetAPI01.dao.UtilisateurDAO;
 
 /**
  * Servlet implementation class Test
@@ -73,6 +74,29 @@ public class Test extends HttpServlet {
 	        out.println("user = " + comment.getUtilisateur().getNom() +"</br>");
 	        out.println("idea = " + comment.getIdea().getName() + "</br>");
 	        out.println("description = " + comment.getDescription()+ "</br></br>");
+	      }
+	      
+	      UtilisateurDAO userDao = new UtilisateurDAO();
+	      Utilisateur user = userDao.find(1);
+	      if(user != null)
+	      {
+	    	  out.println("nom = " + user.getNom() +"</br>");
+		      out.println("rue = " + user.getAdress().getRue() +"</br></br>");
+	      }
+	      else
+	      {
+	    	  out.println("user1 null</br></br>");
+	      }
+	      
+	      Utilisateur user10 = userDao.find(10);
+	      if(user10 != null)
+	      {
+	    	  out.println("nom = " + user10.getNom() +"</br>");
+		      out.println("rue = " + user10.getAdress().getRue() +"</br></br>");
+	      }
+	      else
+	      {
+	    	  out.println("user10 null</br></br>");
 	      }
 	    } finally {
 	      session.close();
