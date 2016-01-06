@@ -17,6 +17,9 @@
         <property name="prenom" type="java.lang.String">
             <column name="PRENOM" />
         </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
         <property name="telephone" type="java.lang.String">
             <column name="TELEPHONE" />
         </property>
