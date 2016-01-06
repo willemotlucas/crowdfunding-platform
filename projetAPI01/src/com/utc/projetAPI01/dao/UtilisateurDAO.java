@@ -11,29 +11,10 @@ import org.hibernate.cfg.Configuration;
 import com.utc.projetAPI01.beans.Utilisateur;
 
 public class UtilisateurDAO extends DAO<Utilisateur> {
-
-	@Override
-	public Utilisateur find(Integer id) {
-		
-		Utilisateur utilisateur = null;
-		
-	    try
-	    {
-	    	Query query = session.createQuery("from Utilisateur u where u.id = :id");
-	    	query.setInteger("id", id);
-			Iterator utilisateurs = query.iterate();
-			if(utilisateurs.hasNext())
-			{
-				utilisateur = (Utilisateur) utilisateurs.next();
-			}
-	    }
-	    catch(HibernateException e)
-	    {
-	    	e.printStackTrace();
-	    }
-		
-		return utilisateur;
-		
+	
+	public UtilisateurDAO()
+	{
+		objName = "Utilisateur";
 	}
 
 	@Override

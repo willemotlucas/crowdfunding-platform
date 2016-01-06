@@ -9,6 +9,10 @@ public class ConnectionHibernate {
 	
 	private static Session session;
 	
+	private ConnectionHibernate()
+	{
+	}
+	
 	public static Session getInstance(){
 		if(session == null){
 			SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
