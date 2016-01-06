@@ -7,6 +7,7 @@ public class Utilisateur {
 	private String		email;
 	private String		nom;
 	private String		prenom;
+	private String		password;
 	private String		telephone;
 	private Date		dateCreation;
 	private String		accountStatus;
@@ -118,5 +119,12 @@ public class Utilisateur {
 	{
 		adress = a;
 	}
-
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
 }
