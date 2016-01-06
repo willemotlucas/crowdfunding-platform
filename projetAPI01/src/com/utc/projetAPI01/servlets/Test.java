@@ -54,6 +54,7 @@ public class Test extends HttpServlet {
 	      while (utilisateurs.hasNext()) {
 	    	  Utilisateur utilisateur = (Utilisateur) utilisateurs.next();
 	        out.println("nom = " + utilisateur.getNom() +"</br>");
+	        out.println("password = " + utilisateur.getPassword() + "</br>");
 	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
 	      }
 	      
