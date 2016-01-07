@@ -11,9 +11,8 @@ public class MakeFund {
 	{
 	}
 	
-	public MakeFund(Integer id, Integer amount, Utilisateur utilisateur, Fund fund)
+	public MakeFund(Integer amount, Utilisateur utilisateur, Fund fund)
 	{
-		this.id = id;
 		this.amount = amount;
 		this.utilisateur = utilisateur;
 		this.fund = fund;

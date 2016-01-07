@@ -13,9 +13,8 @@ public class Idea {
 	private Date			proposedDate;
 	private Utilisateur		madeBy;
 	
-	public Idea(Integer i, String n, String sD, String aF, String tM, Integer fR, Date p, Utilisateur m)
+	public Idea(String n, String sD, String aF, String tM, Integer fR, Date p, Utilisateur m)
 	{
-		this.id = i;
 		this.name = n;
 		this.shortDescription = sD;
 		this.applicationField = aF;

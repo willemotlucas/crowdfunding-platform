@@ -17,11 +17,6 @@ public class UtilisateurDAO extends DAO<Utilisateur> {
 		objName = "Utilisateur";
 	}
 
-	@Override
-	public Utilisateur create(Utilisateur obj) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Utilisateur update(Utilisateur obj) {

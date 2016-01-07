@@ -11,9 +11,8 @@ public class Thumb {
 	{
 	}
 
-	public Thumb(Integer id, Integer score, Utilisateur utilisateur, Discussion discussion)
+	public Thumb(Integer score, Utilisateur utilisateur, Discussion discussion)
 	{
-		this.id = id;
 		this.score = score;
 		this.utilisateur = utilisateur;
 		this.discussion = discussion;

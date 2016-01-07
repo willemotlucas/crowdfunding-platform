@@ -11,9 +11,8 @@ public abstract class APhase {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public APhase(Integer i, Date d, PhaseContext c)
+	public APhase(Date d, PhaseContext c)
 	{
-		this.id=i;
 		this.datePhase = d;
 		this.context = c;
 	}

@@ -49,16 +49,7 @@ public class Test extends HttpServlet {
 	    Session session = sessionFactory.openSession();
 	    
 	    try {
-	      Query query = session.createQuery("from Utilisateur u where u.id=1");
-	      Iterator utilisateurs = query.iterate();
-	      while (utilisateurs.hasNext()) {
-	    	  Utilisateur utilisateur = (Utilisateur) utilisateurs.next();
-	        out.println("nom = " + utilisateur.getNom() +"</br>");
-	        out.println("password = " + utilisateur.getPassword() + "</br>");
-	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
-	      }
-	      
-	      query = session.createQuery("from Fund f where f.id=1");
+	      Query query = session.createQuery("from Fund f where f.id=1");
 	      Iterator funds = query.iterate();
 	      while (funds.hasNext()) {
 	    	Fund fund = (Fund) funds.next();
@@ -99,6 +90,16 @@ public class Test extends HttpServlet {
 	      {
 	    	  out.println("user10 null</br></br>");
 	      }
+	      
+	      query = session.createQuery("from Utilisateur u");
+	      Iterator utilisateurs = query.iterate();
+	      while (utilisateurs.hasNext()) {
+	    	  Utilisateur utilisateur = (Utilisateur) utilisateurs.next();
+	        out.println("nom = " + utilisateur.getNom() +"</br>");
+	        out.println("password = " + utilisateur.getPassword() + "</br>");
+	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
+	      }
+	      
 	    } finally {
 	      session.close();
 	    }

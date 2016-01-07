@@ -13,9 +13,8 @@ public class EvaluationScore {
 	{
 	}
 	
-	public EvaluationScore(Integer id, Integer feasibility, Integer marketInterest, Integer impact, Utilisateur utilisateur, Evaluation evaluation)
+	public EvaluationScore(Integer feasibility, Integer marketInterest, Integer impact, Utilisateur utilisateur, Evaluation evaluation)
 	{
-		this.id = id;
 		this.feasibiliy = feasibility;
 		this.marketInterest = marketInterest;
 		this.impact = impact;

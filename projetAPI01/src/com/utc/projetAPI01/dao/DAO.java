@@ -5,12 +5,14 @@ import java.util.Iterator;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.utc.projetAPI01.beans.Utilisateur;
 
 public abstract class DAO<T> {
 	
-	public Session session = ConnectionHibernate.getInstance();
+	protected Session sessionLecture = ConnectionHibernateLecture.getInstance();
+	protected Session sessionEcriture = ConnectionHibernateEcriture.getInstance();
 	protected String objName;
 	
 	public T find(Integer id)
@@ -19,7 +21,7 @@ public abstract class DAO<T> {
 		
 	    try
 	    {
-	    	Query query = session.createQuery("from " + objName +" where id = :id");
+	    	Query query = sessionLecture.createQuery("from " + objName +" where id = :id");
 	    	query.setInteger("id", id);
 			Iterator objects = query.iterate();
 			if(objects.hasNext())
@@ -36,7 +38,24 @@ public abstract class DAO<T> {
 		
 	}
 	
-	public abstract T create(T obj);
+	public T create(T obj)
+	{
+		Transaction tx = null;
+		try { 
+		      tx = sessionEcriture.beginTransaction(); ;
+		      sessionEcriture.save(obj);
+		      sessionEcriture.flush() ;
+		      tx.commit();
+		    } 
+		catch (Exception e) {
+	      if (tx != null) {
+	        tx.rollback();
+	      }
+	      throw e;
+	    }
+		
+		return obj;
+	};
 	
 	public abstract T update(T obj);
 	

@@ -5,11 +5,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class ConnectionHibernate {
+public class ConnectionHibernateLecture {
 	
 	private static Session session;
 	
-	private ConnectionHibernate()
+	private ConnectionHibernateLecture()
 	{
 	}
 	

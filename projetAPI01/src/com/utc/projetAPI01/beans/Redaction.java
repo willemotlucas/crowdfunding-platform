@@ -10,9 +10,9 @@ public class Redaction extends APhase{
 		super();
 	}
 	
-	public Redaction(Integer i, Date d, String l, PhaseContext c)
+	public Redaction(Date d, String l, PhaseContext c)
 	{
-		super(i, d, c);
+		super(d, c);
 		this.longDescription = l;
 	}
 	

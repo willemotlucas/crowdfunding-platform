@@ -9,9 +9,8 @@ public class PhaseContext {
 	public PhaseContext() {
 	}
 	
-	public PhaseContext(Integer i, String c, Idea idea)
+	public PhaseContext(String c, Idea idea)
 	{
-		this.id = i;
 		this.currentPhase = c;
 		this.idea = idea;
 	}

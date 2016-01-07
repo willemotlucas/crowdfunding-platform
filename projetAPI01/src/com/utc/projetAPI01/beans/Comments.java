@@ -13,9 +13,8 @@ public class Comments {
 	{
 	}
 	
-	public Comments(Integer i, String d, Date c, Utilisateur u, Idea idea)
+	public Comments(String d, Date c, Utilisateur u, Idea idea)
 	{
-		this.id = i;
 		this.description = d;
 		this.commentDate = c;
 		this.utilisateur = u;
