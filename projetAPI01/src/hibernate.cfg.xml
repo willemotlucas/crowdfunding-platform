@@ -11,18 +11,18 @@
         <property name="hibernate.default_schema">api01DB</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="show_sql">true</property>
-        <mapping resource="Adress.hbm.xml"/>
-        <mapping resource="Comments.hbm.xml"/>
-        <mapping resource="Discussion.hbm.xml"/>
-        <mapping resource="Evaluation.hbm.xml"/>
-        <mapping resource="EvaluationScore.hbm.xml"/>
-        <mapping resource="Fund.hbm.xml"/>
-        <mapping resource="Idea.hbm.xml"/>
-        <mapping resource="MakeFund.hbm.xml"/>
-        <mapping resource="PhaseContext.hbm.xml"/>
-        <mapping resource="Proposal.hbm.xml"/>
-        <mapping resource="Redaction.hbm.xml"/>
-        <mapping resource="Thumb.hbm.xml"/>
-        <mapping resource="Utilisateur.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Adress.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Comments.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Discussion.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Evaluation.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/EvaluationScore.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Fund.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Idea.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/MakeFund.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/PhaseContext.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Proposal.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Redaction.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Thumb.hbm.xml"/>
+        <mapping resource="com/utc/projetAPI01/beans/Utilisateur.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

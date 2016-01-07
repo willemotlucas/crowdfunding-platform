@@ -6,18 +6,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sound.midi.Soundbank;
+
+import com.utc.projetAPI01.beans.Utilisateur;
+import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
  * Servlet implementation class connexion
  */
 @WebServlet("/Connexion")
-public class Connexion extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Connexion() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,6 +41,7 @@ public class Connexion extends HttpServlet {
 		
 		String email = (String) request.getParameter("email");
 		String password = (String) request.getParameter("password");
+
 		
 		if(email.isEmpty() || password.isEmpty())
 		{
@@ -44,7 +49,23 @@ public class Connexion extends HttpServlet {
 		}
 		else
 		{
-			response.getWriter().println("Test");
+			UtilisateurDAOImpl userDao = new UtilisateurDAOImpl();
+			Utilisateur user = userDao.findByEmail(email);
+
+			if(user != null && user.getPassword().equals(password)){
+				if(user.getAccountType().equals("admin")){
+					System.out.println("redirection vers admin");
+					request.getRequestDispatcher("/admin/homeAdmin.jsp").forward(request, response);
+
+				}
+				else{
+					
+				}
+			}
+			else{
+				request.getRequestDispatcher("/index.jsp").forward(request, response);
+				System.out.println("redirection vers index");
+			}
 		}
 		
 		

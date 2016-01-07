@@ -1,1 +1,13 @@
+/Discussion.hbm.xml
+/Evaluation.hbm.xml
+/EvaluationScore.hbm.xml
+/Fund.hbm.xml
+/Idea.hbm.xml
+/MakeFund.hbm.xml
+/PhaseContext.hbm.xml
+/Proposal.hbm.xml
+/Redaction.hbm.xml
+/Thumb.hbm.xml
+/Utilisateur.hbm.xml
 /com/
+/hibernate.cfg.xml

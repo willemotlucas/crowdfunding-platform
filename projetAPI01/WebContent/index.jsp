@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Connection à Lunch-My-Idea</title>
+	<title>Login</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
@@ -19,7 +19,7 @@
 		<div id="header" class="jumbotron">
 			<h1>Bienvenue à Lunch-My-Idea</h1>
 		</div>
-		<form method="POST" action="connexion">
+		<form method="POST" action="login">
 			<div class="form-group">
 				<label for="email">Login</label>
 				<input type="text" name="email" class="form-control" id="login" placeholder="Entrez votre email">

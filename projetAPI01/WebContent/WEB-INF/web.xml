@@ -21,13 +21,13 @@
   </servlet-mapping>
   
   <servlet>
-    <servlet-name>Connexion</servlet-name>
-    <servlet-class>com.utc.projetAPI01.servlets.Connexion</servlet-class>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LoginServlet</servlet-class>
   </servlet>
   
   <servlet-mapping>
-    <servlet-name>Connexion</servlet-name>
-    <url-pattern>/connexion</url-pattern>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   
 </web-app>

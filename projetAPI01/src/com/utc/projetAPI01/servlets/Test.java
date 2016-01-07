@@ -19,7 +19,7 @@ import com.utc.projetAPI01.beans.Adress;
 import com.utc.projetAPI01.beans.Comments;
 import com.utc.projetAPI01.beans.Fund;
 import com.utc.projetAPI01.beans.Utilisateur;
-import com.utc.projetAPI01.dao.UtilisateurDAO;
+import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
  * Servlet implementation class Test
@@ -68,7 +68,7 @@ public class Test extends HttpServlet {
 	        out.println("description = " + comment.getDescription()+ "</br></br>");
 	      }
 	      
-	      UtilisateurDAO userDao = new UtilisateurDAO();
+	      UtilisateurDAOImpl userDao = new UtilisateurDAOImpl();
 	      Utilisateur user = userDao.find(1);
 	      if(user != null)
 	      {

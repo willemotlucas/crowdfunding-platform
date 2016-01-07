@@ -9,7 +9,7 @@ import org.hibernate.Transaction;
 
 import com.utc.projetAPI01.beans.Utilisateur;
 
-public abstract class DAO<T> {
+public abstract class DAOAbstract<T> {
 	
 	protected Session sessionLecture = ConnectionHibernateLecture.getInstance();
 	protected Session sessionEcriture = ConnectionHibernateEcriture.getInstance();
@@ -42,12 +42,12 @@ public abstract class DAO<T> {
 	{
 		Transaction tx = null;
 		try { 
-		      tx = sessionEcriture.beginTransaction(); ;
+		      tx = sessionEcriture.beginTransaction();
 		      sessionEcriture.save(obj);
 		      sessionEcriture.flush() ;
 		      tx.commit();
 		    } 
-		catch (Exception e) {
+		catch (HibernateException e) {
 	      if (tx != null) {
 	        tx.rollback();
 	      }
@@ -59,6 +59,18 @@ public abstract class DAO<T> {
 	
 	public abstract T update(T obj);
 	
-	public abstract void delete(T obj);
+	public void delete(T obj)
+	{
+		Transaction tx = null;
+		try {
+			tx = sessionEcriture.beginTransaction();
+			sessionEcriture.delete(obj);
+			tx.commit();
+		} catch(HibernateException e) {
+			if(tx != null){
+				tx.rollback();
+			}
+		}
+	}
 
 }
