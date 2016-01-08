@@ -23,6 +23,7 @@ import com.utc.projetAPI01.beans.Comments;
 import com.utc.projetAPI01.beans.Fund;
 import com.utc.projetAPI01.beans.Idea;
 import com.utc.projetAPI01.beans.Utilisateur;
+import com.utc.projetAPI01.dao.CommentsDAOImpl;
 import com.utc.projetAPI01.dao.IdeaDAOImpl;
 import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
@@ -105,13 +106,16 @@ public class Test extends HttpServlet {
 	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
 	      }
 	      
-	      Utilisateur alaeddine = userDao.findById(1);
-	      out.println("<h1>3 Last ideas</h1>");
-	      IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
-	      List<Idea> ideas = ideaDAO.findByLastProposed();
-	      for(Iterator<Idea> it = ideas.iterator(); it.hasNext();){
-	    	  Idea idea = it.next();
-		      out.println("Name of idea : " + idea.getName() +"</br></br>");
+	      out.println("<h1>Comments from Idea with id=1</h1>");
+	      CommentsDAOImpl commentsDAO = new CommentsDAOImpl();
+	      Map<Comments, Utilisateur> commentsMap = commentsDAO.findByIdea(1);
+	      for(Map.Entry<Comments, Utilisateur> entry : commentsMap.entrySet()){
+	    	  Comments comment = entry.getKey();
+	    	  Utilisateur userComment = entry.getValue();
+		      out.println("<h3>" + userComment.getNom() + " " + userComment.getPrenom() + " le "+ comment.getCommentDate().toString() + " : </h3>");
+		      out.println("<p>" + comment.getDescription() + "</p>");
+
+
 	      }
 	    } finally {
 	      session.close();
