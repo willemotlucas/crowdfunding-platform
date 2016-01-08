@@ -51,15 +51,19 @@ public class LoginServlet extends HttpServlet {
 		{
 			UtilisateurDAOImpl userDao = new UtilisateurDAOImpl();
 			Utilisateur user = userDao.findByEmail(email);
+			if(user != null){
+				System.out.println("enregistrement user en session");
+				request.getSession().setAttribute("userSession", user);
+			}
 
 			if(user != null && user.getPassword().equals(password)){
 				if(user.getAccountType().equals("admin")){
 					System.out.println("redirection vers admin");
 					request.getRequestDispatcher("/admin/homeAdmin.jsp").forward(request, response);
-
 				}
 				else{
-					
+					System.out.println("redirection vers normal user");
+					request.getRequestDispatcher("/user/homeUser.jsp").forward(request, response);
 				}
 			}
 			else{
