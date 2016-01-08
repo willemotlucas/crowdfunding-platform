@@ -1,5 +1,8 @@
 package com.utc.projetAPI01.dao;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
@@ -11,18 +14,32 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 		objName = "Thumb";
 	}
 	
-	public int findScoreByIdea(int idDiscussion){
-		int score = 0;
-		
+	public Map<String, Integer> findScoreByIdea(int idDiscussion){
+		Map<String, Integer> score = new HashMap<String, Integer>();
+		int positiveScore = 0;
+		int negativeScore = 0;
+
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where discussion = :id");
-	    	query.setInteger("id", idDiscussion);
+	    	Query query1 = sessionLecture.createQuery("select count(*) from " + objName +" where discussion = :id and score=1");
+	    	query1.setInteger("id", idDiscussion);
+	    	Query query2 = sessionLecture.createQuery("select count(*) from " + objName +" where discussion = :id and score=-1");
+	    	query2.setInteger("id", idDiscussion);
+
 	    	try{
-				score = query.getMaxResults();
+				positiveScore = ((Long) query1.iterate().next()).intValue();
 	    	}catch(Exception e){
-	    		score = 0;
+	    		positiveScore = 0;
 	    	}
+	    	
+	    	try{
+	    		negativeScore = ((Long) query2.iterate().next()).intValue();
+	    	}catch(Exception e){
+	    		negativeScore = 0;
+	    	}
+	    	
+	    	score.put("-1", negativeScore);
+	    	score.put("+1", positiveScore);
 	    }
 	    catch(HibernateException e)
 	    {

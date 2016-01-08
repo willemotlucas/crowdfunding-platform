@@ -58,9 +58,36 @@
 	<h2>Description</h2>
 	<p>${idea.shortDescription}</p>
 	<h4>Montant demandé : ${idea.fundingRequested} euros</h4>
-	<h4>Score : ${score}</h4>
+	<h4>Score : </h4>
+	<c:forEach var="entry" items="${score}">
+	  ${entry.key} : ${entry.value} <br>
+	</c:forEach>
 	
 	<h2>Commentaires</h2>
+	<c:choose>
+		<c:when test="${not empty comments}">
+			<c:forEach var="entry" items="${comments}">
+			  <h3>Posté par ${entry.value.prenom} ${entry.value.nom} le ${entry.key.commentDate}</h3>
+			  <p>${entry.key.description}</p>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+		<p>Aucun commentaire n'a été posté</p>
+		</c:otherwise> 
+	</c:choose>
 	
+	<form method="" action="POST">
+		<div class=row>
+			<div class="col-lg-3 col-md-3">
+				<div class="form-group">
+				  <label for="comment">Ajouter un commentaire :</label>
+				  <textarea class="form-control" rows="3" id="comment""></textarea>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-success">Ajouter</button>
+				</div>
+			</div>
+		</div>
+	</form>
 </body>
 </html>

@@ -8,8 +8,8 @@
             <column name="ID" />
             <generator class="assigned" />
         </id>
-        <property name="feasibiliy" type="java.lang.Integer">
-            <column name="FEASIBILIY" />
+        <property name="feasibility" type="java.lang.Integer">
+            <column name="FEASIBILITY" />
         </property>
         <property name="marketInterest" type="java.lang.Integer">
             <column name="MARKETINTEREST" />

@@ -3,7 +3,7 @@ package com.utc.projetAPI01.beans;
 public class EvaluationScore {
 	
 	private Integer		id;
-	private Integer		feasibiliy;
+	private Integer		feasibility;
 	private Integer		marketInterest;
 	private Integer		impact;
 	private Utilisateur	utilisateur;
@@ -15,7 +15,7 @@ public class EvaluationScore {
 	
 	public EvaluationScore(Integer feasibility, Integer marketInterest, Integer impact, Utilisateur utilisateur, Evaluation evaluation)
 	{
-		this.feasibiliy = feasibility;
+		this.feasibility = feasibility;
 		this.marketInterest = marketInterest;
 		this.impact = impact;
 		this.utilisateur = utilisateur;
@@ -26,8 +26,8 @@ public class EvaluationScore {
 		return evaluation;
 	}
 	
-	public Integer getFeasibiliy() {
-		return feasibiliy;
+	public Integer getFeasibility() {
+		return feasibility;
 	}
 	
 	public Integer getId() {
@@ -50,8 +50,8 @@ public class EvaluationScore {
 		this.evaluation = evaluation;
 	}
 	
-	public void setFeasibiliy(Integer feasibiliy) {
-		this.feasibiliy = feasibiliy;
+	public void setFeasibility(Integer feasibility) {
+		this.feasibility = feasibility;
 	}
 	
 	public void setId(Integer id) {
@@ -68,5 +68,9 @@ public class EvaluationScore {
 	
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
+	}
+	
+	public float getMean(){
+		return (this.getFeasibility() + this.getImpact() + this.getMarketInterest())/3;
 	}
 }

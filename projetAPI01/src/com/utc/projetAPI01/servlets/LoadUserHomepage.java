@@ -33,7 +33,7 @@ public class LoadUserHomepage extends HttpServlet {
 		// TODO Auto-generated method stub
 		IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
 		List<Idea> Last3Ideas = ideaDAO.findByLastProposed();
-		request.getSession().setAttribute("last3ideas", Last3Ideas);
+		request.setAttribute("last3ideas", Last3Ideas);
 		request.getRequestDispatcher("/user/homeUser.jsp").forward(request, response);
 	}
 
