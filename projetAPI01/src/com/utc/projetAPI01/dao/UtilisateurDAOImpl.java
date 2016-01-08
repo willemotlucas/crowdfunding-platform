@@ -16,13 +16,6 @@ public class UtilisateurDAOImpl extends DAOAbstract<Utilisateur> {
 	{
 		objName = "Utilisateur";
 	}
-
-
-	@Override
-	public Utilisateur update(Utilisateur obj) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public Utilisateur findByEmail(String email) {
 		

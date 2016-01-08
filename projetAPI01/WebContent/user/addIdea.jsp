@@ -45,5 +45,55 @@
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+	
+	 <form class="form-horizontal" role="form">
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="email">Name of your idea :</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" id="name" placeholder="Enter name">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="pwd">Short description of your idea :</label>
+	    <div class="col-sm-10">
+	    	<textarea class="form-control" id="shortDescription" name="shortDescription" rows="3" cols="10" placeholder="Enter a short description"></textarea>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="email">Application field of your idea :</label>
+	    <div class="col-sm-10">
+	      <select>
+	      	<option>Art</option>
+	      	<option>Comics</option>
+	     	<option>Crafts</option>
+	      	<option>Dance</option>
+	      	<option>Design</option>
+	      	<option>Fashion</option>
+	      	<option>Film & Video</option>
+	      	<option>Food</option>
+	      	<option>Games</option>
+	      	<option>Journalism</option>
+	      	<option>Music</option>
+	      	<option>Photography</option>
+	      	<option>Publishing</option>
+	      	<option>Technology</option>
+	      	<option>Theater</option>
+	      </select>
+	    </div>
+	  </div>
+	  
+	  <div class="form-group">
+	    <label class="control-label col-sm-2" for="email">Fund requested :</label>
+	    <div class="col-sm-10">
+	      <input type="number" class="form-control" id="name" placeholder="Enter a funding request">
+	    </div>
+	  </div>
+	  
+	  <div class="form-group">
+	    <div class="col-sm-offset-2 col-sm-10">
+	      <button type="submit" class="btn btn-success">Create my idea !</button>
+	    </div>
+	  </div>
+	</form>
 </body>
 </html>

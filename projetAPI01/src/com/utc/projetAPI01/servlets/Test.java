@@ -3,6 +3,7 @@ package com.utc.projetAPI01.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +19,9 @@ import org.hibernate.cfg.Configuration;
 import com.utc.projetAPI01.beans.Adress;
 import com.utc.projetAPI01.beans.Comments;
 import com.utc.projetAPI01.beans.Fund;
+import com.utc.projetAPI01.beans.Idea;
 import com.utc.projetAPI01.beans.Utilisateur;
+import com.utc.projetAPI01.dao.IdeaDAOImpl;
 import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
@@ -69,7 +72,7 @@ public class Test extends HttpServlet {
 	      }
 	      
 	      UtilisateurDAOImpl userDao = new UtilisateurDAOImpl();
-	      Utilisateur user = userDao.find(1);
+	      Utilisateur user = userDao.findById(1);
 	      if(user != null)
 	      {
 	    	  out.println("nom = " + user.getNom() +"</br>");
@@ -80,7 +83,7 @@ public class Test extends HttpServlet {
 	    	  out.println("user1 null</br></br>");
 	      }
 	      
-	      Utilisateur user10 = userDao.find(10);
+	      Utilisateur user10 = userDao.findById(10);
 	      if(user10 != null)
 	      {
 	    	  out.println("nom = " + user10.getNom() +"</br>");
@@ -100,6 +103,15 @@ public class Test extends HttpServlet {
 	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
 	      }
 	      
+	      Utilisateur alaeddine = userDao.findById(1);
+	      out.println("<h1>Ideas from Alaeddine</h1>");
+	      IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+	      List<Idea> ideas = ideaDAO.findByCreator(alaeddine);
+	      for(Iterator<Idea> it = ideas.iterator(); it.hasNext();){
+	    	  Idea idea = it.next();
+		      out.println("Name of idea : " + idea.getName() +"</br></br>");
+	      }
+
 	    } finally {
 	      session.close();
 	    }

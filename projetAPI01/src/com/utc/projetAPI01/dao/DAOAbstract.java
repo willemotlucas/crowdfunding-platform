@@ -1,6 +1,7 @@
 package com.utc.projetAPI01.dao;
 
 import java.util.Iterator;
+import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -15,10 +16,9 @@ public abstract class DAOAbstract<T> {
 	protected Session sessionEcriture = ConnectionHibernateEcriture.getInstance();
 	protected String objName;
 	
-	public T find(Integer id)
+	public T findById(Integer id)
 	{
 		T obj = null;
-		
 	    try
 	    {
 	    	Query query = sessionLecture.createQuery("from " + objName +" where id = :id");
@@ -33,12 +33,25 @@ public abstract class DAOAbstract<T> {
 	    {
 	    	e.printStackTrace();
 	    }
-		
 		return obj;
-		
 	}
 	
-	public T create(T obj)
+	public List<T> findAll()
+	{
+		List<T> results = null;
+	    try
+	    {
+	    	Query query = sessionLecture.createQuery("from " + objName);
+	    	results = query.list();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return results;
+	}
+	
+	public T save(T obj)
 	{
 		Transaction tx = null;
 		try { 
@@ -56,9 +69,7 @@ public abstract class DAOAbstract<T> {
 		
 		return obj;
 	};
-	
-	public abstract T update(T obj);
-	
+		
 	public void delete(T obj)
 	{
 		Transaction tx = null;
