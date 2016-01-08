@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -26,24 +28,49 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	      </button>
-	      <a class="navbar-brand" href="#">Brand</a>
+	      <a class="navbar-brand" href="#">Launch my idea!</a>
 	    </div>
 	
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-	        <li><a href="#">My ideas</a></li>
+	        <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
+	        <li><a href="#">Mes idées</a></li>
 	      </ul>
 	      <form class="navbar-form navbar-left" role="search" method="POST" action="searchIdea">
 	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search an idea">
+	          <input type="text" class="form-control" placeholder="Rechercher une idée">
 	        </div>
-	        <button type="submit" class="btn btn-default">Search</button>
+	        <button type="submit" class="btn btn-default">Rechercher</button>
 	      </form>
-	      <button type="button" class="btn btn-success"><a href="/user/addIdea.jsp">Create a new idea</a></button>
+	      <form class="navbar-form navbar-right" method="GET" action="/user/addIdea">
+	      <div class="form-group">
+	      	<button type="submit" class="btn btn-success">Proposer mon idée</button>
+	      </div>
+	      </form>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+	
+	<div class="page-header">
+	   <h1>Les 3 dernières idées proposées</h1>
+	</div>
+	<div class="row">
+		<c:forEach items="${sessionScope.last3ideas}" var="idea">
+			<div class="col-lg-4 col-sm-4 col-md-4">
+		    <div class="thumbnail">
+		    	<img src="http://placehold.it/500x300">
+		      <div class="caption">
+		      	<div class="page-header">
+		        	<h3>${idea.name} - <small>proposée le ${idea.proposedDate}</small></h3>
+				</div>
+		        <p>${idea.shortDescription }</p>
+		        <h4>Montant demandé : ${idea.fundingRequested} euros</h4>
+		        <p><a href="/projetAPI01/user/ideaDetails?id=${idea.id}" class="btn btn-success" role="button">Plus de détails</a></p>
+		      </div>
+		    </div>
+		  </div>
+		</c:forEach>
+	</div>
 </body>
 </html>

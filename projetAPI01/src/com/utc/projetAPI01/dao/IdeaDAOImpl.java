@@ -1,11 +1,16 @@
 package com.utc.projetAPI01.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
+import com.utc.projetAPI01.beans.Discussion;
 import com.utc.projetAPI01.beans.Idea;
+import com.utc.projetAPI01.beans.PhaseContext;
 import com.utc.projetAPI01.beans.Utilisateur;
 
 public class IdeaDAOImpl extends DAOAbstract<Idea>{
@@ -64,4 +69,21 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	    }
 		return ideas;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Idea> findByLastProposed(){
+		List<Idea> ideas = null;
+		
+	    try
+	    {
+	    	Query query = sessionLecture.createQuery("from " + objName +" order by proposedDate desc");
+	    	query.setMaxResults(3);
+			ideas = (List<Idea>) query.list();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return ideas;
+	}	
 }

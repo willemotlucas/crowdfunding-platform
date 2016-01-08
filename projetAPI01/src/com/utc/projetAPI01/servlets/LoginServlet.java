@@ -63,7 +63,8 @@ public class LoginServlet extends HttpServlet {
 				}
 				else{
 					System.out.println("redirection vers normal user");
-					request.getRequestDispatcher("/user/homeUser.jsp").forward(request, response);
+					response.sendRedirect(request.getContextPath() + "/user/homepage");
+					//request.getRequestDispatcher("/user/homeUser.jsp").forward(request, response);
 				}
 			}
 			else{

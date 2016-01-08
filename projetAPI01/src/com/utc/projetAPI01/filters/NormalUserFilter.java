@@ -55,8 +55,10 @@ public class NormalUserFilter implements Filter {
 			chain.doFilter(request, response);
 		}
 		else{
-			System.out.println("user privilege : " + user.getAccountType());
-			System.out.println("admin not connected, redirected");
+			if(user != null)
+				System.out.println("user privilege : " + user.getAccountType());
+			
+			System.out.println("user not connected, redirected");
 			resp.sendRedirect(req.getContextPath() + "/index.jsp");
 		}
 	}

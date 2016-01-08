@@ -54,5 +54,15 @@ public class PhaseContextDAOImpl extends DAOAbstract<PhaseContext>{
 		return this.findIdeaByPhase("fund");
 	}
 	
-	
+	public PhaseContext findByIdea(int id){
+		PhaseContext context = null;
+	    try{
+	    	Query query = sessionLecture.createQuery("from " + objName +" where idea = :id");
+	    	query.setInteger("id", id);
+			context = (PhaseContext) query.uniqueResult();
+	    }catch(HibernateException e){
+	    	e.printStackTrace();
+	    }
+		return context;
+	}
 }

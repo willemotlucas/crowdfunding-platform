@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -104,14 +106,13 @@ public class Test extends HttpServlet {
 	      }
 	      
 	      Utilisateur alaeddine = userDao.findById(1);
-	      out.println("<h1>Ideas from Alaeddine</h1>");
+	      out.println("<h1>3 Last ideas</h1>");
 	      IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
-	      List<Idea> ideas = ideaDAO.findByCreator(alaeddine);
+	      List<Idea> ideas = ideaDAO.findByLastProposed();
 	      for(Iterator<Idea> it = ideas.iterator(); it.hasNext();){
 	    	  Idea idea = it.next();
 		      out.println("Name of idea : " + idea.getName() +"</br></br>");
 	      }
-
 	    } finally {
 	      session.close();
 	    }
