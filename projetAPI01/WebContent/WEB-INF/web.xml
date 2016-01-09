@@ -42,6 +42,41 @@
     <url-pattern>/user/ideaDetails</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>SearchIdeaServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.SearchIdeaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchIdeaServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoadUserIdeasProposedServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LoadUserIdeasProposedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadUserIdeasProposedServlet</servlet-name>
+    <url-pattern>/user/ideas/proposed</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LoadUserIdeasEvaluatedServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LoadUserIdeasEvaluatedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadUserIdeasEvaluatedServlet</servlet-name>
+    <url-pattern>/user/ideas/evaluated</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>LogoutServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LogoutServlet</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
     <servlet-name>ManageUsersServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.ManageUsersServlet</servlet-class>
   </servlet>

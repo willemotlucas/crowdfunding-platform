@@ -21,12 +21,12 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	
 	@SuppressWarnings("unchecked")
 	public List<Idea> findByName(String name){
-		List<Idea> ideas = null;
-		
+		List<Idea> ideas = new ArrayList<Idea>();
+		System.out.println("received search : " + name);
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where name = :name");
-	    	query.setString("name", name);
+	    	Query query = sessionLecture.createQuery("from " + objName +" where name like :name");
+	    	query.setString("name", "%"+name+"%");
 			ideas = (List<Idea>) query.list();
 	    }
 	    catch(HibernateException e)
