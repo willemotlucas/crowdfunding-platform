@@ -117,6 +117,7 @@ public class Test extends HttpServlet {
 
 
 	      }
+	      
 	    } finally {
 	      session.close();
 	    }

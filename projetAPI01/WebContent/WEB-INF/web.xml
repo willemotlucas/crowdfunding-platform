@@ -57,7 +57,6 @@
     <servlet-name>LoadUserIdeasProposedServlet</servlet-name>
     <url-pattern>/user/ideas/proposed</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>LoadUserIdeasEvaluatedServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.LoadUserIdeasEvaluatedServlet</servlet-class>
@@ -66,7 +65,18 @@
     <servlet-name>LoadUserIdeasEvaluatedServlet</servlet-name>
     <url-pattern>/user/ideas/evaluated</url-pattern>
   </servlet-mapping>
-  
+   <servlet>
+    <servlet-name>AddCommentServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddCommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCommentServlet</servlet-name>
+    <url-pattern>/user/comment/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddCommentServlet</servlet-name>
+    <url-pattern>/admin/comment/add</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.LogoutServlet</servlet-class>
@@ -75,7 +85,6 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ManageUsersServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.ManageUsersServlet</servlet-class>

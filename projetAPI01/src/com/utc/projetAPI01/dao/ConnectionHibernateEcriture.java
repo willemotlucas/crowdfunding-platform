@@ -32,7 +32,7 @@ public class ConnectionHibernateEcriture {
 			config.addClass(Thumb.class);
 			config.addClass(Utilisateur.class);
 			
-			SessionFactory sessionFactory = config.buildSessionFactory();
+			SessionFactory sessionFactory = config.configure().buildSessionFactory();
 			try {
 				session = sessionFactory.openSession();
 			} catch (HibernateException e) {

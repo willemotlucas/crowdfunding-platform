@@ -55,9 +55,8 @@ public abstract class DAOAbstract<T> {
 	{
 		Transaction tx = null;
 		try { 
-		      tx = sessionEcriture.beginTransaction();
-		      sessionEcriture.save(obj);
-		      sessionEcriture.flush() ;
+		      tx = sessionLecture.beginTransaction();
+		      sessionLecture.save(obj);
 		      tx.commit();
 		    } 
 		catch (HibernateException e) {

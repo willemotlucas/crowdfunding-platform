@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <!-- Generated 30 d?c. 2015 18:17:22 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
-    <class name="com.utc.projetAPI01.beans.Utilisateur" table="UTILISATEUR">
+    <class name="com.utc.projetAPI01.beans.Utilisateur" table="utilisateur">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
             <generator class="assigned" />

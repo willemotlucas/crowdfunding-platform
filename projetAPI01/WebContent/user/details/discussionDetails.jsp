@@ -15,7 +15,10 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	
 	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="/projetAPI01/public/js/validator-min.js"></script>
+	
 </head>
 <body>
 	<jsp:include page="../templates/menu.jsp"/>
@@ -33,6 +36,9 @@
 		</c:forEach>
 		
 		<h2>Commentaires</h2>
+		<c:if test="${not empty toastMessage}">
+			<div class="alert alert-success" role="alert">${toastMessage}</div>
+		</c:if>
 		<c:choose>
 			<c:when test="${not empty comments}">
 				<c:forEach var="entry" items="${comments}">
@@ -45,19 +51,7 @@
 			</c:otherwise> 
 		</c:choose>
 		
-		<form method="" action="POST">
-			<div class=row>
-				<div class="col-lg-3 col-md-3">
-					<div class="form-group">
-					  <label for="comment">Ajouter un commentaire :</label>
-					  <textarea class="form-control" rows="3" id="comment""></textarea>
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-success">Ajouter</button>
-					</div>
-				</div>
-			</div>
-		</form>
+		<jsp:include page="../templates/addComment.jsp"/>
 	
 	</div>
 </body>

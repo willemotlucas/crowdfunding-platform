@@ -108,7 +108,7 @@
 									<td>${evaluation.impact}</td>
 									<td>${evaluation.evaluation.context.idea.proposedDate}</td>
 									<td>${evaluation.evaluation.context.idea.fundingRequested} euros</td>
-									<td><a href="/projetAPI01/user/ideaDetails?id=${thumb.discussion.context.idea.id}" class="btn btn-success" role="button">Voir</a></td>
+									<td><a href="/projetAPI01/user/ideaDetails?id=${evaluation.evaluation.context.idea.id}" class="btn btn-success" role="button">Voir</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
