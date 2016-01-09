@@ -57,6 +57,22 @@
     <servlet-name>LoadUserIdeasProposedServlet</servlet-name>
     <url-pattern>/user/ideas/proposed</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ManageUsersServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.ManageUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageUsersServlet</servlet-name>
+    <url-pattern>/admin/manageUsers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditUsersServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUsersServlet</servlet-name>
+    <url-pattern>/admin/editUsers</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>NormalUserFilter</filter-name>
     <filter-class>com.utc.projetAPI01.filters.NormalUserFilter</filter-class>
