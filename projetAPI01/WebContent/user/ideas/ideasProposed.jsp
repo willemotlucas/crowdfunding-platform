@@ -9,24 +9,30 @@
 	<title>Homepage for normal user</title>
 
 	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/projetAPI01/public/bootstrap/css/sidebar-menu.css">
-	
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+    
 	<!-- Optional theme -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
 	
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+
 </head>
 <body>
+	<script>$(document).ready(function() {$('#proposedIdeas').DataTable();});</script>
 	<jsp:include page="../templates/menu.jsp"/>
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="nav nav-pills nav-stacked">
-			  <li role="presentation" class="active"><a href="#">Idées proposées</a></li>
-			  <li role="presentation"><a href="#">Idées evaluées</a></li>
-			  <li role="presentation"><a href="#">Idées commentées</a></li>
+			  <li role="presentation" class="active"><a href="/projetAPI01/user/ideas/proposed">Idées proposées</a></li>
+			  <li role="presentation"><a href="/projetAPI01/user/ideas/evaluated">Idées evaluées</a></li>
+			  <li role="presentation"><a href="/projetAPI01/user/ideas/commented">Idées commentées</a></li>
 			</ul>
 		</div>
 		<!-- /#sidebar-wrapper -->
@@ -37,16 +43,19 @@
 		 	</div>
 		 	<c:choose>
 				<c:when test="${not empty ideas}">
-					<table class="table table-striped table-hover">
-						<tr>
-							<th>Nom</th>
-							<th>Phase</th>
-							<th>Date de création</th>
-							<th>Montant demandé</th>
-							<th>Voir</th>
-							<th>Modifier</th>
-							<th>Supprimer</th>
-						</tr>
+					<table id="proposedIdeas" class="table table-striped ">
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Phase</th>
+								<th>Date de création</th>
+								<th>Montant demandé</th>
+								<th>Voir</th>
+								<th>Modifier</th>
+								<th>Supprimer</th>
+							</tr>
+						</thead>
+						<tbody>
 							<c:forEach var="entry" items="${ideas}">
 								<tr>
 									<td>${entry.key.name}</td>
@@ -58,6 +67,7 @@
 									<td><a href="/projetAPI01/user/ideaDetails?id=${entry.key.id}" class="btn btn-danger" role="button">Supprimer</a></td>
 								</tr>
 							</c:forEach>
+						</tbody>
 					</table>
 				</c:when>
 				

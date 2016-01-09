@@ -1,6 +1,7 @@
 package com.utc.projetAPI01.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.hibernate.HibernateException;
@@ -8,6 +9,7 @@ import org.hibernate.Query;
 
 import com.utc.projetAPI01.beans.Discussion;
 import com.utc.projetAPI01.beans.Thumb;
+import com.utc.projetAPI01.beans.Utilisateur;
 
 public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 	public ThumbDAOImpl(){
@@ -46,5 +48,21 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 	    	e.printStackTrace();
 	    }
 		return score;
+	}
+	
+	public List<Thumb> findByUser(Utilisateur user){
+		List<Thumb> thumbs = null;
+
+	    try
+	    {
+	    	Query query = sessionLecture.createQuery("from " + objName +" where utilisateur = :id");
+	    	query.setInteger("id", user.getId());
+	    	thumbs = query.list();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return thumbs;
 	}
 }

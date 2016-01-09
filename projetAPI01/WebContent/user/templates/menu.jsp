@@ -27,6 +27,9 @@
       <div class="form-group">
       	<button type="submit" class="btn btn-success">Proposer mon idée</button>
       </div>
+      <div class="form-group">
+      	<a href="/projetAPI01/logout" class="btn btn-primary" role="button">Déconnexion</a>
+      </div>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
