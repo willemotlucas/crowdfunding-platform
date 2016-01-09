@@ -16,7 +16,9 @@ import com.utc.projetAPI01.dao.CommentsDAOImpl;
 import com.utc.projetAPI01.dao.DiscussionDAOImpl;
 import com.utc.projetAPI01.dao.EvaluationDAOImpl;
 import com.utc.projetAPI01.dao.EvaluationScoreDAOImpl;
+import com.utc.projetAPI01.dao.FundDAOImpl;
 import com.utc.projetAPI01.dao.IdeaDAOImpl;
+import com.utc.projetAPI01.dao.MakeFundDAOImpl;
 import com.utc.projetAPI01.dao.PhaseContextDAOImpl;
 import com.utc.projetAPI01.dao.RedactionDAOImpl;
 import com.utc.projetAPI01.dao.ThumbDAOImpl;
@@ -64,9 +66,9 @@ public class IdeaDetailsServlet extends HttpServlet {
 			ThumbDAOImpl thumbDAO = new ThumbDAOImpl();
 			
 			Discussion discussion = discussionDAO.findByContext(context.getId());
-			Map<String, Integer> score = thumbDAO.findScoreByIdea(discussion.getId());
+			//Map<String, Integer> score = thumbDAO.findScoreByIdea(discussion.getId());
 			request.setAttribute("discussion", discussion);
-			request.setAttribute("score", score);
+			//request.setAttribute("score", score);
 		}
 		
 		//The idea requested is in redaction phase
@@ -118,7 +120,13 @@ public class IdeaDetailsServlet extends HttpServlet {
 		
 		//The idea requested is in funding phase
 		else if(context.getCurrentPhase().equals("fund")){
+			FundDAOImpl fundDAO = new FundDAOImpl();
+			MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
 			
+			Fund fund = fundDAO.findByContext(context.getId());
+			Long amountCollected = makeFundDAO.findCollectedAmountByFund(fund.getId());
+			
+			request.setAttribute("amountCollected", amountCollected.intValue());
 		}
 		
 		request.getRequestDispatcher("/user/details/" + context.getCurrentPhase() + "Details.jsp").forward(request, response);

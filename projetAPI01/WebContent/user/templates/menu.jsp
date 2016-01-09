@@ -23,13 +23,13 @@
         </div>
         <button type="submit" class="btn btn-default">Rechercher</button>
       </form>
-      <form class="navbar-form navbar-right" method="GET" action="/user/addIdea">
-      <div class="form-group">
-      	<button type="submit" class="btn btn-success">Proposer mon idée</button>
-      </div>
-      <div class="form-group">
-      	<a href="/projetAPI01/logout" class="btn btn-primary" role="button">Déconnexion</a>
-      </div>
+      <form class="navbar-form navbar-right">
+	      <div class="form-group">
+	      	<a href="/projetAPI01/user/addIdea.jsp" class="btn btn-success" role="button">Proposer mon idée</a>
+	      </div>
+	      <div class="form-group">
+	      	<a href="/projetAPI01/logout" class="btn btn-primary" role="button">Déconnexion</a>
+	      </div>
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

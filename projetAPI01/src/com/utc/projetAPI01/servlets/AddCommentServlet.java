@@ -1,7 +1,8 @@
 package com.utc.projetAPI01.servlets;
 
 import java.io.IOException;
-import java.util.Date;
+import java.sql.Date;
+import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,7 +56,7 @@ public class AddCommentServlet extends HttpServlet {
 			Idea currentIdea = ideaDAO.findById(idIdea);
 			Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 			
-			Comments comment = new Comments(content, new Date(), currentUser, currentIdea);
+			Comments comment = new Comments(content, new Date(Calendar.getInstance().getTime().getTime()), currentUser, currentIdea);
 			try{
 				commentsDAO.save(comment);
 			}catch(Exception e){

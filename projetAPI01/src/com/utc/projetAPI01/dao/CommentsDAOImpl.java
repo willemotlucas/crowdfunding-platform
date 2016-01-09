@@ -34,4 +34,21 @@ public class CommentsDAOImpl extends DAOAbstract<Comments>{
 	    }
 		return comments;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Comments> findByUser(Utilisateur user){
+		List<Comments> comments = new ArrayList<Comments>();
+		
+	    try
+	    {
+	    	Query query = session.createQuery("from " + objName +" where utilisateur = :id order by commentDate desc");
+	    	query.setInteger("id", user.getId());
+	    	comments = query.list();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return comments;
+	}
 }

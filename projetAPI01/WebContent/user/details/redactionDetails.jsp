@@ -33,19 +33,8 @@
 		
 		<h4>Montant demandé : ${idea.fundingRequested} euros</h4>
 		
-		<h2>Commentaires</h2>
-		<c:choose>
-			<c:when test="${not empty comments}">
-				<c:forEach var="entry" items="${comments}">
-				  <h3>Posté par ${entry.value.prenom} ${entry.value.nom} le ${entry.key.commentDate}</h3>
-				  <p>${entry.key.description}</p>
-				</c:forEach>
-			</c:when>
-			<c:otherwise>
-			<p>Aucun commentaire n'a été posté</p>
-			</c:otherwise> 
-		</c:choose>
-		
+		<%request.setAttribute("comments", request.getAttribute("comments")); %>
+		<jsp:include page="../templates/displayComments.jsp"/>
 		<jsp:include page="../templates/addComment.jsp"/>
 	</div>
 </body>

@@ -24,15 +24,15 @@
 
 </head>
 <body>
-	<script>$(document).ready(function() {$('#proposedIdeas').DataTable();});</script>
+	<script>$(document).ready(function() {$('#pledgedIdeas').DataTable();});</script>
 	<jsp:include page="../templates/menu.jsp"/>
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="nav nav-pills nav-stacked">
-			  <li role="presentation" class="active"><a href="/projetAPI01/user/ideas/proposed">Idées proposées</a></li>
+			  <li role="presentation"><a href="/projetAPI01/user/ideas/proposed">Idées proposées</a></li>
 			  <li role="presentation"><a href="/projetAPI01/user/ideas/evaluated">Idées evaluées</a></li>
-			  <li role="presentation"><a href="/projetAPI01/user/ideas/pledged">Idées financées</a></li>
+			  <li role="presentation"  class="active"><a href="/projetAPI01/user/ideas/pledged">Idées financées</a></li>
 			  <li role="presentation"><a href="/projetAPI01/user/comments/posted">Commentaires postés</a></li>
 			</ul>
 		</div>
@@ -40,32 +40,30 @@
 				
 		 <div id="page-content-wrapper">
 		 	<div class="page-header">
-		 		<h1>Liste des idées proposées</h1>
+		 		<h1>Liste des idées financées</h1>
 		 	</div>
 		 	<c:choose>
-				<c:when test="${not empty ideas}">
-					<table id="proposedIdeas" class="table table-striped ">
+				<c:when test="${not empty makeFund}">
+					<table id="pledgedIdeas" class="table table-striped ">
 						<thead>
 							<tr>
 								<th>Nom</th>
-								<th>Phase</th>
+								<th>Description</th>
 								<th>Date de création</th>
 								<th>Montant demandé</th>
+								<th>Montant donné</th>
 								<th>Voir</th>
-								<th>Modifier</th>
-								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="entry" items="${ideas}">
+							<c:forEach var="pledge" items="${makeFund}">
 								<tr>
-									<td>${entry.key.name}</td>
-									<td>${entry.value.currentPhase}</td>
-									<td>${entry.key.proposedDate}</td>
-									<td>${entry.key.fundingRequested} euros</td>
+									<td>${pledge.fund.context.idea.name}</td>
+									<td>${pledge.fund.context.idea.shortDescription}</td>
+									<td>${pledge.fund.context.idea.proposedDate}</td>
+									<td>${pledge.fund.context.idea.fundingRequested} euros</td>
+									<td>${pledge.amount} euros</td>
 									<td><a href="/projetAPI01/user/ideaDetails?id=${entry.key.id}" class="btn btn-success" role="button">Voir</a></td>
-									<td><a href="/projetAPI01/user/ideaDetails?id=${entry.key.id}" class="btn btn-primary" role="button">Modifier</a></td>
-									<td><a href="/projetAPI01/user/idea/delete" class="btn btn-danger" role="button">Supprimer</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -73,7 +71,7 @@
 				</c:when>
 				
 				<c:otherwise>
-				<p>Vous n'avez proposé aucune idée !</p>
+				<p>Vous n'avez financé aucune idée !</p>
 				</c:otherwise> 
 			</c:choose>
 		 </div>

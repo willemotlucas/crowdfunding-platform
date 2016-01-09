@@ -66,6 +66,22 @@
     <url-pattern>/user/ideas/evaluated</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>LoadUserIdeasPledgedServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LoadUserIdeasPledgedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadUserIdeasPledgedServlet</servlet-name>
+    <url-pattern>/user/ideas/pledged</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoadUserCommentsPostedServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LoadUserCommentsPostedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadUserCommentsPostedServlet</servlet-name>
+    <url-pattern>/user/comments/posted</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>AddCommentServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.AddCommentServlet</servlet-class>
   </servlet>
@@ -76,6 +92,18 @@
   <servlet-mapping>
     <servlet-name>AddCommentServlet</servlet-name>
     <url-pattern>/admin/comment/add</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddIdeaServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddIdeaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddIdeaServlet</servlet-name>
+    <url-pattern>/user/idea/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddIdeaServlet</servlet-name>
+    <url-pattern>/admin/idea/add</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>

@@ -24,6 +24,17 @@ public class Idea {
 		this.madeBy = m;
 	}
 	
+	public Idea(String n, String sD, String aF, Integer fR, Date p, Utilisateur m)
+	{
+		this.name = n;
+		this.shortDescription = sD;
+		this.applicationField = aF;
+		this.targetedMarket = "";
+		this.fundingRequested = fR;
+		this.proposedDate = p;
+		this.madeBy = m;
+	}
+	
 	public Idea()
 	{
 	}

@@ -13,87 +13,65 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	
 	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-</head>
+	<script src="/projetAPI01/public/js/validator-min.js"></script></head>
 <body>
-	<nav class="navbar navbar-default">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#">Brand</a>
-	    </div>
+	<jsp:include page="templates/menu.jsp"></jsp:include>
 	
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-	        <li><a href="#">My ideas</a></li>
-	      </ul>
-	      <form class="navbar-form navbar-left" role="search" method="POST" action="searchIdea">
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Search an idea">
-	        </div>
-	        <button type="submit" class="btn btn-default">Search</button>
-	      </form>
-	      <button type="button" class="btn btn-success"><a href="/user/addIdea.jsp">Create a new idea</a></button>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
-	</nav>
-	
-	 <form class="form-horizontal" role="form">
-	  <div class="form-group">
-	    <label class="control-label col-sm-2" for="email">Name of your idea :</label>
-	    <div class="col-sm-10">
-	      <input type="text" class="form-control" id="name" placeholder="Enter name">
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label class="control-label col-sm-2" for="pwd">Short description of your idea :</label>
-	    <div class="col-sm-10">
-	    	<textarea class="form-control" id="shortDescription" name="shortDescription" rows="3" cols="10" placeholder="Enter a short description"></textarea>
-	    </div>
-	  </div>
-	  <div class="form-group">
-	    <label class="control-label col-sm-2" for="email">Application field of your idea :</label>
-	    <div class="col-sm-10">
-	      <select>
-	      	<option>Art</option>
-	      	<option>Comics</option>
-	     	<option>Crafts</option>
-	      	<option>Dance</option>
-	      	<option>Design</option>
-	      	<option>Fashion</option>
-	      	<option>Film & Video</option>
-	      	<option>Food</option>
-	      	<option>Games</option>
-	      	<option>Journalism</option>
-	      	<option>Music</option>
-	      	<option>Photography</option>
-	      	<option>Publishing</option>
-	      	<option>Technology</option>
-	      	<option>Theater</option>
-	      </select>
-	    </div>
-	  </div>
-	  
-	  <div class="form-group">
-	    <label class="control-label col-sm-2" for="email">Fund requested :</label>
-	    <div class="col-sm-10">
-	      <input type="number" class="form-control" id="name" placeholder="Enter a funding request">
-	    </div>
-	  </div>
-	  
-	  <div class="form-group">
-	    <div class="col-sm-offset-2 col-sm-10">
-	      <button type="submit" class="btn btn-success">Create my idea !</button>
-	    </div>
-	  </div>
-	</form>
+	<div class="container">
+		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="idea/add">
+		  <div class="form-group">
+		    <label class="control-label col-sm-2" for="name">Nom de l'idée :</label>
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" name="name" id="name" maxLength="50" data-minlength="3" required>
+		      <div class="help-block with-errors"></div>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-2" for="shortDescription">Courte description de l'idée :</label>
+		    <div class="col-sm-10">
+		    	<textarea class="form-control" id="shortDescription" name="shortDescription" rows="3" cols="10" maxLength="255" data-minlength="5" required></textarea>
+			    <div class="help-block with-errors"></div>
+		    </div>
+		  </div>
+		  <div class="form-group">
+		    <label class="control-label col-sm-2" for="applicationField">Catégorie de votre idée :</label>
+		    <div class="col-sm-10">
+		      <select name="applicationField" id="applicationField" required>
+		      	<option>Art</option>
+		      	<option>BD</option>
+		     	<option>Artisanat</option>
+		      	<option>Danse</option>
+		      	<option>Design</option>
+		      	<option>Mode</option>
+		      	<option>Cinéma & Vidéo</option>
+		      	<option>Gastronomie</option>
+		      	<option>Jeux</option>
+		      	<option>Journalisme</option>
+		      	<option>Musique</option>
+		      	<option>Photographie</option>
+		      	<option>Edition</option>
+		      	<option>Technologie</option>
+		      	<option>Théâtre</option>
+		      </select>
+		    </div>
+		  </div>
+		  
+		  <div class="form-group">
+		    <label class="control-label col-sm-2" for="fundingRequested">Montant demandé :</label>
+		    <div class="col-sm-10">
+		      <input type="number" class="form-control" id="fundingRequested" name="fundingRequested" min="0" required>
+			  <div class="help-block with-errors"></div>
+		    </div>
+		  </div>
+		  
+		  <div class="form-group">
+		    <div class="col-sm-offset-2 col-sm-10">
+		      <button type="submit" class="btn btn-success">Proposer mon idée !</button>
+		    </div>
+		  </div>
+		</form>
+	</div>
 </body>
 </html>

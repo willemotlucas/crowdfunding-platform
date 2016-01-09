@@ -1,6 +1,6 @@
 package com.utc.projetAPI01.beans;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Comments {
 	private Integer			id;
