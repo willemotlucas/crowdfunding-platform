@@ -120,7 +120,7 @@ public class IdeaDetailsServlet extends HttpServlet {
 			
 		}
 		
-		request.getRequestDispatcher("/user/" + context.getCurrentPhase() + "Details.jsp").forward(request, response);
+		request.getRequestDispatcher("/user/details/" + context.getCurrentPhase() + "Details.jsp").forward(request, response);
 	}
 
 	/**

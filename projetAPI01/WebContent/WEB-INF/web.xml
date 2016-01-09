@@ -41,6 +41,22 @@
     <servlet-name>IdeaDetailsServlet</servlet-name>
     <url-pattern>/user/ideaDetails</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>SearchIdeaServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.SearchIdeaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchIdeaServlet</servlet-name>
+    <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LoadUserIdeasProposedServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LoadUserIdeasProposedServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadUserIdeasProposedServlet</servlet-name>
+    <url-pattern>/user/ideas/proposed</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>NormalUserFilter</filter-name>
     <filter-class>com.utc.projetAPI01.filters.NormalUserFilter</filter-class>

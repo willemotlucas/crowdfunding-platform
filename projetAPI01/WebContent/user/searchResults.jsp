@@ -22,18 +22,17 @@
 	
 	<div class="container">
 		<div class="page-header">
-		   <h1>Les 3 dernières idées proposées</h1>
+		   <h1>Résultats de la recherche</h1>
 		</div>
 		
 		<div class="row">
-			<c:forEach items="${last3ideas}" var="idea">
+			<c:forEach items="${results}" var="idea">
 				<div class="col-lg-4 col-sm-4 col-md-4">
 			    <div class="thumbnail">
 			    	<img src="http://placehold.it/500x300">
 			      <div class="caption">
 			      	<div class="page-header">
-			        	<h3>${idea.name}</h3>
-			        	<h3><small>proposée par ${idea.madeBy.prenom} ${idea.madeBy.nom}</small></h3>
+			        	<h3>${idea.name} - <small>proposée par ${idea.madeBy.prenom} ${idea.madeBy.nom}</small></h3>
 					</div>
 			        <p>${idea.shortDescription }</p>
 			        <h4>Montant demandé : ${idea.fundingRequested} euros</h4>
