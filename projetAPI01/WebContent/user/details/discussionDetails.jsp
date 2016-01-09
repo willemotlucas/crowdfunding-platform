@@ -36,14 +36,14 @@
 		</c:forEach>
 		
 		<h2>Commentaires</h2>
-		<c:if test="${not empty toastMessage}">
-			<div class="alert alert-success" role="alert">${toastMessage}</div>
+		<c:if test="${not empty sessionScope.toastMessage}">
+			<div class="alert alert-danger" role="alert">${sessionScope.toastMessage}</div>
 		</c:if>
 		<c:choose>
 			<c:when test="${not empty comments}">
-				<c:forEach var="entry" items="${comments}">
-				  <h3>Posté par ${entry.value.prenom} ${entry.value.nom} le ${entry.key.commentDate}</h3>
-				  <p>${entry.key.description}</p>
+				<c:forEach var="comment" items="${comments}">
+				  <h3>Posté par ${comment.utilisateur.prenom} ${comment.utilisateur.nom} le ${comment.commentDate}</h3>
+				  <p>${comment.description}</p>
 				</c:forEach>
 			</c:when>
 			<c:otherwise>

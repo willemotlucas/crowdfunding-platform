@@ -15,7 +15,7 @@ public class EvaluationDAOImpl extends DAOAbstract<Evaluation>{
 		
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where context = :id");
+	    	Query query = session.createQuery("from " + objName +" where context = :id");
 	    	query.setInteger("id", id);
 			evaluation = (Evaluation) query.uniqueResult();
 	    }

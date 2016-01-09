@@ -23,9 +23,9 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 
 	    try
 	    {
-	    	Query query1 = sessionLecture.createQuery("select count(*) from " + objName +" where discussion = :id and score=1");
+	    	Query query1 = session.createQuery("select count(*) from " + objName +" where discussion = :id and score=1");
 	    	query1.setInteger("id", idDiscussion);
-	    	Query query2 = sessionLecture.createQuery("select count(*) from " + objName +" where discussion = :id and score=-1");
+	    	Query query2 = session.createQuery("select count(*) from " + objName +" where discussion = :id and score=-1");
 	    	query2.setInteger("id", idDiscussion);
 
 	    	try{
@@ -55,7 +55,7 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where utilisateur = :id");
+	    	Query query = session.createQuery("from " + objName +" where utilisateur = :id");
 	    	query.setInteger("id", user.getId());
 	    	thumbs = query.list();
 	    }

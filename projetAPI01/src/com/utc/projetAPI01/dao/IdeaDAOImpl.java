@@ -25,7 +25,7 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 		System.out.println("received search : " + name);
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where name like :name");
+	    	Query query = session.createQuery("from " + objName +" where name like :name");
 	    	query.setString("name", "%"+name+"%");
 			ideas = (List<Idea>) query.list();
 	    }
@@ -42,7 +42,7 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 		
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where applicationField = :applicationField");
+	    	Query query = session.createQuery("from " + objName +" where applicationField = :applicationField");
 	    	query.setString("applicationField", applicationField);
 			ideas = (List<Idea>) query.list();
 	    }
@@ -59,7 +59,7 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 		
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where madeBy = :userId");
+	    	Query query = session.createQuery("from " + objName +" where madeBy = :userId");
 	    	query.setInteger("userId", user.getId());
 			ideas = (List<Idea>) query.list();
 	    }
@@ -76,7 +76,7 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 		
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" order by proposedDate desc");
+	    	Query query = session.createQuery("from " + objName +" order by proposedDate desc");
 	    	query.setMaxResults(3);
 			ideas = (List<Idea>) query.list();
 	    }

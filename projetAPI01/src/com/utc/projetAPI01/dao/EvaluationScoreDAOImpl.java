@@ -21,7 +21,7 @@ public class EvaluationScoreDAOImpl extends DAOAbstract<EvaluationScore>{
 		System.out.println("evaluation id : " + id);
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where evaluation = :id");
+	    	Query query = session.createQuery("from " + objName +" where evaluation = :id");
 	    	query.setInteger("id", id);
 		    evaluations = (List<EvaluationScore>) query.list();
 	    }
@@ -37,7 +37,7 @@ public class EvaluationScoreDAOImpl extends DAOAbstract<EvaluationScore>{
 		List<EvaluationScore> evaluations = new ArrayList<EvaluationScore>();
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where utilisateur = :id");
+	    	Query query = session.createQuery("from " + objName +" where utilisateur = :id");
 	    	query.setInteger("id", user.getId());
 		    evaluations = (List<EvaluationScore>) query.list();
 	    }

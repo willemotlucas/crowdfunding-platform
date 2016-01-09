@@ -1,5 +1,6 @@
 package com.utc.projetAPI01.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -17,24 +18,20 @@ public class CommentsDAOImpl extends DAOAbstract<Comments>{
 		objName = "Comments";
 	}
 	
-	public Map<Comments, Utilisateur> findByIdea(int id){
-		Map<Comments, Utilisateur> commentsWithUser = new HashMap<Comments, Utilisateur>();
+	@SuppressWarnings("unchecked")
+	public List<Comments> findByIdea(int id){
+		List<Comments> comments = new ArrayList<Comments>();
 		
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where idea = :id order by commentDate desc");
+	    	Query query = session.createQuery("from " + objName +" where idea = :id order by commentDate desc");
 	    	query.setInteger("id", id);
-	    	List<Comments> comments = query.list();
-	    	Iterator<Comments> it = comments.iterator();
-	    	while(it.hasNext()){
-	    		Comments comment = it.next();
-		    	commentsWithUser.put(comment, comment.getUtilisateur());
-	    	}
+	    	comments = query.list();
 	    }
 	    catch(HibernateException e)
 	    {
 	    	e.printStackTrace();
 	    }
-		return commentsWithUser;
+		return comments;
 	}
 }

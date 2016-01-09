@@ -23,7 +23,7 @@ public class UtilisateurDAOImpl extends DAOAbstract<Utilisateur> {
 		
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where email = :email");
+	    	Query query = session.createQuery("from " + objName +" where email = :email");
 	    	query.setString("email", email);
 			user = (Utilisateur) query.uniqueResult();
 	    }

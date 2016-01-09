@@ -21,7 +21,7 @@ public class PhaseContextDAOImpl extends DAOAbstract<PhaseContext>{
 		List<PhaseContext> contexts = null;
 		List<Idea> ideas = null;
 	    try{
-	    	Query query = sessionLecture.createQuery("from " + objName +" where currentPhase = :phase");
+	    	Query query = session.createQuery("from " + objName +" where currentPhase = :phase");
 	    	query.setString(1, "phase");
 			contexts = (List<PhaseContext>) query.list();
 			IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
@@ -57,7 +57,7 @@ public class PhaseContextDAOImpl extends DAOAbstract<PhaseContext>{
 	public PhaseContext findByIdea(int id){
 		PhaseContext context = null;
 	    try{
-	    	Query query = sessionLecture.createQuery("from " + objName +" where idea = :id");
+	    	Query query = session.createQuery("from " + objName +" where idea = :id");
 	    	query.setInteger("id", id);
 			context = (PhaseContext) query.uniqueResult();
 	    }catch(HibernateException e){

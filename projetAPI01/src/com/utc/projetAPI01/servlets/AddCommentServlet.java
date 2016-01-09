@@ -47,7 +47,6 @@ public class AddCommentServlet extends HttpServlet {
 		
 		String content = request.getParameter("comment");
 		int idIdea = Integer.parseInt(request.getParameter("idIdea"));
-		String toastMessage = "";
 		
 		if(!content.isEmpty() && content.length() >= 2 && content.length() <= 255){
 			CommentsDAOImpl commentsDAO = new CommentsDAOImpl();
@@ -57,19 +56,13 @@ public class AddCommentServlet extends HttpServlet {
 			Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 			
 			Comments comment = new Comments(content, new Date(), currentUser, currentIdea);
-			if(commentsDAO.save(comment) != null){
-				toastMessage = "Le commentaire a bien été envoyé !";
-			} else {
-				toastMessage = "Un problème est survenu pendant l'envoi du commentaire ...";
+			try{
+				commentsDAO.save(comment);
+			}catch(Exception e){
+				e.printStackTrace();
 			}
-			
-		} else {
-			toastMessage = "Il y a une erreur dans votre commentaire.";
 		}
-		
-		System.out.println("url : " + request.getContextPath());
-		
-		request.setAttribute("toastMessage", toastMessage);
+				
 		response.sendRedirect(request.getContextPath() + "/user/ideaDetails?id=" + idIdea);
 	}
 

@@ -19,7 +19,7 @@ public class FundDAOImpl extends DAOAbstract<Fund>{
 		
 		try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" order by datePhase desc");
+	    	Query query = session.createQuery("from " + objName +" order by datePhase desc");
 	    	query.setMaxResults(3);
 		    funds = (List<Fund>) query.list();
 	    }

@@ -49,7 +49,7 @@ public class IdeaDetailsServlet extends HttpServlet {
 
 		Idea idea = ideaDAO.findById(Integer.parseInt(request.getParameter("id")));
 		PhaseContext context = contextDAO.findByIdea(idea.getId());
-		Map<Comments, Utilisateur> comments = commentsDAO.findByIdea(idea.getId());
+		List<Comments> comments = commentsDAO.findByIdea(idea.getId());
 
 		request.setAttribute("idea", idea);
 		request.setAttribute("idIdea", idea.getId());
