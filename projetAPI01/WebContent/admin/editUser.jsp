@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation de creation de l'utilisateur</title>
+<title>Confirmation de modification de l'utilisateur</title>
     <jsp:useBean id="userBean" class="com.utc.projetAPI01.beans.Utilisateur" scope="session" />
     <jsp:useBean id="adressBean" class="com.utc.projetAPI01.beans.Adress" scope="session" />
 </head>
 <body>
-	<h1> Vous avez bien créé l'utilisateur suivant :</h1>
+	<h1> Vous avez bien modifié l'utilisateur de la maniere suivante :</h1>
 	Nom : <jsp:getProperty name="userBean" property="nom" />
 	Prenom : <jsp:getProperty name="userBean" property="prenom" />
 	Email : <jsp:getProperty name="userBean" property="email" />
@@ -18,6 +18,5 @@
 	Adresse : <jsp:getProperty name="adressBean" property="num" /> <jsp:getProperty name="adressBean" property="rue" /> <jsp:getProperty name="adressBean" property="codePostale" /> <jsp:getProperty name="adressBean" property="ville" />
 	Statut : <jsp:getProperty name="userBean" property="accountStatus" />
 	Type : <jsp:getProperty name="userBean" property="accountType" />
-	Date de création : <jsp:getProperty name="userBean" property="dateCreation" />
 </body>
 </html>

@@ -7,6 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <title>Edition de l'utilisateur</title>
     <jsp:useBean id="userBean" class="com.utc.projetAPI01.beans.Utilisateur" scope="session" />
+    <jsp:useBean id="adressBean" class="com.utc.projetAPI01.beans.Adress" scope="session" />
     
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -20,50 +21,51 @@
 <body>    
     <div class="container">
         <div id="header" class="jumbotron">
-            <h1>Edition de l'utilisateur</h1>
+            <h1>Edition de l'utilisateur ayant l'email : <jsp:getProperty name="userBean" property="email" /></h1>
         </div>
         <form method="POST" action="editUser">
             <div class="form-group">
                 <label for="name">Nom</label>                
-                <input type="text" name="nom" class="form-control" id="nom" placeholder="<jsp:getProperty name="userBean" property="nom" />">
+                <input type="text" name="nom" class="form-control" id="nom" required="false" placeholder="<jsp:getProperty name="userBean" property="nom" />">
             </div>
             <div class="form-group">
-                <label for="surname">Pr�nom</label>
-                <input type="text" name="prenom" class="form-control" id="prenom" placeholder="<jsp:getProperty name="userBean" property="prenom" />">
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" name="email" class="form-control" id="email" placeholder="<jsp:getProperty name="userBean" property="nom" />">
+                <label for="surname">Prenom</label>
+                <input type="text" name="prenom" class="form-control" id="prenom" required="false" placeholder="<jsp:getProperty name="userBean" property="prenom" />">
             </div>
             <div class="form-group">
                 <label for="password">Mot De Passe</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="<jsp:getProperty name="userBean" property="password" />">
+                <input type="password" name="password" class="form-control" id="password" required="false" placeholder="<jsp:getProperty name="userBean" property="password" />">
             </div>
             <div class="form-group">
                 <label for="confPass">Confirmation</label>
                 <input type="password" name="confPass" class="form-control" id="confPass" placeholder="<jsp:getProperty name="userBean" property="password" />">
             </div>
-            <div class="form-group">
+            <div class="form-group">	
                 <label for="numRue">Numero de rue</label>
-                <input type="text" name="numRue" class="form-control" id="numRue" placeholder="<jsp:getProperty name="userBean" property="adress.getNum()" />">
+                <input type="text" name="numRue" class="form-control" id="numRue" required="false"placeholder="<jsp:getProperty name="adressBean" property="num" />">
             </div>
             <div class="form-group">
                 <label for="rue">Rue</label>
-                <input type="text" name="rue" class="form-control" id="rue" placeholder="<jsp:getProperty name="userBean" property="adress.getRue()" />">
+                <input type="text" name="rue" class="form-control" id="rue" required="false" placeholder="<jsp:getProperty name="adressBean" property="rue" />">
             </div>
             <div class="form-group">
                 <label for="codePostale">Code Postale</label>
-                <input type="text" name="codePostale" class="form-control" id="codePostale" placeholder="<jsp:getProperty name="userBean" property="adress.getCodePostale()" />">
+                <input type="text" name="codePostale" class="form-control" id="codePostale" required="false" placeholder="<jsp:getProperty name="adressBean" property="codePostale" />">
             </div>
             <div class="form-group">
                 <label for="ville">Ville</label>
-                <input type="text" name="ville" class="form-control" id="ville" placeholder="<jsp:getProperty name="userBean" property="adress.getVille()" />">
+                <input type="text" name="ville" class="form-control" id="ville" required="false" placeholder="<jsp:getProperty name="adressBean" property="ville" />">
             </div>
             <div class="form-group">
-                <label for="statut">Statut</label>
+                <label for="statut" required="false">Statut</label>
                 <label class="radio-inline"><input type="radio" name="optradio">Actif</label>
                 <label class="radio-inline"><input type="radio" name="optradio">Inactif</label>
-                </div>
+            </div>
+            <div class="form-group">
+                <label for="type" required="false">Type</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Admin</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Normal</label>
+            </div>
             <button type="submit" class="btn btn-default">Valider les modifications</button>
         </form>    
     </div>

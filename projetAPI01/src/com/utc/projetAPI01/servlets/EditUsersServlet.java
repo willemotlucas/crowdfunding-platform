@@ -39,6 +39,7 @@ public class EditUsersServlet extends HttpServlet {
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         Utilisateur user = userDAO.findById(id);
         request.getSession().setAttribute("userBean", user);
+        request.getSession().setAttribute("adressBean", user.getAdress());
         request.getRequestDispatcher("/admin/editUsers.jsp").forward(request, response);
     }
 

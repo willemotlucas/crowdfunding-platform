@@ -18,9 +18,9 @@
 <body>
     <div class="container">
         <div id="header" class="jumbotron">
-            <h1>Creation</h1>
+            <h1>Creation d'un nouvel utilisateur</h1>
         </div>
-        <form method="POST" action="/projetAPI01/inscription">
+        <form method="POST" action="inscription">
             <div class="form-group">
                 <label for="surname">Nom</label>
                 <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrez le nom">
