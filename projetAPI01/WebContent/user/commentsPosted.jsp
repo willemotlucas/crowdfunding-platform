@@ -24,48 +24,44 @@
 
 </head>
 <body>
-	<script>$(document).ready(function() {$('#proposedIdeas').DataTable();});</script>
-	<jsp:include page="../templates/menu.jsp"/>
+	<script>$(document).ready(function() {$('#commentsPosted').DataTable();});</script>
+	<jsp:include page="templates/menu.jsp"/>
 	<div id="wrapper">
 		<!-- Sidebar -->
 		<div id="sidebar-wrapper">
 			<ul class="nav nav-pills nav-stacked">
-			  <li role="presentation" class="active"><a href="/projetAPI01/user/ideas/proposed">Idées proposées</a></li>
+			  <li role="presentation"><a href="/projetAPI01/user/ideas/proposed">Idées proposées</a></li>
 			  <li role="presentation"><a href="/projetAPI01/user/ideas/evaluated">Idées evaluées</a></li>
 			  <li role="presentation"><a href="/projetAPI01/user/ideas/pledged">Idées financées</a></li>
-			  <li role="presentation"><a href="/projetAPI01/user/comments/posted">Commentaires postés</a></li>
+			  <li role="presentation" class="active"><a href="/projetAPI01/user/comments/posted">Commentaires postés</a></li>
 			</ul>
 		</div>
 		<!-- /#sidebar-wrapper -->
 				
 		 <div id="page-content-wrapper">
 		 	<div class="page-header">
-		 		<h1>Liste des idées proposées</h1>
+		 		<h1>Liste des commentaires postés</h1>
 		 	</div>
 		 	<c:choose>
-				<c:when test="${not empty ideas}">
-					<table id="proposedIdeas" class="table table-striped ">
+				<c:when test="${not empty comments}">
+					<table id="commentsPosted" class="table table-striped ">
 						<thead>
 							<tr>
-								<th>Nom</th>
-								<th>Phase</th>
-								<th>Date de création</th>
-								<th>Montant demandé</th>
+								<th>Idée commentée</th>
+								<th>Proposée par </th>
+								<th>Date du commentaire</th>
+								<th>Message</th>
 								<th>Voir</th>
-								<th>Modifier</th>
-								<th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="entry" items="${ideas}">
+							<c:forEach var="comment" items="${comments}">
 								<tr>
-									<td>${entry.key.name}</td>
-									<td>${entry.value.currentPhase}</td>
-									<td>${entry.key.proposedDate}</td>
-									<td>${entry.key.fundingRequested} euros</td>
-									<td><a href="/projetAPI01/user/ideaDetails?id=${entry.key.id}" class="btn btn-success" role="button">Voir</a></td>
-									<td><a href="/projetAPI01/user/ideaDetails?id=${entry.key.id}" class="btn btn-primary" role="button">Modifier</a></td>
-									<td><a href="/projetAPI01/user/idea/delete" class="btn btn-danger" role="button">Supprimer</a></td>
+									<td>${comment.idea.name}</td>
+									<td>${comment.idea.madeBy.prenom} ${comment.idea.madeBy.nom}</td>
+									<td>${comment.commentDate}</td>
+									<td>${comment.description}</td>
+									<td><a href="/projetAPI01/user/ideaDetails?id=${comment.idea.id}" class="btn btn-success" role="button">Voir</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -6,7 +6,7 @@
     <class name="com.utc.projetAPI01.beans.Evaluation" table="Evaluation">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="datePhase" type="java.sql.Date">
             <column name="DATEPHASE" />

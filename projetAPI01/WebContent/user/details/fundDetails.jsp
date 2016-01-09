@@ -30,15 +30,14 @@
 		<h2>Description</h2>
 		<p>${idea.shortDescription}</p>
 		<h4>Montant demandé : ${idea.fundingRequested} euros</h4>
-		<h4>Score : </h4>
+		<h4>Montant collecté : ${amountCollected} euros</h4>
+		
 		<c:forEach var="entry" items="${score}">
 		  ${entry.key} : ${entry.value} <br>
 		</c:forEach>
 		
 		<%request.setAttribute("comments", request.getAttribute("comments")); %>
 		<jsp:include page="../templates/displayComments.jsp"/>
-		<jsp:include page="../templates/addComment.jsp"/>
-	
 	</div>
 </body>
 </html>

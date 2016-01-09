@@ -32,7 +32,8 @@
 			<ul class="nav nav-pills nav-stacked">
 			  <li role="presentation"><a href="/projetAPI01/user/ideas/proposed">Idées proposées</a></li>
 			  <li role="presentation" class="active"><a href="/projetAPI01/user/ideas/evaluated">Idées evaluées</a></li>
-			  <li role="presentation"><a href="/projetAPI01/user/ideas/commented">Idées commentées</a></li>
+			  <li role="presentation"><a href="/projetAPI01/user/ideas/pledged">Idées financées</a></li>
+			  <li role="presentation"><a href="/projetAPI01/user/comments/posted">Commentaires postés</a></li>
 			</ul>
 		</div>
 		<!-- /#sidebar-wrapper -->

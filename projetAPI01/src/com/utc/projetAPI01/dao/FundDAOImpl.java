@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
 import com.utc.projetAPI01.beans.Fund;
+import com.utc.projetAPI01.beans.Redaction;
 
 public class FundDAOImpl extends DAOAbstract<Fund>{
 	public FundDAOImpl(){
@@ -28,6 +29,21 @@ public class FundDAOImpl extends DAOAbstract<Fund>{
 	    	e.printStackTrace();
 	    }
 		return funds;
+	}
+	
+	public Fund findByContext(int id){
+		Fund fund = null;
 		
+	    try
+	    {
+	    	Query query = session.createQuery("from " + objName +" where context = :id");
+	    	query.setInteger("id", id);
+	    	fund = (Fund) query.uniqueResult();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return fund;
 	}
 }
