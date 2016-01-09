@@ -12,8 +12,7 @@ import com.utc.projetAPI01.beans.Utilisateur;
 
 public abstract class DAOAbstract<T> {
 	
-	protected Session sessionLecture = ConnectionHibernateLecture.getInstance();
-	protected Session sessionEcriture = ConnectionHibernateEcriture.getInstance();
+	protected Session session = ConnectionHibernate.getInstance();
 	protected String objName;
 	
 	public T findById(Integer id)
@@ -21,7 +20,7 @@ public abstract class DAOAbstract<T> {
 		T obj = null;
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName +" where id = :id");
+	    	Query query = session.createQuery("from " + objName +" where id = :id");
 	    	query.setInteger("id", id);
 			Iterator objects = query.iterate();
 			if(objects.hasNext())
@@ -41,7 +40,7 @@ public abstract class DAOAbstract<T> {
 		List<T> results = null;
 	    try
 	    {
-	    	Query query = sessionLecture.createQuery("from " + objName);
+	    	Query query = session.createQuery("from " + objName);
 	    	results = query.list();
 	    }
 	    catch(HibernateException e)
@@ -55,9 +54,8 @@ public abstract class DAOAbstract<T> {
 	{
 		Transaction tx = null;
 		try { 
-		      tx = sessionEcriture.beginTransaction();
-		      sessionEcriture.save(obj);
-		      sessionEcriture.flush() ;
+		      tx = session.beginTransaction();
+		      session.save(obj);
 		      tx.commit();
 		    } 
 		catch (HibernateException e) {
@@ -74,8 +72,8 @@ public abstract class DAOAbstract<T> {
 	{
 		Transaction tx = null;
 		try {
-			tx = sessionEcriture.beginTransaction();
-			sessionEcriture.delete(obj);
+			tx = session.beginTransaction();
+			session.delete(obj);
 			tx.commit();
 		} catch(HibernateException e) {
 			if(tx != null){

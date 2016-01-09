@@ -106,17 +106,6 @@ public class Test extends HttpServlet {
 	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
 	      }
 	      
-	      out.println("<h1>Comments from Idea with id=1</h1>");
-	      CommentsDAOImpl commentsDAO = new CommentsDAOImpl();
-	      Map<Comments, Utilisateur> commentsMap = commentsDAO.findByIdea(1);
-	      for(Map.Entry<Comments, Utilisateur> entry : commentsMap.entrySet()){
-	    	  Comments comment = entry.getKey();
-	    	  Utilisateur userComment = entry.getValue();
-		      out.println("<h3>" + userComment.getNom() + " " + userComment.getPrenom() + " le "+ comment.getCommentDate().toString() + " : </h3>");
-		      out.println("<p>" + comment.getDescription() + "</p>");
-
-
-	      }
 	    } finally {
 	      session.close();
 	    }

@@ -6,16 +6,16 @@
     <class name="com.utc.projetAPI01.beans.Comments" table="COMMENTS">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="description" type="java.lang.String">
             <column name="DESCRIPTION" />
         </property>
-        <property name="commentDate" type="java.sql.Date">
+        <property name="commentDate" type="java.util.Date">
             <column name="COMMENTDATE" />
         </property>
         <many-to-one name="utilisateur" class="com.utc.projetAPI01.beans.Utilisateur" fetch="join">
-            <column name="UTILISATEUR" />
+            <column name="utilisateur" />
         </many-to-one>
         <many-to-one name="idea" class="com.utc.projetAPI01.beans.Idea" fetch="join">
             <column name="IDEA" />

@@ -66,6 +66,18 @@
     <url-pattern>/user/ideas/evaluated</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>AddCommentServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddCommentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCommentServlet</servlet-name>
+    <url-pattern>/user/comment/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddCommentServlet</servlet-name>
+    <url-pattern>/admin/comment/add</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.LogoutServlet</servlet-class>
   </servlet>
