@@ -57,6 +57,14 @@
     <servlet-name>EditUsersServlet</servlet-name>
     <url-pattern>/admin/editUsers</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>NewUserServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.NewUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewUserServlet</servlet-name>
+    <url-pattern>/projetAPI01/inscription</url-pattern>
+  </servlet-mapping>
   <filter>
     <filter-name>NormalUserFilter</filter-name>
     <filter-class>com.utc.projetAPI01.filters.NormalUserFilter</filter-class>

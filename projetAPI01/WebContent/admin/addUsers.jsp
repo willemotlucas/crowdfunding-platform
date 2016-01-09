@@ -18,9 +18,9 @@
 <body>
     <div class="container">
         <div id="header" class="jumbotron">
-            <h1>Inscription</h1>
+            <h1>Creation</h1>
         </div>
-        <form method="POST" action="inscription">
+        <form method="POST" action="/projetAPI01/inscription">
             <div class="form-group">
                 <label for="surname">Nom</label>
                 <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrez le nom">
@@ -41,6 +41,10 @@
                 <label for="confPass">Confirmation</label>
                 <input type="password" name="confPass" class="form-control" id="confPass" placeholder="Confirmez le mot de passe">
             </div>
+			<div class="form-group">
+				<label for="telephone">Telephone</label>
+				<input type="text" name="telephone" class="form-control" id="telephone" placeholder="Entrez le telephone">
+			</div>
             <div class="form-group">
                 <label for="numRue">Numero de rue</label>
                 <input type="text" name="numRue" class="form-control" id="numRue" placeholder="Entrez le num�ro de le rue">

@@ -42,6 +42,10 @@
 				<input type="password" name="confPass" class="form-control" id="confPass" placeholder="confirmez le mot de passe">
 			</div>
 			<div class="form-group">
+				<label for="telephone">Telephone</label>
+				<input type="text" name="telephone" class="form-control" id="telephone" placeholder="Entrez le telephone">
+			</div>
+			<div class="form-group">
 				<label for="numRue">Numéro de rue</label>
 				<input type="text" name="numRue" class="form-control" id="numRue" placeholder="Entrez le numéro de votre rue">
 			</div>

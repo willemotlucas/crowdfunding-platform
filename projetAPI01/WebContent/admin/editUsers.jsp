@@ -43,22 +43,22 @@
                 <label for="confPass">Confirmation</label>
                 <input type="password" name="confPass" class="form-control" id="confPass" placeholder="<jsp:getProperty name="userBean" property="password" />">
             </div>
-            <!-- div class="form-group">
-                <label for="numRue">Num�ro de rue</label>
-                <input type="text" name="numRue" class="form-control" id="numRue" placeholder="<jsp:getProperty name="userBean" property="adress.num" />">
+            <div class="form-group">
+                <label for="numRue">Numero de rue</label>
+                <input type="text" name="numRue" class="form-control" id="numRue" placeholder="<jsp:getProperty name="userBean" property="adress.getNum()" />">
             </div>
             <div class="form-group">
                 <label for="rue">Rue</label>
-                <input type="text" name="rue" class="form-control" id="rue" placeholder="<jsp:getProperty name="userBean" property="adress.rue" />">
+                <input type="text" name="rue" class="form-control" id="rue" placeholder="<jsp:getProperty name="userBean" property="adress.getRue()" />">
             </div>
             <div class="form-group">
                 <label for="codePostale">Code Postale</label>
-                <input type="text" name="codePostale" class="form-control" id="codePostale" placeholder="<jsp:getProperty name="userBean" property="adress.codePostale" />">
+                <input type="text" name="codePostale" class="form-control" id="codePostale" placeholder="<jsp:getProperty name="userBean" property="adress.getCodePostale()" />">
             </div>
             <div class="form-group">
                 <label for="ville">Ville</label>
-                <input type="text" name="ville" class="form-control" id="ville" placeholder="<jsp:getProperty name="userBean" property="adress.ville" />">
-            </div-->
+                <input type="text" name="ville" class="form-control" id="ville" placeholder="<jsp:getProperty name="userBean" property="adress.getVille()" />">
+            </div>
             <div class="form-group">
                 <label for="statut">Statut</label>
                 <label class="radio-inline"><input type="radio" name="optradio">Actif</label>

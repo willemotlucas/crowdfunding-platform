@@ -14,8 +14,9 @@ public class Utilisateur {
 	private String		accountType;
 	private Adress		adress;
 	
-	public Utilisateur(String e, String n, String p, String t, Date d, String aS, String aT, Adress add)
+	public Utilisateur(String e, String pwd, String n, String p, String t, Date d, String aS, String aT, Adress add)
 	{
+		this.password = pwd;
 		this.email = e;
 		this.nom = n;
 		this.prenom = p;
@@ -26,9 +27,10 @@ public class Utilisateur {
 		this.adress = add;
 	}
 	
-	public Utilisateur()
-	{
+	public Utilisateur(){
+		
 	}
+	
 	
 	public Integer getId()
 	{
