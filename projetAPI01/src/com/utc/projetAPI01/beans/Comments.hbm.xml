@@ -6,7 +6,7 @@
     <class name="com.utc.projetAPI01.beans.Comments" table="COMMENTS">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
-            <generator class="identity" />
+            <generator class="increment" /> <!-- anciennement identity -->
         </id>
         <property name="description" type="java.lang.String">
             <column name="DESCRIPTION" />

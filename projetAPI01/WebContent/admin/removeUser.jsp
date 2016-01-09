@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation de modification de l'utilisateur</title>
+<title>Confirmation de suppression de l'utilisateur</title>
 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
@@ -22,11 +22,11 @@
 	<jsp:include page="templates/menu.jsp"/>
 	<div class="container">
 		<div class="page-header">
-		   <h1>Modification d'un utilisateur</h1>
+		   <h1>Suppression d'un utilisateur</h1>
 		</div>
 	</div>
 	<div class="row">
-		<h3> Vous avez bien modifié l'utilisateur <jsp:getProperty name="userBean" property="email" /> de la maniere suivante :</h3>
+		<h3> Vous avez bien supprimé l'utilisateur <jsp:getProperty name="userBean" property="email" /> avec les caractéristiques suivantes :</h3>
 		Nom : <span class="marge"></span> <jsp:getProperty name="userBean" property="nom" /></br>
 		Prenom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
 		Email : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>

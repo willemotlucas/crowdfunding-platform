@@ -6,7 +6,7 @@
     <class name="com.utc.projetAPI01.beans.EvaluationScore" table="EVALUATIONSCORE">
         <id name="id" type="java.lang.Integer">
             <column name="ID" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="feasibility" type="java.lang.Integer">
             <column name="FEASIBILITY" />

@@ -24,7 +24,7 @@
             <h1>Edition de l'utilisateur ayant l'email : <jsp:getProperty name="userBean" property="email" /></h1>
         </div>
         <form method="POST" action="editUser">
-            <div class="form-group">
+            <div>
                 <label for="name">Nom</label>                
                 <input type="text" name="nom" class="form-control" id="nom" required="false" placeholder="<jsp:getProperty name="userBean" property="nom" />">
             </div>

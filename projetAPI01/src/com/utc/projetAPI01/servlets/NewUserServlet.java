@@ -48,7 +48,7 @@ public class NewUserServlet extends HttpServlet {
         //Integer id = Integer.parseInt(request.getParameter("id"));
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         String email = request.getParameter("email");
-        String pwd = request.getParameter("pwd");
+        String pwd = request.getParameter("password");
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String telephone = request.getParameter("telephone");
@@ -59,6 +59,7 @@ public class NewUserServlet extends HttpServlet {
         String rue = request.getParameter("rue");
         String codePostal = request.getParameter("codePostale");
         String ville = request.getParameter("ville");
+        System.out.println("les param"+email+pwd+numRue+nom+date+ville);
         Adress adresse = new Adress(numRue,rue,codePostal,ville);
         Utilisateur user = new Utilisateur(email,pwd,nom,prenom,telephone,date,statut,type,adresse);
         userDAO.save(user);
