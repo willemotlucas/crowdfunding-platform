@@ -106,6 +106,18 @@
     <url-pattern>/admin/idea/add</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>EditIdeaServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditIdeaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditIdeaServlet</servlet-name>
+    <url-pattern>/user/idea/edit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditIdeaServlet</servlet-name>
+    <url-pattern>/admin/idea/edit</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>LogoutServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.LogoutServlet</servlet-class>
   </servlet>
