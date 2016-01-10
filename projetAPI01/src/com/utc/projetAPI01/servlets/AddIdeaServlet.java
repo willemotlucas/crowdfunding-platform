@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.utc.projetAPI01.beans.APhase;
 import com.utc.projetAPI01.beans.Discussion;
 import com.utc.projetAPI01.beans.Idea;
 import com.utc.projetAPI01.beans.PhaseContext;

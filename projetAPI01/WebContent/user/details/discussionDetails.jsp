@@ -18,6 +18,7 @@
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="/projetAPI01/public/js/validator-min.js"></script>
+	<script src="/projetAPI01/public/js/thumb.js"></script>
 	
 </head>
 <body>
@@ -30,10 +31,33 @@
 		<h2>Description</h2>
 		<p>${idea.shortDescription}</p>
 		<h4>Montant demandé : ${idea.fundingRequested} euros</h4>
-		<h4>Score : </h4>
-		<c:forEach var="entry" items="${score}">
-		  ${entry.key} : ${entry.value} <br>
-		</c:forEach>
+		<h4>Score : <span id="score">${score}</span></h4>
+		<c:choose>
+			<c:when test="${scoreGiven == 1}">
+				<button id="thumbs-down" type="button" class="btn btn-md">
+					<span class="glyphicon glyphicon-thumbs-down"></span><span id="negativeScore"> ${negativeScore}</span>
+				</button>
+				<button id="thumbs-up" type="button" class="btn btn-md btn-success">
+					<span class="glyphicon glyphicon-thumbs-up"></span><span id="positiveScore"> ${positiveScore}</span> 
+				</button>
+			</c:when>
+			<c:when test="${scoreGiven == -1}">
+				<button id="thumbs-down" type="button" class="btn btn-md btn-danger">
+					<span class="glyphicon glyphicon-thumbs-down"></span><span id="negativeScore"> ${negativeScore}</span>
+				</button>
+				<button id="thumbs-up" type="button" class="btn btn-md">
+					<span class="glyphicon glyphicon-thumbs-up"></span><span id="positiveScore"> ${positiveScore}</span> 
+				</button>
+			</c:when>
+			<c:otherwise>
+				<button id="thumbs-down" type="button" class="btn btn-md">
+					<span class="glyphicon glyphicon-thumbs-down"></span><span id="negativeScore"> ${negativeScore}</span>
+				</button>
+				<button id="thumbs-up" type="button" class="btn btn-md">
+					<span class="glyphicon glyphicon-thumbs-up"></span><span id="positiveScore"> ${positiveScore}</span> 
+				</button>
+			</c:otherwise>
+		</c:choose>    
 		
 		<%request.setAttribute("comments", request.getAttribute("comments")); %>
 		<jsp:include page="../templates/displayComments.jsp"/>

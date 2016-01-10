@@ -52,6 +52,7 @@ public class IdeaDetailsServlet extends HttpServlet {
 		Idea idea = ideaDAO.findById(Integer.parseInt(request.getParameter("id")));
 		PhaseContext context = contextDAO.findByIdea(idea.getId());
 		List<Comments> comments = commentsDAO.findByIdea(idea.getId());
+		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 
 		request.setAttribute("idea", idea);
 		request.setAttribute("idIdea", idea.getId());
@@ -66,9 +67,22 @@ public class IdeaDetailsServlet extends HttpServlet {
 			ThumbDAOImpl thumbDAO = new ThumbDAOImpl();
 			
 			Discussion discussion = discussionDAO.findByContext(context.getId());
-			//Map<String, Integer> score = thumbDAO.findScoreByIdea(discussion.getId());
+			int positiveScore = thumbDAO.findPositiveScoreByDiscussion(discussion.getId());
+			int negativeScore = thumbDAO.findNegativeScoreByDiscussion(discussion.getId());
+			int score = positiveScore - negativeScore;
+			Thumb thumb = thumbDAO.findByUserAndDiscussion(currentUser, discussion.getId());
+			
+			if(thumb != null){
+				System.out.println("score given !");
+				request.setAttribute("scoreGiven", thumb.getScore());
+			} else {
+				System.out.println("score not given !");
+			}
+			
 			request.setAttribute("discussion", discussion);
-			//request.setAttribute("score", score);
+			request.setAttribute("positiveScore", positiveScore);
+			request.setAttribute("negativeScore", negativeScore);
+			request.setAttribute("score", score);
 		}
 		
 		//The idea requested is in redaction phase

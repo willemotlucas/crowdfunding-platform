@@ -4,17 +4,16 @@ import java.sql.Date;
 
 public class Idea {
 
-	private Integer			id;
-	private String			name;
-	private String			shortDescription;
-	private String			applicationField;
-	private String			targetedMarket;
-	private Integer			fundingRequested;
-	private Date			proposedDate;
-	private Utilisateur		madeBy;
-	
-	public Idea(String n, String sD, String aF, String tM, Integer fR, Date p, Utilisateur m)
-	{
+	private Integer id;
+	private String name;
+	private String shortDescription;
+	private String applicationField;
+	private String targetedMarket;
+	private Integer fundingRequested;
+	private Date proposedDate;
+	private Utilisateur madeBy;
+
+	public Idea(String n, String sD, String aF, String tM, Integer fR, Date p, Utilisateur m) {
 		this.name = n;
 		this.shortDescription = sD;
 		this.applicationField = aF;
@@ -23,9 +22,8 @@ public class Idea {
 		this.proposedDate = p;
 		this.madeBy = m;
 	}
-	
-	public Idea(String n, String sD, String aF, Integer fR, Date p, Utilisateur m)
-	{
+
+	public Idea(String n, String sD, String aF, Integer fR, Date p, Utilisateur m) {
 		this.name = n;
 		this.shortDescription = sD;
 		this.applicationField = aF;
@@ -34,89 +32,72 @@ public class Idea {
 		this.proposedDate = p;
 		this.madeBy = m;
 	}
-	
-	public Idea()
-	{
+
+	public Idea() {
 	}
-	
-	public Integer getId()
-	{
+
+	public Integer getId() {
 		return id;
 	}
-	
-	public String getName()
-	{
+
+	public String getName() {
 		return name;
 	}
-	
-	public String getShortDescription()
-	{
+
+	public String getShortDescription() {
 		return shortDescription;
 	}
-	
-	public String getApplicationField()
-	{
+
+	public String getApplicationField() {
 		return applicationField;
 	}
-	
-	public String getTargetedMarket()
-	{
+
+	public String getTargetedMarket() {
 		return targetedMarket;
 	}
-	
-	public Integer getFundingRequested()
-	{
+
+	public Integer getFundingRequested() {
 		return fundingRequested;
 	}
-	
-	public Date getProposedDate()
-	{
+
+	public Date getProposedDate() {
 		return proposedDate;
 	}
-	
-	public Utilisateur getMadeBy()
-	{
+
+	public Utilisateur getMadeBy() {
 		return madeBy;
 	}
-	
-	public void setId(Integer i)
-	{
+
+	public void setId(Integer i) {
 		id = i;
 	}
-	
-	public void setName(String n)
-	{
+
+	public void setName(String n) {
 		name = n;
 	}
-	
-	public void setShortDescription(String s)
-	{
+
+	public void setShortDescription(String s) {
 		shortDescription = s;
 	}
-	
-	public void setApplicationField(String a)
-	{
+
+	public void setApplicationField(String a) {
 		applicationField = a;
 	}
-	
-	public void setTargetedMarket(String t)
-	{
+
+	public void setTargetedMarket(String t) {
 		targetedMarket = t;
 	}
-	
-	public void setFundingRequested(Integer f)
-	{
+
+	public void setFundingRequested(Integer f) {
 		fundingRequested = f;
 	}
-	
-	public void setProposedDate(Date d)
-	{
+
+	public void setProposedDate(Date d) {
 		proposedDate = d;
 	}
-	
-	public void setMadeBy(Utilisateur m)
-	{
+
+	public void setMadeBy(Utilisateur m) {
 		madeBy = m;
 	}
-	
+
 }

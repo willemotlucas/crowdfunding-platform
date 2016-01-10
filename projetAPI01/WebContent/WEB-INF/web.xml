@@ -94,6 +94,14 @@
     <url-pattern>/admin/comment/add</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>AddThumbsServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddThumbsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddThumbsServlet</servlet-name>
+    <url-pattern>/user/thumbs/add</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>AddIdeaServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.AddIdeaServlet</servlet-class>
   </servlet>

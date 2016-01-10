@@ -16,38 +16,44 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 		objName = "Thumb";
 	}
 	
-	public Map<String, Integer> findScoreByIdea(int idDiscussion){
-		Map<String, Integer> score = new HashMap<String, Integer>();
+	public int findPositiveScoreByDiscussion(int idDiscussion){
 		int positiveScore = 0;
-		int negativeScore = 0;
-
-	    try
+		try
 	    {
 	    	Query query1 = session.createQuery("select count(*) from " + objName +" where discussion = :id and score=1");
 	    	query1.setInteger("id", idDiscussion);
-	    	Query query2 = session.createQuery("select count(*) from " + objName +" where discussion = :id and score=-1");
-	    	query2.setInteger("id", idDiscussion);
 
 	    	try{
 				positiveScore = ((Long) query1.iterate().next()).intValue();
 	    	}catch(Exception e){
 	    		positiveScore = 0;
 	    	}
-	    	
-	    	try{
-	    		negativeScore = ((Long) query2.iterate().next()).intValue();
-	    	}catch(Exception e){
-	    		negativeScore = 0;
-	    	}
-	    	
-	    	score.put("-1", negativeScore);
-	    	score.put("+1", positiveScore);
 	    }
 	    catch(HibernateException e)
 	    {
 	    	e.printStackTrace();
 	    }
-		return score;
+		return positiveScore;
+	}
+	
+	public int findNegativeScoreByDiscussion(int idDiscussion){
+		int negativeScore = 0;
+		try
+	    {
+	    	Query query1 = session.createQuery("select count(*) from " + objName +" where discussion = :id and score=-1");
+	    	query1.setInteger("id", idDiscussion);
+
+	    	try{
+	    		negativeScore = ((Long) query1.iterate().next()).intValue();
+	    	}catch(Exception e){
+	    		negativeScore = 0;
+	    	}
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return negativeScore;
 	}
 	
 	public List<Thumb> findByUser(Utilisateur user){
@@ -63,6 +69,24 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 	    {
 	    	e.printStackTrace();
 	    }
+		return thumbs;
+	}
+	
+	public Thumb findByUserAndDiscussion(Utilisateur user, int idDiscussion){
+		Thumb thumbs = null;
+
+	    try
+	    {
+	    	Query query = session.createQuery("from " + objName +" where utilisateur = :id and discussion = :idDiscussion");
+	    	query.setInteger("id", user.getId());
+	    	query.setInteger("idDiscussion", idDiscussion);
+	    	thumbs = (Thumb) query.uniqueResult();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+	    
 		return thumbs;
 	}
 }
