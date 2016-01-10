@@ -1,6 +1,7 @@
 package com.utc.projetAPI01.servlets;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.util.Calendar;
 
 import javax.servlet.ServletException;
@@ -11,20 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.utc.projetAPI01.beans.Adress;
 import com.utc.projetAPI01.beans.Utilisateur;
-import com.utc.projetAPI01.dao.AdressDAOImpl;
 import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
- * Servlet implementation class EditUserServlet
+ * Servlet implementation class NewUserServlet
  */
-@WebServlet("/EditUserServlet")
-public class EditUserServlet extends HttpServlet {
+@WebServlet("/AddUserServlet")
+public class AddUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditUserServlet() {
+    public AddUserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,34 +42,29 @@ public class EditUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        System.out.println("edit user");
+        System.out.println("get new user");
 
+        //UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        //Integer id = Integer.parseInt(request.getParameter("id"));
+        UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         String email = request.getParameter("email");
-        String pwd = request.getParameter("pwd");
+        String pwd = request.getParameter("password");
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
         String telephone = request.getParameter("telephone");
-        String statut = request.getParameter("statut");
-        String type = request.getParameter("type");
+        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        String statut = "actif";
+        String type = "admin";
         Integer numRue = Integer.parseInt(request.getParameter("numRue"));
         String rue = request.getParameter("rue");
         String codePostal = request.getParameter("codePostale");
         String ville = request.getParameter("ville");
+        System.out.println("les param"+email+pwd+numRue+nom+date+ville);
         Adress adresse = new Adress(numRue,rue,codePostal,ville);
-        UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
-        Utilisateur user = userDAO.findByEmail(email);
-       // AdressDAOImpl adressDAO = new AdressDAOImpl();
-       // Adress adress = adressDAO.save(adresse);
-        user.setAccountStatus("actif");
-        user.setAccountType("normal");
-        user.setAdress(adresse);
-        user.setNom(nom);
-        user.setPrenom(prenom);
-        user.setPassword(pwd);
-        user.setTelephone(telephone);
+        Utilisateur user = new Utilisateur(email,pwd,nom,prenom,telephone,date,statut,type,adresse);
+        userDAO.save(user);
         request.getSession().setAttribute("userBean", user);
         request.getSession().setAttribute("adressBean", user.getAdress());
-        request.getRequestDispatcher("/admin/editUser.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/addUser.jsp").forward(request, response);		
 	}
-
 }

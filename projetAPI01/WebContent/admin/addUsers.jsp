@@ -20,7 +20,7 @@
         <div id="header" class="jumbotron">
             <h1>Creation d'un nouvel utilisateur</h1>
         </div>
-        <form method="POST" action="inscription">
+        <form method="POST" action="/projetAPI01/admin/addUser">
             <div class="form-group">
                 <label for="surname">Nom</label>
                 <input type="text" name="nom" class="form-control" id="nom" placeholder="Entrez le nom">
@@ -47,7 +47,7 @@
 			</div>
             <div class="form-group">
                 <label for="numRue">Numero de rue</label>
-                <input type="text" name="numRue" class="form-control" id="numRue" placeholder="Entrez le num�ro de le rue">
+                <input type="text" name="numRue" class="form-control" id="numRue" placeholder="Entrez le numero de le rue">
             </div>
             <div class="form-group">
                 <label for="rue">Rue</label>
@@ -60,6 +60,16 @@
             <div class="form-group">
                 <label for="ville">Ville</label>
                 <input type="text" name="ville" class="form-control" id="ville" placeholder="Entrez la ville">
+            </div>
+            <div class="form-group">
+                <label for="statut" required="false">Statut</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Actif</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Inactif</label>
+            </div>
+            <div class="form-group">
+                <label for="type" required="false">Type</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Admin</label>
+                <label class="radio-inline"><input type="radio" name="optradio">Normal</label>
             </div>
             <button type="submit" class="btn btn-default">Sauvegarder</button>
         </form>    

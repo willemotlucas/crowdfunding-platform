@@ -114,6 +114,14 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>NewUserServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.NewUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewUserServlet</servlet-name>
+    <url-pattern>/inscription</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ManageUsersServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.ManageUsersServlet</servlet-class>
   </servlet>
@@ -138,12 +146,20 @@
     <url-pattern>/admin/editUser</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>NewUserServlet</servlet-name>
-    <servlet-class>com.utc.projetAPI01.servlets.NewUserServlet</servlet-class>
+    <servlet-name>AddUserServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>NewUserServlet</servlet-name>
-    <url-pattern>/inscription</url-pattern>
+    <servlet-name>AddUserServlet</servlet-name>
+    <url-pattern>/admin/addUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RemoveUserServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.RemoveUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveUserServlet</servlet-name>
+    <url-pattern>/admin/removeUser</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>NormalUserFilter</filter-name>
