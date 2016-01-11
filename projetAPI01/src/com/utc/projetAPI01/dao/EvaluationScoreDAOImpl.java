@@ -8,6 +8,7 @@ import org.hibernate.Query;
 
 import com.utc.projetAPI01.beans.Discussion;
 import com.utc.projetAPI01.beans.EvaluationScore;
+import com.utc.projetAPI01.beans.MakeFund;
 import com.utc.projetAPI01.beans.Utilisateur;
 
 public class EvaluationScoreDAOImpl extends DAOAbstract<EvaluationScore>{
@@ -46,5 +47,23 @@ public class EvaluationScoreDAOImpl extends DAOAbstract<EvaluationScore>{
 	    	e.printStackTrace();
 	    }
 		return evaluations;
+	}
+	
+	public EvaluationScore findByUserAndEvaluation(Utilisateur user, int idEvaluation){
+		EvaluationScore evaluationScore = null;
+		
+		try
+	    {
+	    	Query query = session.createQuery("from " + objName +" m where utilisateur = :idUser and evaluation = :idEvaluation");
+	    	query.setInteger("idUser", user.getId());
+	    	query.setInteger("idEvaluation", idEvaluation);
+	    	evaluationScore = (EvaluationScore) query.uniqueResult();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		
+		return evaluationScore;
 	}
 }

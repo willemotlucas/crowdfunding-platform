@@ -101,13 +101,21 @@
     <servlet-name>AddThumbsServlet</servlet-name>
     <url-pattern>/user/thumbs/add</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>AddPledgeServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.AddPledgeServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>AddPledgeServlet</servlet-name>
     <url-pattern>/user/fund/add</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddEvaluationServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddEvaluationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEvaluationServlet</servlet-name>
+    <url-pattern>/user/evaluation/add</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>AddIdeaServlet</servlet-name>

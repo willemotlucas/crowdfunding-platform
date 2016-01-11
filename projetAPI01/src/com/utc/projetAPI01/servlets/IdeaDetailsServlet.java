@@ -101,6 +101,8 @@ public class IdeaDetailsServlet extends HttpServlet {
 			Evaluation evaluation = evaluationDAO.findByContext(context.getId());
 			System.out.println("evaluation id : " + evaluation.getId());
 			List<EvaluationScore> evaluationScores = evaluationScoreDAO.findByIdeaInEvaluation(evaluation.getId());
+			
+			//Calculate mean of each mark
 			if(!evaluationScores.isEmpty()){
 				float feasibility = 0;
 				float impact = 0;
@@ -124,6 +126,15 @@ public class IdeaDetailsServlet extends HttpServlet {
 				request.setAttribute("marketInterest", String.format("%.2f", market));
 				request.setAttribute("impact", String.format("%.2f", impact));
 				request.setAttribute("mean", String.format("%.2f", mean));
+			}
+			
+			EvaluationScore evaluationScoreGiven = evaluationScoreDAO.findByUserAndEvaluation(currentUser, evaluation.getId());
+			//Check if the current user already evaluated the idea
+			if(evaluationScoreGiven != null){ //User never voted for this discussion
+				System.out.println("evaluation score  already given !!");	
+				request.setAttribute("evaluationScoreGiven", evaluationScoreGiven);
+			} else {
+				System.out.println("evaluation score never given !");	
 			}
 			
 			request.setAttribute("evaluation", evaluation);
