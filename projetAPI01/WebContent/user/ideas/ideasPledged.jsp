@@ -63,7 +63,7 @@
 									<td>${pledge.fund.context.idea.proposedDate}</td>
 									<td>${pledge.fund.context.idea.fundingRequested} euros</td>
 									<td>${pledge.amount} euros</td>
-									<td><a href="/projetAPI01/user/ideaDetails?id=${entry.key.id}" class="btn btn-success" role="button">Voir</a></td>
+									<td><a href="/projetAPI01/user/ideaDetails?id=${pledge.fund.context.idea.id}" class="btn btn-success" role="button">Voir</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>

@@ -120,13 +120,10 @@ public class IdeaDetailsServlet extends HttpServlet {
 				market = market/evaluationScores.size();
 				mean = mean/evaluationScores.size();
 				
-				System.out.println("faisability : " + feasibility);
-				System.out.println("market : " + market);
-				System.out.println("impact : " + impact);
-				request.setAttribute("feasibility", feasibility);
-				request.setAttribute("marketInterest", market);
-				request.setAttribute("impact", impact);
-				request.setAttribute("mean", mean);
+				request.setAttribute("feasibility", String.format("%.2f", feasibility));
+				request.setAttribute("marketInterest", String.format("%.2f", market));
+				request.setAttribute("impact", String.format("%.2f", impact));
+				request.setAttribute("mean", String.format("%.2f", mean));
 			}
 			
 			request.setAttribute("evaluation", evaluation);
@@ -139,6 +136,14 @@ public class IdeaDetailsServlet extends HttpServlet {
 			
 			Fund fund = fundDAO.findByContext(context.getId());
 			Long amountCollected = makeFundDAO.findCollectedAmountByFund(fund.getId());
+			MakeFund makeFund = makeFundDAO.findByUserAndFund(currentUser, fund.getId());
+			
+			if(makeFund != null){
+				System.out.println("fund already done !!");
+				request.setAttribute("makeFund", makeFund);
+			} else {
+				System.out.println("fund never done !");
+			}
 			
 			request.setAttribute("amountCollected", amountCollected.intValue());
 		}

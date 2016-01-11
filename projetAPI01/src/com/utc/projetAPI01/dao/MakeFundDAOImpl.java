@@ -49,5 +49,23 @@ public class MakeFundDAOImpl extends DAOAbstract<MakeFund>{
 	    }
 		return funds;
 	}
+	
+	public MakeFund findByUserAndFund(Utilisateur user, int idFund){
+		MakeFund makeFund = null;
+		
+		try
+	    {
+	    	Query query = session.createQuery("from " + objName +" m where utilisateur = :idUser and fund = :idFund");
+	    	query.setInteger("idUser", user.getId());
+	    	query.setInteger("idFund", idFund);
+	    	makeFund = (MakeFund) query.uniqueResult();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		
+		return makeFund;
+	}
 
 }
