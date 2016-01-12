@@ -18,13 +18,12 @@
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
 </head>
 <body>
-	<jsp:include page="templates/menu.jsp"/>
+	<jsp:include page="/admin/templates/menu.jsp"/>
 	<div class="container">
-		<div class="page-header">
-		   <h1>Gestion des utilisateurs</h1>
+		<div class="row">
+		   <h1 class="page-header">Gestion des utilisateurs</h1>
 		</div>
 	
-	<div class="row">
 		<script>$(document).ready(function() {
 		    $('#manageUsers').DataTable();
 		} );</script>
@@ -33,7 +32,7 @@
 	 		<h2>Liste des utilisateurs de l'application</h2>
 	 	</div>
 	 	<div class="row">
-			<a href="/projetAPI01/admin/addUserForm.jsp" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter un utilisateur</a>
+			<a href="/projetAPI01/admin/users/addUserForm.jsp" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter un utilisateur</a>
 	    </div>
 	    <div class="row">
 			<c:choose>
@@ -83,7 +82,6 @@
 				</c:otherwise> 
 			</c:choose>
 		</div>
-	</div>	
 	</div>
 
 </body>

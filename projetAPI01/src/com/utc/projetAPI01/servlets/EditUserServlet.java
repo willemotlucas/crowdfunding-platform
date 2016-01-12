@@ -47,7 +47,7 @@ public class EditUserServlet extends HttpServlet {
 		if(user != null){
 			request.setAttribute("userBean", user);
 			request.setAttribute("adressBean", user.getAdress());
-			request.getRequestDispatcher("/admin/editUserForm.jsp").forward(request, response);
+			request.getRequestDispatcher("/admin/users/editUserForm.jsp").forward(request, response);
 		}
 	}
 
@@ -61,12 +61,10 @@ public class EditUserServlet extends HttpServlet {
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         int idUser = Integer.parseInt(request.getParameter("id"));
         Utilisateur user = userDAO.findById(idUser);
+        String emailOriginal = user.getEmail();
 
         String email = request.getParameter("email");
         Utilisateur emailUsed = userDAO.findByEmail(email);
-
-        Utilisateur userSession = (Utilisateur) request.getSession().getAttribute("userSession");
-        String emailSession = userSession.getEmail();
         
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
@@ -83,8 +81,9 @@ public class EditUserServlet extends HttpServlet {
 			&& telephone.length() <= 15
 			&& statut.length() <= 10
 			&& type.length() <= 20
-			&& pwd == confPass
-			&& ((emailSession == email) || emailUsed == null) ) {
+			&& pwd.equals(confPass)
+			&& ((emailOriginal.equals(email)) || emailUsed.equals(null)) 
+			) {
 
 	        user.setNom(nom);
 	        user.setPrenom(prenom);
@@ -118,12 +117,16 @@ public class EditUserServlet extends HttpServlet {
 
 	        user.setAdress(adress);
 	        
+	        
 			userDAO.save(user);
 	        request.getSession().setAttribute("userBean", user);
 	        request.getSession().setAttribute("adressBean", user.getAdress());
-	        request.getRequestDispatcher("/admin/editUserResult.jsp").forward(request, response);
+	        request.getRequestDispatcher("/admin/users/editUserResult.jsp").forward(request, response);
 			
 		}
+		request.setAttribute("error","Erreur : Vous n'avez pas respecté les contraintes des champs");
+		doGet(request, response);
+		
 	}
 		
 

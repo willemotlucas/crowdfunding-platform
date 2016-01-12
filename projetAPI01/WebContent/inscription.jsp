@@ -35,7 +35,7 @@
 			</div>
 			<div class="form-group">
 				<label for="password">Mot De Passe</label>
-				<input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe (6 charactères min)">
+				<input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe (6 caractères min)">
 			</div>
 			<div class="form-group">
 				<label for="confPass">Confirmation</label>
