@@ -23,6 +23,9 @@
         <div id="header" class="jumbotron">
             <h1>Edition de l'utilisateur ayant l'ID : <jsp:getProperty name="userBean" property="id" /></h1>
         </div>
+        <div class="alert alert-warning">
+            ${error}
+        </div>   
         <form method="POST" action="editUser">
         	<input type="hidden" name="id" value="<jsp:getProperty name="userBean" property="id" />">
             <div>
@@ -39,7 +42,7 @@
 			</div>
             <div class="form-group">
                 <label for="password">Mot De Passe</label>
-                <input type="password" name="password" class="form-control" id="password" value="<jsp:getProperty name="userBean" property="password" />" placeholder="Entrez le mot de passe">
+                <input type="password" name="password" class="form-control" id="password" value="<jsp:getProperty name="userBean" property="password" />" placeholder="Entrez le mot de passe (6 characteres min)">
             </div>
             <div class="form-group">
                 <label for="confPass">Confirmation</label>
@@ -67,13 +70,17 @@
             </div>
             <div class="form-group">
                 <label for="statut">Statut</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Actif</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Inactif</label>
+                <select name="statut" class="form-control">
+                    <option value="Actif">Actif</option>
+                    <option value="Inactif">Inactif</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="type">Type</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Admin</label>
-                <label class="radio-inline"><input type="radio" name="optradio">Normal</label>
+                <select name="type" class="form-control">
+                    <option value="Normal">Normal</option>
+                    <option value="Admin">Admin</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-default">Valider les modifications</button>
         </form>    

@@ -47,7 +47,7 @@ public class ManageUsersServlet extends HttpServlet {
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         List<Utilisateur> allUsers = userDAO.findAll();
         request.getSession().setAttribute("allUsers", allUsers);
-        request.getRequestDispatcher("/admin/manageUsers.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/users/manageUsers.jsp").forward(request, response);
         }
 
     /**
