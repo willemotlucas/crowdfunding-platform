@@ -2,6 +2,7 @@ package com.utc.projetAPI01.servlets;
 
 import com.utc.projetAPI01.beans.*;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,11 @@ import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 @WebServlet("/IdeaDetailsServlet")
 public class IdeaDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final long DAY_IN_MILLIS = 1000 * 60 * 60 * 24;	
+	private static final int NB_DAYS_REDACTION = 10;
+	private static final int NB_DAYS_EVALUATION = 10;
+	private static final int NB_DAYS_FUNDING = 20;
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -48,17 +54,22 @@ public class IdeaDetailsServlet extends HttpServlet {
 		IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
 		PhaseContextDAOImpl contextDAO = new PhaseContextDAOImpl();
 		CommentsDAOImpl commentsDAO = new CommentsDAOImpl();
+		MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
 
+		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 		Idea idea = ideaDAO.findById(Integer.parseInt(request.getParameter("id")));
 		PhaseContext context = contextDAO.findByIdea(idea.getId());
 		List<Comments> comments = commentsDAO.findByIdea(idea.getId());
-		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
+		int nbIdeasProposed = ideaDAO.findNbIdeaByUser(currentUser);
+		int nbMakeFund = makeFundDAO.findNbMakeFundByUser(currentUser);
 
 		request.setAttribute("idea", idea);
 		request.setAttribute("idIdea", idea.getId());
 		request.setAttribute("context", context);
 		request.setAttribute("creator", idea.getMadeBy());
 		request.setAttribute("comments", comments);
+		request.setAttribute("nbIdeasProposed", nbIdeasProposed);
+		request.setAttribute("nbMakeFund", nbMakeFund);
 		
 		//Check the phase of the idea in order to display right details and perform right redirection
 		//The idea requested is in discussion phase
@@ -90,6 +101,13 @@ public class IdeaDetailsServlet extends HttpServlet {
 			RedactionDAOImpl redactionDAO = new RedactionDAOImpl();
 			
 			Redaction redaction = redactionDAO.findByContext(context.getId());
+			int nbDaysSincePhase = (int) ((new Date().getTime() - redaction.getDatePhase().getTime()) / DAY_IN_MILLIS);
+			int nbDaysRemains = NB_DAYS_REDACTION - nbDaysSincePhase;
+			if(nbDaysRemains < 0){
+				nbDaysRemains = 0;
+			}
+			
+			request.setAttribute("nbDaysRemains", nbDaysRemains);
 			request.setAttribute("redaction", redaction);
 		}
 		
@@ -101,6 +119,12 @@ public class IdeaDetailsServlet extends HttpServlet {
 			Evaluation evaluation = evaluationDAO.findByContext(context.getId());
 			System.out.println("evaluation id : " + evaluation.getId());
 			List<EvaluationScore> evaluationScores = evaluationScoreDAO.findByIdeaInEvaluation(evaluation.getId());
+			int nbDaysSincePhase = (int) ((new Date().getTime() - evaluation.getDatePhase().getTime()) / DAY_IN_MILLIS);
+			int nbDaysRemains = NB_DAYS_EVALUATION - nbDaysSincePhase;
+			if(nbDaysRemains < 0){
+				nbDaysRemains = 0;
+			}
+			request.setAttribute("nbDaysRemains", nbDaysRemains);
 			
 			//Calculate mean of each mark
 			if(!evaluationScores.isEmpty()){
@@ -143,11 +167,17 @@ public class IdeaDetailsServlet extends HttpServlet {
 		//The idea requested is in funding phase
 		else if(context.getCurrentPhase().equals("fund")){
 			FundDAOImpl fundDAO = new FundDAOImpl();
-			MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
 			
 			Fund fund = fundDAO.findByContext(context.getId());
 			Long amountCollected = makeFundDAO.findCollectedAmountByFund(fund.getId());
 			MakeFund makeFund = makeFundDAO.findByUserAndFund(currentUser, fund.getId());
+			int nbPledge = makeFundDAO.findNbMakeFundByFund(fund.getId());
+			
+			int nbDaysSincePhase = (int) ((new Date().getTime() - fund.getDatePhase().getTime()) / DAY_IN_MILLIS);
+			int nbDaysRemains = NB_DAYS_FUNDING - nbDaysSincePhase;
+			if(nbDaysRemains < 0){
+				nbDaysRemains = 0;
+			}
 			
 			if(makeFund != null){
 				System.out.println("fund already done !!");
@@ -156,6 +186,8 @@ public class IdeaDetailsServlet extends HttpServlet {
 				System.out.println("fund never done !");
 			}
 			
+			request.setAttribute("nbDaysRemains", nbDaysRemains);
+			request.setAttribute("nbPledge", nbPledge);
 			request.setAttribute("amountCollected", amountCollected.intValue());
 		}
 		

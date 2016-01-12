@@ -1,0 +1,32 @@
+.row {
+	padding-bottom: 20px;
+}
+
+.navbar {
+	margin-bottom: 0px;
+}
+
+.ideaDetails {
+	background-color: #F7FAFA;
+}
+
+h2.bar-details{
+	font-size: 40px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+h2.bar-details > span {
+	font-size: 30px;
+}
+
+p.sub-details {
+	color: #9F97A4;
+}
+
+.thumbnail {
+	background-color: transparent;
+	border: 0px solid #ddd;
+    border-radius: 0px;
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.075);
+}

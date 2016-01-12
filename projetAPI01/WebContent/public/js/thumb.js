@@ -6,6 +6,8 @@ $(document).ready(function(){
 			$('#positiveScore').text(" " + positiveScore);
 			var newScore = parseInt($('#score').html()) + 1;
 			$('#score').html(newScore);
+			var newNbVotants = parseInt($('#nbVotants').html()) + 1;
+			$('#nbVotants').html(newNbVotants);
 			
 			//Make the post request in ajax
 			//Retrieve the idea's id in the url

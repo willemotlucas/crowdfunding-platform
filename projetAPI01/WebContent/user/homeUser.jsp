@@ -29,18 +29,18 @@
 		<div class="row">
 			<c:forEach items="${last3ideasProposed}" var="idea">
 				<div class="col-lg-4 col-sm-4 col-md-4">
-			    <div class="thumbnail">
-			    	<img src="http://placehold.it/500x300">
-			      <div class="caption">
-			      	<div class="page-header">
-			        	<h3>${idea.name}</h3>
-			        	<h3><small>proposée par ${idea.madeBy.prenom} ${idea.madeBy.nom}</small></h3>
-					</div>
-			        <p>${idea.shortDescription }</p>
-			        <h4>Montant demandé : ${idea.fundingRequested} euros</h4>
-			        <p><a href="/projetAPI01/user/ideaDetails?id=${idea.id}" class="btn btn-success" role="button">Plus de détails</a></p>
-			      </div>
-			    </div>
+				    <div class="thumbnail">
+				    	<img src="http://placehold.it/500x300">
+				      <div class="caption">
+				      	<div class="page-header">
+				        	<h3>${idea.name}</h3>
+				        	<h3><small>proposée par ${idea.madeBy.prenom} ${idea.madeBy.nom}</small></h3>
+						</div>
+				        <p>${idea.shortDescription }</p>
+				        <h4>Montant demandé : ${idea.fundingRequested} euros</h4>
+				        <p><a href="/projetAPI01/user/ideaDetails?id=${idea.id}" class="btn btn-success" role="button">Plus de détails</a></p>
+				      </div>
+				    </div>
 			  </div>
 			</c:forEach>
 		</div>

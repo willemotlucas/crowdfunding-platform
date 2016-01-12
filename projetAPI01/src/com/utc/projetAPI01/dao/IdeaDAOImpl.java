@@ -85,5 +85,25 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	    	e.printStackTrace();
 	    }
 		return ideas;
-	}	
+	}
+	
+	public int findNbIdeaByUser(Utilisateur user){
+		int nbIdeas = 0;
+		
+	    try
+	    {
+	    	Query query = session.createQuery("select count(*) from " + objName +" where madeBy = :userId");
+	    	query.setInteger("userId", user.getId());
+	    	try{
+	    		nbIdeas = ((Long) query.iterate().next()).intValue();
+	    	}catch(Exception e){
+	    		nbIdeas = 0;
+	    	}
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return nbIdeas;
+	}
 }

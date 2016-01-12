@@ -21,6 +21,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+	<script src="/projetAPI01/public/js/deleteIdea.js"></script>
 
 </head>
 <body>
@@ -58,14 +59,14 @@
 						</thead>
 						<tbody>
 							<c:forEach var="entry" items="${ideas}">
-								<tr>
+								<tr id="${entry.key.id}">
 									<td>${entry.key.name}</td>
 									<td>${entry.value.currentPhase}</td>
 									<td>${entry.key.proposedDate}</td>
 									<td>${entry.key.fundingRequested} euros</td>
 									<td><a href="/projetAPI01/user/ideaDetails?id=${entry.key.id}" class="btn btn-success" role="button">Voir</a></td>
 									<td><a href="/projetAPI01/user/idea/edit?id=${entry.key.id}" class="btn btn-primary" role="button">Modifier</a></td>
-									<td><a href="/projetAPI01/user/idea/delete" class="btn btn-danger" role="button">Supprimer</a></td>
+									<td><a id="${entry.key.id}" class="btn btn-danger deleteIdea" role="button">Supprimer</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
