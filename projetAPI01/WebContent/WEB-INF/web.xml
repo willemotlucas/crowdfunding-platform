@@ -166,14 +166,6 @@
     <url-pattern>/admin/manageUsers</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>EditUsersServlet</servlet-name>
-    <servlet-class>com.utc.projetAPI01.servlets.EditUsersServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EditUsersServlet</servlet-name>
-    <url-pattern>/admin/editUsers</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>EditUserServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.EditUserServlet</servlet-class>
   </servlet>

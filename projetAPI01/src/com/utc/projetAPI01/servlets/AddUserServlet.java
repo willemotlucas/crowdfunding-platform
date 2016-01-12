@@ -65,6 +65,6 @@ public class AddUserServlet extends HttpServlet {
         userDAO.save(user);
         request.getSession().setAttribute("userBean", user);
         request.getSession().setAttribute("adressBean", user.getAdress());
-        request.getRequestDispatcher("/admin/addUser.jsp").forward(request, response);		
+        request.getRequestDispatcher("/admin/addUserResult.jsp").forward(request, response);		
 	}
 }
