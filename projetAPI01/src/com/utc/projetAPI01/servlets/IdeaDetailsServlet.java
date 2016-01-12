@@ -159,7 +159,15 @@ public class IdeaDetailsServlet extends HttpServlet {
 			request.setAttribute("amountCollected", amountCollected.intValue());
 		}
 		
-		request.getRequestDispatcher("/user/details/" + context.getCurrentPhase() + "Details.jsp").forward(request, response);
+		if(currentUser.getAccountType().equals("normalUser"))
+		{
+			request.getRequestDispatcher("/user/details/" + context.getCurrentPhase() + "Details.jsp").forward(request, response);
+		}
+		else
+		{
+			request.getRequestDispatcher("/admin/details/" + context.getCurrentPhase() + "Details.jsp").forward(request, response);
+		}
+		
 	}
 
 	/**

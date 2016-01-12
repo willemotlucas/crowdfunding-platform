@@ -41,6 +41,10 @@
     <servlet-name>IdeaDetailsServlet</servlet-name>
     <url-pattern>/user/ideaDetails</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>IdeaDetailsServlet</servlet-name>
+    <url-pattern>/admin/ideaDetails</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>SearchIdeaServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.SearchIdeaServlet</servlet-class>
@@ -101,6 +105,10 @@
     <servlet-name>AddThumbsServlet</servlet-name>
     <url-pattern>/user/thumbs/add</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddThumbsServlet</servlet-name>
+    <url-pattern>/admin/thumbs/add</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>AddPledgeServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.AddPledgeServlet</servlet-class>
@@ -116,6 +124,10 @@
   <servlet-mapping>
     <servlet-name>AddEvaluationServlet</servlet-name>
     <url-pattern>/user/evaluation/add</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddEvaluationServlet</servlet-name>
+    <url-pattern>/admin/evaluation/add</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>AddIdeaServlet</servlet-name>
@@ -164,6 +176,14 @@
   <servlet-mapping>
     <servlet-name>ManageUsersServlet</servlet-name>
     <url-pattern>/admin/manageUsers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ManageIdeasServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.ManageIdeasServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageIdeasServlet</servlet-name>
+    <url-pattern>/admin/manageIdeas</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>EditUsersServlet</servlet-name>

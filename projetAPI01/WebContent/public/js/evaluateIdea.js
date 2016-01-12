@@ -4,9 +4,6 @@ $(document).ready(function(){
 			var feasibility = parseInt($('#feasibility').val());
 			var marketInterest = parseInt($('#marketInterest').val());
 			var impact = parseInt($('#impact').val());
-			console.log('feasi : ' + feasibility);
-			console.log('market : ' + marketInterest);
-			console.log('imapct : ' + impact);
 			
 			if(feasibility >= 0 && feasibility <= 10 && $.isNumeric(feasibility)
 			&& marketInterest >= 0 && marketInterest <= 10 && $.isNumeric(marketInterest)
