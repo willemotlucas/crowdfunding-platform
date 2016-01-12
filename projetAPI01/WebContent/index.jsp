@@ -11,26 +11,55 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	
+    <!-- Bootstrap Core CSS -->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
-<body>
-	<div class="container">
+<body>		
+		<div class="container">
 		<div id="header" class="jumbotron">
 			<h1>Bienvenue à Lunch-My-Idea</h1>
 		</div>
-		<form method="POST" action="login">
-			<div class="form-group">
-				<label for="email">Login</label>
-				<input type="text" name="email" class="form-control" id="login" placeholder="Entrez votre email">
-			</div>
-			<div class="form-group">
-				<label for="password">Mot de Passe</label>
-				<input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
-			</div>
-			<button type="submit" class="btn btn-default">Se connecter</button>
-		</form>	
-		<p>Pas encore de compte utilisateur ? <a href="inscription.jsp">Inscrivez-vous !</a></p>
-		</div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Please Sign In</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" method="POST" action="login">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Login" name="email" type="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                    </label>
+                                </div>
+								<button type="submit" class="btn btn-default">Se connecter</button>
+                            </fieldset>
+                        </form>
+                        
+						<p>Pas encore de compte utilisateur ? <a href="inscription.jsp">Inscrivez-vous !</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
