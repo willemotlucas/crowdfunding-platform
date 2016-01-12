@@ -35,37 +35,15 @@ public class RemoveUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        System.out.println("edit user");
+        System.out.println("remove user");
 
-        String email = request.getParameter("email");
-        String pwd = request.getParameter("pwd");
-        String nom = request.getParameter("nom");
-        String prenom = request.getParameter("prenom");
-        String telephone = request.getParameter("telephone");
-        
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy");
-        Date date;
-		try {
-			date = (Date) formatter.parse(request.getParameter("date"));
-		
-        String statut = request.getParameter("statut");
-        String type = request.getParameter("type");
-        Integer numRue = Integer.parseInt(request.getParameter("num"));
-        String rue = request.getParameter("rue");
-        String codePostal = request.getParameter("cp");
-        String ville = request.getParameter("ville");
-        Adress adresse = new Adress(numRue,rue,codePostal,ville);
-        Utilisateur user = new Utilisateur(email,pwd,nom,prenom,telephone,date,statut,type,adresse);
-        
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        int idUser = Integer.parseInt(request.getParameter("id"));
+        Utilisateur user = userDAO.findById(idUser);
         userDAO.delete(user);
         request.getSession().setAttribute("userBean", user);
         request.getSession().setAttribute("adressBean", user.getAdress());
         request.getRequestDispatcher("/admin/removeUser.jsp").forward(request, response);
-        } catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	/**
