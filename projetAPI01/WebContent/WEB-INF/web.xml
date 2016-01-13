@@ -194,12 +194,12 @@
     <url-pattern>/admin/manageIdeas</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>EditUserServlet</servlet-name>
-    <servlet-class>com.utc.projetAPI01.servlets.EditUserServlet</servlet-class>
+    <servlet-name>ManageFundsServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.ManageFundsServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>EditUserServlet</servlet-name>
-    <url-pattern>/admin/editUser</url-pattern>
+    <servlet-name>ManageFundsServlet</servlet-name>
+    <url-pattern>/admin/manageFunds</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>AddUserServlet</servlet-name>
@@ -210,12 +210,60 @@
     <url-pattern>/admin/addUser</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>AddFundServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddFundServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddFundServlet</servlet-name>
+    <url-pattern>/admin/addFund</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SeeUserServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.SeeUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeeUserServlet</servlet-name>
+    <url-pattern>/admin/seeUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SeeFundServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.SeeFundServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeeFundServlet</servlet-name>
+    <url-pattern>/admin/seeFund</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditUserServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditUserServlet</servlet-name>
+    <url-pattern>/admin/editUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditFundServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditFundServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditFundServlet</servlet-name>
+    <url-pattern>/admin/editFund</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>RemoveUserServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.RemoveUserServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>RemoveUserServlet</servlet-name>
     <url-pattern>/admin/removeUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RemoveFundServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.RemoveFundServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveFundServlet</servlet-name>
+    <url-pattern>/admin/removeFund</url-pattern>
   </servlet-mapping>
   <filter>
     <filter-name>NormalUserFilter</filter-name>

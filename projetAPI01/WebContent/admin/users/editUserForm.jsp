@@ -32,7 +32,7 @@
 	            ${error}
 	        </div> 
         </c:if>
-        <form method="POST" action="editUser">
+		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="editUser">
         	<input type="hidden" name="id" value="<jsp:getProperty name="userBean" property="id" />">
             <div>
                 <label for="name">Nom</label>                
@@ -47,8 +47,8 @@
                 <div class="input-group">
                 	<span class="input-group-addon">@</span>
 	                <input type="text" name="email" class="form-control" id="email" value="<jsp:getProperty name="userBean" property="email" />" placeholder="Entrez l'email">
-	                <div class="help-block with-errors"></div>   
-                </div>
+	            </div>
+	           	<div class="help-block with-errors"></div>                   
             </div>
             <div class="form-group">
                 <label for="password">Mot De Passe</label>
@@ -81,6 +81,7 @@
             <div class="form-group">
                 <label for="statut">Statut</label>
                 <select name="statut" class="form-control">
+					<option selected disabled>Selectionnez le statut</option>
                     <option value="active">Actif</option>
                     <option value="inactive">Inactif</option>
                 </select>
@@ -88,6 +89,7 @@
             <div class="form-group">
                 <label for="type">Type</label>
                 <select name="type" class="form-control">
+					<option selected disabled>Selectionnez le type</option>
                     <option value="normalUser">Normal</option>
                     <option value="admin">Admin</option>
                 </select>

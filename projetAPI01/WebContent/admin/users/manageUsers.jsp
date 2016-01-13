@@ -68,7 +68,7 @@
 				                    <td>${user.accountStatus}</td>
 				                    <td>${user.accountType}</td>
 				                    <td>${user.adress.num} ${user.adress.rue} ${user.adress.codePostale} ${user.adress.ville}</td>
-									<td><a href="/projetAPI01/admin/editUser?id=${user.id}" class="btn btn-success" role="button">Voir</a></td>
+									<td><a href="/projetAPI01/admin/seeUser?id=${user.id}" class="btn btn-success" role="button">Voir</a></td>
 									<td><a href="/projetAPI01/admin/editUser?id=${user.id}" class="btn btn-primary" role="button">Modifier</a></td>
 									<td><a href="/projetAPI01/admin/removeUser?id=${user.id}" class="btn btn-danger" role="button">Supprimer</a></td>
 								</tr>

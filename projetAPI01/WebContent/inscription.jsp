@@ -46,8 +46,8 @@
                 <div class="input-group">
                 	<span class="input-group-addon">@</span>
 	                <input type="text" name="email" class="form-control" id="email" placeholder="Entrez l'email">
-	                <div class="help-block with-errors"></div>   
                 </div>
+	            <div class="help-block with-errors"></div>   
             </div>
             <div class="form-group">
                 <label for="password">Mot De Passe</label>
@@ -86,6 +86,7 @@
             <div class="form-group">
                 <label for="statut">Statut</label>
                 <select name="statut" id="statut" required class="form-control">
+					<option selected disabled>Selectionnez le statut</option>
                     <option value="active">Actif</option>
                     <option value="inactive">Inactif</option>
                 </select>
@@ -93,6 +94,7 @@
             <div class="form-group">
                 <label for="type">Type</label>
                 <select name="type" id="statut" required class="form-control">
+					<option selected disabled>Selectionnez le type</option>
                     <option value="normalUser">Normal</option>
                     <option value="admin">Admin</option>
                 </select>

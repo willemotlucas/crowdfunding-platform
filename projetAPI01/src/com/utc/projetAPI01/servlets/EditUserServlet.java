@@ -37,7 +37,7 @@ public class EditUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-        System.out.println("get all users of the application");
+        System.out.println("get user");
 
         //UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
