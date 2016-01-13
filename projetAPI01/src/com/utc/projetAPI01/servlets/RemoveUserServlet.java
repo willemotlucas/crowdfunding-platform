@@ -43,7 +43,7 @@ public class RemoveUserServlet extends HttpServlet {
         userDAO.delete(user);
         request.getSession().setAttribute("userBean", user);
         request.getSession().setAttribute("adressBean", user.getAdress());
-        request.getRequestDispatcher("/admin/removeUser.jsp").forward(request, response);
+        request.getRequestDispatcher("/admin/users/removeUser.jsp").forward(request, response);
 	}
 
 	/**
