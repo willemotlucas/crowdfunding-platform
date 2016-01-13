@@ -36,7 +36,7 @@
 			Mot de passe : <span class="marge"></span> <jsp:getProperty name="userBean" property="password" /></br>
 			Telephone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
 			Adresse : <span class="marge"></span> <jsp:getProperty name="adressBean" property="num" /> &nbsp; <jsp:getProperty name="adressBean" property="rue" /> &nbsp; </br>
-						<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>
+			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>
 			Statut : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountStatus" /></br>
 			Type : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountType" /></br>
 			Date de création : <span class="marge"></span> <jsp:getProperty name="userBean" property="dateCreation" /></br>

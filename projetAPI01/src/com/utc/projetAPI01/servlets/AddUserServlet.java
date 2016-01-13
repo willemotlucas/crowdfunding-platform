@@ -67,7 +67,7 @@ public class AddUserServlet extends HttpServlet {
 			&& statut.length() <= 10
 			&& type.length() <= 20
 			&& pwd.equals(confPass)
-			&& emailUsed.equals(null)
+			&& emailUsed == null
 			) {
     
 	        

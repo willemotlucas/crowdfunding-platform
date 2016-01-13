@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -16,16 +18,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script src="/projetAPI01/public/js/validator-min.js"></script>
 </head>
 <body>    
     <div class="container">
         <div id="header" class="jumbotron">
             <h1>Edition de l'utilisateur ayant l'ID : <jsp:getProperty name="userBean" property="id" /></h1>
         </div>
-        <div class="alert alert-warning">
-            ${error}
-        </div>   
+        <c:if test="${not empty error}">
+	        <div class="alert alert-warning">
+	            ${error}
+	        </div> 
+        </c:if>
         <form method="POST" action="editUser">
         	<input type="hidden" name="id" value="<jsp:getProperty name="userBean" property="id" />">
             <div>
@@ -36,10 +42,14 @@
                 <label for="surname">Prenom</label>
                 <input type="text" name="prenom" class="form-control" id="prenom" value="<jsp:getProperty name="userBean" property="prenom" />" placeholder="Entrez le prenom">
             </div>
-			<div class="form-group">
-				<label for="email">Email</label>
-				<input type="text" name="email" class="form-control" id="email" value="<jsp:getProperty name="userBean" property="email" />" placeholder="Entrez l'email">
-			</div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input-group">
+                	<span class="input-group-addon">@</span>
+	                <input type="text" name="email" class="form-control" id="email" value="<jsp:getProperty name="userBean" property="email" />" placeholder="Entrez l'email">
+	                <div class="help-block with-errors"></div>   
+                </div>
+            </div>
             <div class="form-group">
                 <label for="password">Mot De Passe</label>
                 <input type="password" name="password" class="form-control" id="password" value="<jsp:getProperty name="userBean" property="password" />" placeholder="Entrez le mot de passe (6 characteres min)">
@@ -71,15 +81,15 @@
             <div class="form-group">
                 <label for="statut">Statut</label>
                 <select name="statut" class="form-control">
-                    <option value="Actif">Actif</option>
-                    <option value="Inactif">Inactif</option>
+                    <option value="active">Actif</option>
+                    <option value="inactive">Inactif</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="type">Type</label>
                 <select name="type" class="form-control">
-                    <option value="Normal">Normal</option>
-                    <option value="Admin">Admin</option>
+                    <option value="normalUser">Normal</option>
+                    <option value="admin">Admin</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-default">Valider les modifications</button>

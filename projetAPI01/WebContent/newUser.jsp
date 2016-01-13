@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation de suppression de l'utilisateur</title>
+<title>Confirmation de creation de l'utilisateur</title>
 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
@@ -21,13 +21,14 @@
     <jsp:useBean id="adressBean" class="com.utc.projetAPI01.beans.Adress" scope="session" />
 </head>
 <body>
-	<jsp:include page="/admin/templates/menu.jsp"/>
 	<div class="container">
 		<div class="row">
-		   <h1 class="page-header">Suppression d'un utilisateur</h1>
+		   <h1 class="page-header">Ajout d'un utilisateur</h1>
 		</div>
 		<div class="page-header">
-			<h3> Vous avez bien supprimé l'utilisateur <jsp:getProperty name="userBean" property="email" /> avec les caractéristiques suivantes :</h3>
+			<h3> Vous avez bien ajouté l'utilisateur <jsp:getProperty name="userBean" property="email" /> de la maniere suivante :</h3>
+		</div>
+	 	<div class="row">
 			Nom : <span class="marge"></span> <jsp:getProperty name="userBean" property="nom" /></br>
 			Prenom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
 			Email : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
@@ -38,6 +39,11 @@
 			Statut : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountStatus" /></br>
 			Type : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountType" /></br>
 			Date de création : <span class="marge"></span> <jsp:getProperty name="userBean" property="dateCreation" /></br>
+		</div>
+	 	<div class="row">
+	 	</div>
+	 	<div class="row">
+			<a href="/projetAPI01/index.jsp" class="btn btn-success"><i class="fa fa-home"></i>&nbsp;&nbsp;Retour a l'accueil</a>
 		</div>
 	</div>
 </body>

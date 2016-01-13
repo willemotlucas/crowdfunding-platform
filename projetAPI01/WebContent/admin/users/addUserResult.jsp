@@ -27,7 +27,7 @@
 		   <h1 class="page-header">Ajout d'un utilisateur</h1>
 		</div>
 		<div class="page-header">
-			<h3> Vous avez bien modifié l'utilisateur <jsp:getProperty name="userBean" property="email" /> de la maniere suivante :</h3>
+			<h3> Vous avez bien ajouté l'utilisateur <jsp:getProperty name="userBean" property="email" /> de la maniere suivante :</h3>
 		</div>
 	 	<div class="row">
 			<h3> Vous avez bien ajouté l'utilisateur suivant :</h3>
@@ -36,8 +36,8 @@
 			Email : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
 			Mdp : <span class="marge"></span> <jsp:getProperty name="userBean" property="password" /></br>
 			Telephone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
-			Adresse : <span class="marge"></span> <jsp:getProperty name="adressBean" property="num" /> &nbsp; <jsp:getProperty name="adressBean" property="rue" /> &nbsp; 
-						<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>
+			Adresse : <span class="marge"></span> <jsp:getProperty name="adressBean" property="num" /> &nbsp; <jsp:getProperty name="adressBean" property="rue" /> &nbsp; </br>
+			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>
 			Statut : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountStatus" /></br>
 			Type : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountType" /></br>
 			Date de création : <span class="marge"></span> <jsp:getProperty name="userBean" property="dateCreation" /></br>

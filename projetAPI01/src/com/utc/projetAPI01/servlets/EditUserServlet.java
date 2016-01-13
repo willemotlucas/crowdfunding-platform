@@ -82,7 +82,7 @@ public class EditUserServlet extends HttpServlet {
 			&& statut.length() <= 10
 			&& type.length() <= 20
 			&& pwd.equals(confPass)
-			&& ((emailOriginal.equals(email)) || emailUsed.equals(null)) 
+			&& ((emailOriginal.equals(email)) || emailUsed == null) 
 			) {
 
 	        user.setNom(nom);
