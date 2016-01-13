@@ -1,6 +1,9 @@
 package com.utc.projetAPI01.servlets;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.util.Calendar;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.utc.projetAPI01.beans.Discussion;
 import com.utc.projetAPI01.beans.PhaseContext;
+import com.utc.projetAPI01.beans.Redaction;
 import com.utc.projetAPI01.beans.Thumb;
 import com.utc.projetAPI01.beans.Utilisateur;
 import com.utc.projetAPI01.dao.DiscussionDAOImpl;
 import com.utc.projetAPI01.dao.IdeaDAOImpl;
 import com.utc.projetAPI01.dao.PhaseContextDAOImpl;
+import com.utc.projetAPI01.dao.RedactionDAOImpl;
 import com.utc.projetAPI01.dao.ThumbDAOImpl;
 
 /**
@@ -60,6 +65,17 @@ public class AddThumbsServlet extends HttpServlet {
 				Thumb thumb = new Thumb(score, user, discussion);
 				System.out.println("trying to save thumbs");
 				thumbDAO.save(thumb);
+				
+				int totalScore = thumbDAO.findPositiveScoreByDiscussion(discussion.getId()) - thumbDAO.findNegativeScoreByDiscussion(discussion.getId());
+				System.out.println("score total : " + totalScore);
+				if(totalScore >= 10){
+					//Idea can pass in redaction phase
+					RedactionDAOImpl redactionDAO = new RedactionDAOImpl();
+					Redaction redaction = new Redaction(new Date(Calendar.getInstance().getTime().getTime()), context);
+					redactionDAO.save(redaction);
+					context.setCurrentPhase("redaction");
+					contextDAO.save(context);
+				}
 			} else {
 				System.out.println("user already voted for this idea !");
 			}

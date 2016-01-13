@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" 
+          uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,6 +38,16 @@
 			    <div class="help-block with-errors"></div>
 		    </div>
 		  </div>
+		  <c:if test="${not empty redaction}">
+		  	<div class="form-group">
+			    <label class="control-label col-sm-2" for="longDescription">Longue description de l'idée :</label>
+			    <div class="col-sm-10">
+			    	<textarea class="form-control" id="longDescription" name="longDescription" rows="3" cols="10" maxLength="255" data-minlength="5" required>${redaction.longDescription}</textarea>
+				    <div class="help-block with-errors"></div>
+			    </div>
+			  </div>
+		  </c:if>
+		  
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="applicationField">Catégorie de votre idée :</label>
 		    <div class="col-sm-10">

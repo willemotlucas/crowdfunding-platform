@@ -16,6 +16,10 @@ public class Redaction extends APhase{
 		this.longDescription = l;
 	}
 	
+	public Redaction(Date d, PhaseContext c){
+		super(d,c);
+	}
+	
 	public String getLongDescription() {
 		return longDescription;
 	}
