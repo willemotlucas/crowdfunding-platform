@@ -116,10 +116,9 @@ public class Test extends HttpServlet {
 	    
 	    out.println("<h1>Test</h1>");
 		
-	    out.println("<h1>Delete evaluation 5</h1>");
-		EvaluationDAOImpl evaluationDAO = new EvaluationDAOImpl();
-		Evaluation evaluation = evaluationDAO.findById(5);
-		evaluationDAO.delete(evaluation);
+	    out.println("<h1>Max nb comments</h1>");
+	    IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+	    Idea idea = ideaDAO.findByMaxComments();
 	}
 
 	/**

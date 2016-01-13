@@ -2,6 +2,7 @@ package com.utc.projetAPI01.servlets;
 
 import com.utc.projetAPI01.beans.*;
 import com.utc.projetAPI01.dao.IdeaDAOImpl;
+import com.utc.projetAPI01.dao.PhaseContextDAOImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,8 +33,28 @@ public class SearchIdeaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		if(request.getParameter("method").equals("applicationField")){
+			String search = request.getParameter("applicationField");
+			IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+			
+			List<Idea> results = ideaDAO.findByApplicationField((search));
+			System.out.println("results size : " + results.size());
+			request.setAttribute("results", results);
+			
+			request.getRequestDispatcher("/user/searchResults.jsp").forward(request, response);
+			
+		} else if(request.getParameter("method").equals("phase")){
+			String search = request.getParameter("currentPhase");
+			System.out.println("phase search : " + search);
+			PhaseContextDAOImpl contextDAO = new PhaseContextDAOImpl();
+			List<Idea> results = contextDAO.findIdeaByPhase(search);
+			request.setAttribute("results", results);
+			
+			request.getRequestDispatcher("/user/searchResults.jsp").forward(request, response);
+		}
+		else {
+			request.getRequestDispatcher(request.getContextPath());
+		}
 	}
 
 	/**

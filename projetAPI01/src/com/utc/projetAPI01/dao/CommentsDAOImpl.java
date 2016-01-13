@@ -51,4 +51,26 @@ public class CommentsDAOImpl extends DAOAbstract<Comments>{
 	    }
 		return comments;
 	}
+	
+	public int findNbCommentsByIdea(int idIdea){
+		int nbComments = 0;
+		try
+	    {
+	    	Query query1 = session.createQuery("select count(*) from " + objName +" where idea = :idIdea");
+	    	query1.setInteger("idIdea", idIdea);
+
+	    	try{
+	    		nbComments = ((Long) query1.iterate().next()).intValue();
+	    	}catch(Exception e){
+	    		nbComments = 0;
+	    	}
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		
+		return nbComments;
+	}
+	
 }

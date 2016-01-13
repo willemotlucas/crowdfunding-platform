@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 	
 	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -25,23 +26,35 @@
 		   <h1>Résultats de la recherche</h1>
 		</div>
 		
-		<div class="row">
-			<c:forEach items="${results}" var="idea">
-				<div class="col-lg-4 col-sm-4 col-md-4">
-			    <div class="thumbnail">
-			    	<img src="http://placehold.it/500x300">
-			      <div class="caption">
-			      	<div class="page-header">
-			        	<h3>${idea.name} - <small>proposée par ${idea.madeBy.prenom} ${idea.madeBy.nom}</small></h3>
-					</div>
-			        <p>${idea.shortDescription }</p>
-			        <h4>Montant demandé : ${idea.fundingRequested} euros</h4>
-			        <p><a href="/projetAPI01/user/ideaDetails?id=${idea.id}" class="btn btn-success" role="button">Plus de détails</a></p>
-			      </div>
-			    </div>
-			  </div>
-			</c:forEach>
-		</div>
+		<c:choose>
+			<c:when test="${not empty results}">
+				<div id="thumbnailGrid" class="row">
+					<c:set var="count" value="0" scope="page" />
+					<c:forEach items="${results}" var="idea">
+							<div class="col-lg-4 col-sm-4 col-md-4">
+							    <div class="thumbnail">
+							    	<img src="http://placehold.it/500x300">
+							      <div class="caption">
+							      	<div class="page-header">
+							        	<h3>${idea.name} - <small>proposée par ${idea.madeBy.prenom} ${idea.madeBy.nom}</small></h3>
+									</div>
+							        <p>${idea.shortDescription }</p>
+							        <h4>Montant demandé : ${idea.fundingRequested} euros</h4>
+							        <p><a href="/projetAPI01/user/ideaDetails?id=${idea.id}" class="btn btn-success" role="button">Plus de détails</a></p>
+							      </div>
+							    </div>
+						 	</div>
+						 	<c:set var="count" value="${count + 1}" scope="page"/>
+						 	<c:if test="${count%3 ==0}">
+						 		<div class="clearfix visible-lg-block visible-md-block"></div>
+						 	</c:if>	
+					</c:forEach>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<h2>Aucun résultat</h2>
+			</c:otherwise>
+		</c:choose>
 	</div>
 </body>
 </html>
