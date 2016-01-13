@@ -15,7 +15,16 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="/projetAPI01/user/homepage">Accueil <span class="sr-only">(current)</span></a></li>
-        <li><a href="/projetAPI01/user/ideas/proposed">Mes idées</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gestion des idées<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/projetAPI01/user/ideas/proposed">Mes idées proposées</a></li>
+            <li><a href="/projetAPI01/user/ideas/evaluated">Les idées évaluées</a></li>
+            <li><a href="/projetAPI01/user/ideas/pledged">Les idées financées</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/projetAPI01/user/comments/posted">Mes commentaires</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="navbar-form navbar-left" role="search" method="POST" action="/projetAPI01/search">
         <div class="form-group">

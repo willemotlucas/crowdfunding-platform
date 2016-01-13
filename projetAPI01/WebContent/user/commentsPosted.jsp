@@ -26,19 +26,8 @@
 <body>
 	<script>$(document).ready(function() {$('#commentsPosted').DataTable();});</script>
 	<jsp:include page="templates/menu.jsp"/>
-	<div id="wrapper">
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper">
-			<ul class="nav nav-pills nav-stacked">
-			  <li role="presentation"><a href="/projetAPI01/user/ideas/proposed">Idées proposées</a></li>
-			  <li role="presentation"><a href="/projetAPI01/user/ideas/evaluated">Idées evaluées</a></li>
-			  <li role="presentation"><a href="/projetAPI01/user/ideas/pledged">Idées financées</a></li>
-			  <li role="presentation" class="active"><a href="/projetAPI01/user/comments/posted">Commentaires postés</a></li>
-			</ul>
-		</div>
-		<!-- /#sidebar-wrapper -->
 				
-		 <div id="page-content-wrapper">
+		 <div class="container">
 		 	<div class="page-header">
 		 		<h1>Liste des commentaires postés</h1>
 		 	</div>
@@ -73,6 +62,5 @@
 				</c:otherwise> 
 			</c:choose>
 		 </div>
-	</div>
 </body>
 </html>

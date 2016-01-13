@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projections;
 
 import com.utc.projetAPI01.beans.Discussion;
 import com.utc.projetAPI01.beans.Idea;
@@ -105,5 +107,21 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	    	e.printStackTrace();
 	    }
 		return nbIdeas;
+	}
+	
+	public Idea findByMaxComments(){
+		Idea idea = null;
+		
+	    try
+	    {
+	    	String sql = "SELECT idea FROM ( SELECT idea, count(*) as nbComments FROM comments GROUP BY idea ORDER BY nbComments DESC) res";
+	    	Integer idIdea = (Integer) session.createSQLQuery(sql).setMaxResults(1).uniqueResult();
+	    	idea = this.findById(idIdea);
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return idea;
 	}
 }

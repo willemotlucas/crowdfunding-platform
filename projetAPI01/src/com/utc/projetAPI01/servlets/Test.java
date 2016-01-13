@@ -23,12 +23,10 @@ import com.utc.projetAPI01.beans.Comments;
 import com.utc.projetAPI01.beans.Evaluation;
 import com.utc.projetAPI01.beans.Fund;
 import com.utc.projetAPI01.beans.Idea;
-import com.utc.projetAPI01.beans.MakeFund;
 import com.utc.projetAPI01.beans.Utilisateur;
 import com.utc.projetAPI01.dao.CommentsDAOImpl;
 import com.utc.projetAPI01.dao.EvaluationDAOImpl;
 import com.utc.projetAPI01.dao.IdeaDAOImpl;
-import com.utc.projetAPI01.dao.MakeFundDAOImpl;
 import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
@@ -110,7 +108,6 @@ public class Test extends HttpServlet {
 	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
 	      }
 	      
-	      
 	    } finally {
 	      session.close();
 	    }
@@ -119,13 +116,9 @@ public class Test extends HttpServlet {
 	    
 	    out.println("<h1>Test</h1>");
 		
-	    out.println("<h1>Delete evaluation 5</h1>");
-		EvaluationDAOImpl evaluationDAO = new EvaluationDAOImpl();
-		Evaluation evaluation = evaluationDAO.findById(5);
-		evaluationDAO.delete(evaluation);
-		
-
-        
+	    out.println("<h1>Max nb comments</h1>");
+	    IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+	    Idea idea = ideaDAO.findByMaxComments();
 	}
 
 	/**

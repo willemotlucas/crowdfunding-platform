@@ -2,6 +2,7 @@ package com.utc.projetAPI01.dao;
 
 import com.utc.projetAPI01.beans.PhaseContext;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -17,16 +18,19 @@ public class PhaseContextDAOImpl extends DAOAbstract<PhaseContext>{
 	}
 
 	@SuppressWarnings({ "unchecked", "null" })
-	private List<Idea> findIdeaByPhase(String phase){
+	public List<Idea> findIdeaByPhase(String phase){
 		List<PhaseContext> contexts = null;
-		List<Idea> ideas = null;
+		List<Idea> ideas = new ArrayList<Idea>();
+		System.out.println("phase : " + phase);
 	    try{
 	    	Query query = session.createQuery("from " + objName +" where currentPhase = :phase");
-	    	query.setString(1, "phase");
+	    	query.setString("phase", phase);
 			contexts = (List<PhaseContext>) query.list();
-			IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
 			for(Iterator<PhaseContext> it = contexts.iterator(); it.hasNext();){
-				ideas.add(ideaDAO.findById(it.next().getId()));
+				PhaseContext context = it.next();
+				System.out.println("context id : " + context.getId());
+				Idea idea = context.getIdea();
+				ideas.add(idea);
 			}
 	    }catch(HibernateException e){
 	    	e.printStackTrace();

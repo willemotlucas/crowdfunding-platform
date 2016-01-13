@@ -60,8 +60,8 @@ public class IdeaDetailsServlet extends HttpServlet {
 		Idea idea = ideaDAO.findById(Integer.parseInt(request.getParameter("id")));
 		PhaseContext context = contextDAO.findByIdea(idea.getId());
 		List<Comments> comments = commentsDAO.findByIdea(idea.getId());
-		int nbIdeasProposed = ideaDAO.findNbIdeaByUser(currentUser);
-		int nbMakeFund = makeFundDAO.findNbMakeFundByUser(currentUser);
+		int nbIdeasProposed = ideaDAO.findNbIdeaByUser(idea.getMadeBy());
+		int nbMakeFund = makeFundDAO.findNbMakeFundByUser(idea.getMadeBy());
 
 		request.setAttribute("idea", idea);
 		request.setAttribute("idIdea", idea.getId());
