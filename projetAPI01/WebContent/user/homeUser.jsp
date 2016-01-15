@@ -110,10 +110,18 @@
 				        <h2 class="bar-details">${entry.key.context.idea.fundingRequested}<span class="glyphicon glyphicon-eur"></span></h2>
 						<p class="sub-details">demandés</p>
 						 <div class="progress">
-						  <div class="progress-bar progress-bar-success progress-bar-striped active	" role="progressbar" aria-valuenow="${entry.value}"
-						  	aria-valuemin="0" aria-valuemax="100" style="width:${entry.value}%;">
-						    ${entry.value}%
-						  </div>
+						 <c:if test="${entry.value > 100}">
+						 	  <div class="progress-bar progress-bar-success progress-bar-striped active	" role="progressbar" aria-valuenow="${entry.value}"
+							  	aria-valuemin="0" aria-valuemax="100" style="width:100%;">
+							    ${entry.value}%
+							  </div>
+						 </c:if>
+						 <c:if test="${entry.value <= 100}">
+						 	  <div class="progress-bar progress-bar-success progress-bar-striped active	" role="progressbar" aria-valuenow="${entry.value}"
+							  	aria-valuemin="0" aria-valuemax="100" style="width:${entry.value}%;">
+							    ${entry.value}%
+							  </div>
+						 </c:if>
 						</div>
 				        <p><a href="/projetAPI01/user/ideaDetails?id=${entry.key.context.idea.id}" class="btn btn-success" role="button">Plus de détails</a></p>
 				      </div>

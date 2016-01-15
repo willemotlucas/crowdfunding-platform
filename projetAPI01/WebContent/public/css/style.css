@@ -1,0 +1,41 @@
+.thumbnail-category{
+	text-align: center;
+}
+
+.home-most-popular {
+	background-image: url('../img/bg.jpg');
+}
+
+.thumbnail-most-popular{
+	border: 0px;
+	background-color: rgba(255,255,255,0.8);
+	padding: 10px;
+	cursor: pointer;
+}
+
+.navbar {
+	margin-bottom:0px;
+}
+
+.lastFund {
+	background-color: #F7FAFA;
+}
+
+h2.bar-details{
+	font-size: 40px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+}
+
+h2.bar-details > span {
+	font-size: 30px;
+}
+
+p.sub-details {
+	color: #9F97A4;
+}
+
+.span {
+	display: inline-block;
+	padding-left: 4%;
+}
