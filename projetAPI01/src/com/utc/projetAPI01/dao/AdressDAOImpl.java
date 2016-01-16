@@ -11,4 +11,10 @@ public class AdressDAOImpl extends DAOAbstract<Adress> {
 	{
 		objName = "Adress";
 	}
+	
+	@Override
+	public void delete(Adress adress)
+	{
+		super.delete(adress);
+	}
 }

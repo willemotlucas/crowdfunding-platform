@@ -1,6 +1,6 @@
 package com.utc.projetAPI01.dao;
 
-import com.utc.projetAPI01.beans.PhaseContext;
+import com.utc.projetAPI01.beans.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -68,5 +68,46 @@ public class PhaseContextDAOImpl extends DAOAbstract<PhaseContext>{
 	    	e.printStackTrace();
 	    }
 		return context;
+	}
+	
+	@Override
+	public void delete(PhaseContext phaseContext)
+	{
+		ProposalDAOImpl proposalDao = new ProposalDAOImpl();
+		Proposal proposal = proposalDao.findByContext(phaseContext.getId());
+		if(proposal != null)
+		{
+			proposalDao.delete(proposal);
+		}
+		
+		DiscussionDAOImpl discussionDao = new DiscussionDAOImpl();
+		Discussion discussion = discussionDao.findByContext(phaseContext.getId());
+		if(discussion != null)
+		{
+			discussionDao.delete(discussion);
+		}
+		
+		RedactionDAOImpl redactionDao = new RedactionDAOImpl();
+		Redaction redaction = redactionDao.findByContext(phaseContext.getId());
+		if(redaction != null)
+		{
+			redactionDao.delete(redaction);
+		}
+		
+		EvaluationDAOImpl evaluationDao = new EvaluationDAOImpl();
+		Evaluation evaluation = evaluationDao.findByContext(phaseContext.getId());
+		if(evaluation != null)
+		{
+			evaluationDao.delete(evaluation);
+		}
+		
+		FundDAOImpl fundDao = new FundDAOImpl();
+		Fund fund = fundDao.findByContext(phaseContext.getId());
+		if(fund != null)
+		{
+			fundDao.delete(fund);
+		}
+		
+		super.delete(phaseContext);
 	}
 }

@@ -20,5 +20,9 @@
         <property name="ville" type="java.lang.String">
             <column name="VILLE" />
         </property>
+        <set name="utilisateurs">
+         <key column="adress"/>
+         <one-to-many class="com.utc.projetAPI01.beans.Utilisateur"/>
+      	</set>
     </class>
 </hibernate-mapping>

@@ -1,11 +1,14 @@
 package com.utc.projetAPI01.beans;
 
+import java.util.Set;
+
 public class Adress {
 	private Integer		id;
 	private Integer		num;
 	private String		rue;
 	private String		codePostale;
 	private String		ville;
+	private Set<Utilisateur>	utilisateurs;
 	
 	public Adress(Integer n, String r, String cp, String v)
 	{
@@ -67,6 +70,14 @@ public class Adress {
 	public void setVille(String v)
 	{
 		ville = v;
+	}
+	
+	public void setUtilisateurs(Set<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
+	}
+	
+	public Set<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
 	}
 
 }

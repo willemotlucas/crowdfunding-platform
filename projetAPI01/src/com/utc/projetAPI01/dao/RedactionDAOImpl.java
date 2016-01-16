@@ -25,4 +25,10 @@ public class RedactionDAOImpl extends DAOAbstract<Redaction>{
 	    }
 		return redaction;
 	}
+	
+	@Override
+	public void delete(Redaction redaction)
+	{
+		super.delete(redaction);
+	}
 }

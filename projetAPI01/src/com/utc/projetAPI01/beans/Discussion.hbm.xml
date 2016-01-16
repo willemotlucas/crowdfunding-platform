@@ -14,5 +14,9 @@
         <many-to-one name="context" class="com.utc.projetAPI01.beans.PhaseContext" fetch="join">
             <column name="CONTEXT" />
         </many-to-one>
+        <set name="thumbs">
+         <key column="discussion"/>
+         <one-to-many class="com.utc.projetAPI01.beans.Thumb"/>
+      	</set>
     </class>
 </hibernate-mapping>

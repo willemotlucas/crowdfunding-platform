@@ -1,6 +1,7 @@
 package com.utc.projetAPI01.beans;
 
 import java.sql.Date;
+import java.util.Set;
 
 public class Idea {
 
@@ -12,6 +13,7 @@ public class Idea {
 	private Integer fundingRequested;
 	private Date proposedDate;
 	private Utilisateur madeBy;
+	private Set<Comments> comments;
 
 	public Idea(String n, String sD, String aF, String tM, Integer fR, Date p, Utilisateur m) {
 		this.name = n;
@@ -98,6 +100,14 @@ public class Idea {
 
 	public void setMadeBy(Utilisateur m) {
 		madeBy = m;
+	}
+	
+	public Set<Comments> getComments() {
+		return comments;
+	}
+	
+	public void setComments(Set<Comments> comments) {
+		this.comments = comments;
 	}
 
 }

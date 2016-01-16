@@ -111,5 +111,11 @@ public class MakeFundDAOImpl extends DAOAbstract<MakeFund>{
 		
 		return nbMakeFund;
 	}
+	
+	@Override
+	public void delete(MakeFund makeFund)
+	{
+		super.delete(makeFund);
+	}
 
 }

@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,6 +24,7 @@ import com.utc.projetAPI01.beans.Comments;
 import com.utc.projetAPI01.beans.Evaluation;
 import com.utc.projetAPI01.beans.Fund;
 import com.utc.projetAPI01.beans.Idea;
+import com.utc.projetAPI01.beans.MakeFund;
 import com.utc.projetAPI01.beans.Utilisateur;
 import com.utc.projetAPI01.dao.CommentsDAOImpl;
 import com.utc.projetAPI01.dao.EvaluationDAOImpl;
@@ -57,7 +59,7 @@ public class Test extends HttpServlet {
 	    Session session = sessionFactory.openSession();
 	    
 	    try {
-	      Query query = session.createQuery("from Fund f where f.id=1");
+	      /*Query query = session.createQuery("from Fund f where f.id=1");
 	      Iterator funds = query.iterate();
 	      while (funds.hasNext()) {
 	    	Fund fund = (Fund) funds.next();
@@ -106,6 +108,39 @@ public class Test extends HttpServlet {
 	        out.println("nom = " + utilisateur.getNom() +"</br>");
 	        out.println("password = " + utilisateur.getPassword() + "</br>");
 	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
+	      }*/
+	      
+	      UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+	      Utilisateur userTest = userDAO.findById(1);
+	      if(userTest != null)
+	      {
+	    	  out.println("Nom: "+ userTest.getNom() + "</br>");
+	    	  out.println("Prenom: " + userTest.getPrenom() + "</br>");
+	    	  out.println("Email: " + userTest.getEmail() + "</br></br>");
+	    	  Set<Idea> idees = userTest.getIdeas();
+	    	  Iterator<Idea> it = idees.iterator();
+	    	  while(it.hasNext())
+	    	  {
+	    		  Idea idee = it.next();
+	    		  out.println("Projet: " + idee.getName() + "</br>");
+	    	  }
+	    	  
+	    	  Set<Comments> comments = userTest.getComments();
+	    	  Iterator<Comments> itCo = comments.iterator();
+	    	  while(itCo.hasNext())
+	    	  {
+	    		  Comments co = itCo.next();
+	    		  out.println("Comment: "+ co.getDescription()+"</br>" );
+	    	  }
+	    	  
+	    	  Set<MakeFund> funds = userTest.getFunds();
+	    	  Iterator<MakeFund> itMa = funds.iterator();
+	    	  while(itMa.hasNext())
+	    	  {
+	    		  MakeFund fu = itMa.next();
+	    		  out.println("Montant: "+ fu.getAmount() +"</br>" );
+	    		  out.println("Pour: "+ fu.getFund().getContext().getIdea().getName() +"</br>" );
+	    	  }
 	      }
 	      
 	    } finally {
