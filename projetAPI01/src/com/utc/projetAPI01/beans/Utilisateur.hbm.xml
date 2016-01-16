@@ -32,8 +32,28 @@
         <property name="accountType" type="java.lang.String">
             <column name="ACCOUNTTYPE" />
         </property>
-        <many-to-one name="adress" class="com.utc.projetAPI01.beans.Adress" fetch="join" cascade="all" unique="true">
+        <many-to-one name="adress" class="com.utc.projetAPI01.beans.Adress" fetch="join">
             <column name="ADRESS" />
         </many-to-one>
+        <set name="ideas">
+         <key column="madeBy"/>
+         <one-to-many class="com.utc.projetAPI01.beans.Idea"/>
+      	</set>
+      	<set name="comments">
+         <key column="utilisateur"/>
+         <one-to-many class="com.utc.projetAPI01.beans.Comments"/>
+      	</set>
+      	<set name="scores">
+         <key column="utilisateur"/>
+         <one-to-many class="com.utc.projetAPI01.beans.EvaluationScore"/>
+      	</set>
+      	<set name="funds">
+         <key column="utilisateur"/>
+         <one-to-many class="com.utc.projetAPI01.beans.MakeFund"/>
+      	</set>
+      	<set name="thumbs">
+         <key column="utilisateur"/>
+         <one-to-many class="com.utc.projetAPI01.beans.Thumb"/>
+      	</set>
     </class>
 </hibernate-mapping>

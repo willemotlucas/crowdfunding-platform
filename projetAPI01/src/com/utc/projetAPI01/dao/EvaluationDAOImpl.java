@@ -30,14 +30,15 @@ public class EvaluationDAOImpl extends DAOAbstract<Evaluation>{
 		return evaluation;
 	}
 	
-	public void deleteCascade(Evaluation evaluation){
+	@Override
+	public void delete(Evaluation evaluation){
 		EvaluationScoreDAOImpl evaluationScoreDAO = new EvaluationScoreDAOImpl();
-		List<EvaluationScore> evaluationScores = evaluationScoreDAO.findByIdeaInEvaluation(evaluation.getId());
-		Iterator<EvaluationScore> it = evaluationScores.iterator();
-		while(it.hasNext()){
-			EvaluationScore evaluationScore = it.next();
+		Iterator<EvaluationScore> itEval = evaluation.getEvaluations().iterator();
+		while(itEval.hasNext())
+		{
+			EvaluationScore evaluationScore = itEval.next();
 			evaluationScoreDAO.delete(evaluationScore);
 		}
-		this.delete(evaluation);
+		super.delete(evaluation);
 	}
 }

@@ -73,4 +73,10 @@ public class CommentsDAOImpl extends DAOAbstract<Comments>{
 		return nbComments;
 	}
 	
+	@Override
+	public void delete(Comments comments)
+	{
+		super.delete(comments);
+	}
+	
 }

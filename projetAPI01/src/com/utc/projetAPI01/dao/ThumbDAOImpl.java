@@ -89,4 +89,10 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 	    
 		return thumbs;
 	}
+	
+	@Override
+	public void delete(Thumb thumb)
+	{
+		super.delete(thumb);
+	}
 }

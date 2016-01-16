@@ -2,6 +2,7 @@ package com.utc.projetAPI01.dao;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 
+import com.utc.projetAPI01.beans.Comments;
 import com.utc.projetAPI01.beans.Discussion;
 import com.utc.projetAPI01.beans.Idea;
 import com.utc.projetAPI01.beans.PhaseContext;
@@ -123,5 +125,27 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	    	e.printStackTrace();
 	    }
 		return idea;
+	}
+	
+	@Override
+	public void delete(Idea idea)
+	{
+		PhaseContextDAOImpl phaseContextDao = new PhaseContextDAOImpl();
+		PhaseContext phaseContext = phaseContextDao.findByIdea(idea.getId());
+		
+		if(phaseContext != null)
+		{
+			phaseContextDao.delete(phaseContext);
+		}
+		
+		CommentsDAOImpl commentsDao = new CommentsDAOImpl();
+		Iterator<Comments> itCo = idea.getComments().iterator();
+		while(itCo.hasNext())
+		{
+			Comments comment = itCo.next();
+			commentsDao.delete(comment);
+		}
+		
+		super.delete(idea);
 	}
 }
