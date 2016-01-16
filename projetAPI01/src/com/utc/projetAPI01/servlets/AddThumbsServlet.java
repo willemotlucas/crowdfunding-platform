@@ -80,6 +80,11 @@ public class AddThumbsServlet extends HttpServlet {
 				System.out.println("user already voted for this idea !");
 			}
 		}
+		
+		if(user.getAccountType().equals("admin"))
+		{
+			request.getRequestDispatcher("/admin/ideaDetails?id=" + idIdea).forward(request, response);
+		}
 	}
 
 }

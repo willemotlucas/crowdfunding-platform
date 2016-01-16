@@ -2,6 +2,7 @@ package com.utc.projetAPI01.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -58,94 +59,10 @@ public class Test extends HttpServlet {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 	    Session session = sessionFactory.openSession();
 	    
-	    try {
-	      /*Query query = session.createQuery("from Fund f where f.id=1");
-	      Iterator funds = query.iterate();
-	      while (funds.hasNext()) {
-	    	Fund fund = (Fund) funds.next();
-	        out.println("date = " + fund.getDatePhase().toString() +"</br>");
-	        out.println("phase = " + fund.getContext().getCurrentPhase() +"</br>");
-	        out.println("idea = " + fund.getContext().getIdea().getName() + "</br></br>");
-	      }
-	      
-	      query = session.createQuery("from Comments");
-	      Iterator comments = query.iterate();
-	      while (comments.hasNext()) {
-	    	Comments comment = (Comments) comments.next();
-	        out.println("date = " + comment.getCommentDate().toString() +"</br>");
-	        out.println("user = " + comment.getUtilisateur().getNom() +"</br>");
-	        out.println("idea = " + comment.getIdea().getName() + "</br>");
-	        out.println("description = " + comment.getDescription()+ "</br></br>");
-	      }
-	      
-	      UtilisateurDAOImpl userDao = new UtilisateurDAOImpl();
-	      Utilisateur user = userDao.findById(1);
-	      if(user != null)
-	      {
-	    	  out.println("nom = " + user.getNom() +"</br>");
-		      out.println("rue = " + user.getAdress().getRue() +"</br></br>");
-	      }
-	      else
-	      {
-	    	  out.println("user1 null</br></br>");
-	      }
-	      
-	      Utilisateur user10 = userDao.findById(10);
-	      if(user10 != null)
-	      {
-	    	  out.println("nom = " + user10.getNom() +"</br>");
-		      out.println("rue = " + user10.getAdress().getRue() +"</br></br>");
-	      }
-	      else
-	      {
-	    	  out.println("user10 null</br></br>");
-	      }
-	      
-	      query = session.createQuery("from Utilisateur u");
-	      Iterator utilisateurs = query.iterate();
-	      while (utilisateurs.hasNext()) {
-	    	  Utilisateur utilisateur = (Utilisateur) utilisateurs.next();
-	        out.println("nom = " + utilisateur.getNom() +"</br>");
-	        out.println("password = " + utilisateur.getPassword() + "</br>");
-	        out.println("rue = " + utilisateur.getAdress().getRue() +"</br></br>");
-	      }*/
-	      
-	      UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
-	      Utilisateur userTest = userDAO.findById(1);
-	      if(userTest != null)
-	      {
-	    	  out.println("Nom: "+ userTest.getNom() + "</br>");
-	    	  out.println("Prenom: " + userTest.getPrenom() + "</br>");
-	    	  out.println("Email: " + userTest.getEmail() + "</br></br>");
-	    	  Set<Idea> idees = userTest.getIdeas();
-	    	  Iterator<Idea> it = idees.iterator();
-	    	  while(it.hasNext())
-	    	  {
-	    		  Idea idee = it.next();
-	    		  out.println("Projet: " + idee.getName() + "</br>");
-	    	  }
-	    	  
-	    	  Set<Comments> comments = userTest.getComments();
-	    	  Iterator<Comments> itCo = comments.iterator();
-	    	  while(itCo.hasNext())
-	    	  {
-	    		  Comments co = itCo.next();
-	    		  out.println("Comment: "+ co.getDescription()+"</br>" );
-	    	  }
-	    	  
-	    	  Set<MakeFund> funds = userTest.getFunds();
-	    	  Iterator<MakeFund> itMa = funds.iterator();
-	    	  while(itMa.hasNext())
-	    	  {
-	    		  MakeFund fu = itMa.next();
-	    		  out.println("Montant: "+ fu.getAmount() +"</br>" );
-	    		  out.println("Pour: "+ fu.getFund().getContext().getIdea().getName() +"</br>" );
-	    	  }
-	      }
-	      
-	    } finally {
-	      session.close();
-	    }
+
+	    	long dateTest = new Date().getTime();
+	    	Date dateTest2 = new Date();
+	    	out.println(dateTest2 + "</br>");
 
 	    sessionFactory.close();
 	    

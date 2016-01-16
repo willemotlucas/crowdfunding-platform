@@ -14,6 +14,7 @@ public class Idea {
 	private Date proposedDate;
 	private Utilisateur madeBy;
 	private Set<Comments> comments;
+	private PhaseContext phaseContext;
 
 	public Idea(String n, String sD, String aF, String tM, Integer fR, Date p, Utilisateur m) {
 		this.name = n;
@@ -108,6 +109,14 @@ public class Idea {
 	
 	public void setComments(Set<Comments> comments) {
 		this.comments = comments;
+	}
+	
+	public void setPhaseContext(PhaseContext phaseContext) {
+		this.phaseContext = phaseContext;
+	}
+	
+	public PhaseContext getPhaseContext() {
+		return phaseContext;
 	}
 
 }

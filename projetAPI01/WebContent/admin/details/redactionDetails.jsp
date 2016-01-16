@@ -7,14 +7,15 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>${idea.name}</title>
+	<title>Homepage for normal user</title>
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-	
+	<link rel="stylesheet" href="/projetAPI01/public/css/ideaDetails.css">
+
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -22,22 +23,71 @@
 <body>
 	<jsp:include page="../templates/menu.jsp"/>
 	
-	<div class="container">
-		<div class="page-header">
-		   <h1>${idea.name} <small>proposée par ${creator.prenom} ${creator.nom} le <fmt:formatDate type="date" dateStyle="long" value="${idea.proposedDate}"/></small></h1>
+	<div class="row ideaDetails">
+		<div class="container">
+			<div class="row">
+				<div class="page-header text-center">
+				   <h1>${idea.name}</h1>
+				   <h4><small>par ${creator.prenom} ${creator.nom}</small></h4>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<img src="http://placehold.it/500x300">
+					<h4>
+					<a href="/projetAPI01/search?method=applicationField&applicationField=${idea.applicationField}"><span class="glyphicon glyphicon-tags"></span> ${idea.applicationField}</a>  
+					<a href="/projetAPI01/search?method=phase&currentPhase=${context.currentPhase}"><span class="glyphicon glyphicon-bookmark"></span>${context.currentPhase}</a>					
+					</h4>
+					<h3>${idea.shortDescription}</h3>
+					<p>${redaction.longDescription}</p>
+				</div>
+				<div class="col-md-2">
+					<h2 class="bar-details">${idea.fundingRequested}<span class="glyphicon glyphicon-eur"></span></h2>
+					<p class="sub-details">demandés</p>
+					<h2 class="bar-details">${nbDaysRemains}
+						<small style="font-size:52%;">
+						<c:if test="${nbDaysRemains < 2}">
+							jour restant
+			        	</c:if>
+			        	<c:if test="${nbDaysRemains >= 2}">
+							jours restants
+			        	</c:if>	
+						</small>			
+					</h2>
+					<p class="sub-details">avant phase d'évaluation</p>
+
+				</div>
+				<div class="col-md-3 col-md-offset-1">
+					<div class="thumbnail">
+				    	<img class="img-circle" src="http://placehold.it/150x150">
+				      <div class="caption">
+				        	<h2 class="text-center">${idea.madeBy.prenom} ${idea.madeBy.nom }</h2>
+				        	<h3 class="text-center">${idea.madeBy.adress.ville}</h3>
+				        	<c:if test="${nbIdeasProposed < 2}">
+				        		<h2 class="text-center">${nbIdeasProposed} <small>idée proposée</small></h2>
+				        	</c:if>
+				        	<c:if test="${nbIdeasProposed >= 2}">
+				        		<h2 class="text-center">${nbIdeasProposed} <small>idées proposées</small></h2>
+				        	</c:if>				        	
+				        	<c:if test="${nbMakeFund < 2}">
+				        		<h2 class="text-center">${nbMakeFund} <small>idée financée</small></h2>
+				        	</c:if>
+				        	<c:if test="${nbMakeFund >= 2}">
+				        		<h2 class="text-center">${nbMakeFund} <small>idées financées</small></h2>
+				        	</c:if>
+				      </div>
+				    </div>
+				</div>
+			</div>
 		</div>
-		<h2>Courte Description</h2>
-		<p>Phase : ${context.currentPhase}</p>
-		<p>${idea.shortDescription}</p>
+	</div>
 		
-		<h2>Description détaillée</h2>
-		<p>${redaction.longDescription}</p>
-		
-		<h4>Montant demandé : ${idea.fundingRequested} euros</h4>
-		
-		<%request.setAttribute("comments", request.getAttribute("comments")); %>
-		<jsp:include page="../templates/displayComments.jsp"/>
-		<jsp:include page="../templates/addComment.jsp"/>
+	<div class="row">	
+		<div class="container">
+			<%request.setAttribute("comments", request.getAttribute("comments")); %>
+			<jsp:include page="../templates/displayComments.jsp"/>
+			<jsp:include page="../templates/addComment.jsp"/>
+		</div>
 	</div>
 </body>
 </html>

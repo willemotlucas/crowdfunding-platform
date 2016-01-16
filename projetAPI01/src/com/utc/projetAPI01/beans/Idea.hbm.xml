@@ -29,9 +29,11 @@
         <many-to-one name="madeBy" class="com.utc.projetAPI01.beans.Utilisateur" fetch="join">
             <column name="MADEBY" />
         </many-to-one>
-        <set name="comments">
+        <set name="comments" cascade="save-update">
          <key column="idea"/>
          <one-to-many class="com.utc.projetAPI01.beans.Comments"/>
       	</set>
+      	<one-to-one name="phaseContext" class="com.utc.projetAPI01.beans.PhaseContext"
+			></one-to-one>
     </class>
 </hibernate-mapping>

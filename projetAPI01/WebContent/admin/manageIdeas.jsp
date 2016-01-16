@@ -42,6 +42,7 @@
 			                <th>Fonds demandés</th>
 			                <th>Date</th>
 			                <th>Utilisateur</th>
+			                <th>Phase</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,9 +54,11 @@
 			                    <td>${idea.fundingRequested}</td>
 			                    <td>${idea.proposedDate}</td>
 			                    <td>${idea.madeBy.email}</td>
+			                    <td>${idea.phaseContext.currentPhase}
 								<td><a href="/projetAPI01/admin/ideaDetails?id=${idea.id}" class="btn btn-success" role="button">Voir</a></td>
 								<td><a href="/projetAPI01/admin/idea/edit?id=${idea.id}" class="btn btn-primary" role="button">Modifier</a></td>
-								<td><a href="/projetAPI01/admin/removeIdea?id=${idea.id}" class="btn btn-danger" role="button">Supprimer</a></td>
+								<td><a href="/projetAPI01/admin/ideaPhase/edit?id=${idea.id}" class="btn btn-primary" role="button">Modifier la phase</a></td>
+								<td><a href="/projetAPI01/admin/idea/delete?idIdea=${idea.id}" class="btn btn-danger" role="button">Supprimer</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -117,6 +117,10 @@
     <servlet-name>AddPledgeServlet</servlet-name>
     <url-pattern>/user/fund/add</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AddPledgeServlet</servlet-name>
+    <url-pattern>/admin/fund/add</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>AddEvaluationServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.AddEvaluationServlet</servlet-class>
@@ -142,6 +146,14 @@
     <url-pattern>/admin/idea/add</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>EditIdeaPhaseServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditIdeaPhaseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditIdeaPhaseServlet</servlet-name>
+    <url-pattern>/admin/ideaPhase/edit</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>EditIdeaServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.EditIdeaServlet</servlet-class>
   </servlet>
@@ -160,6 +172,10 @@
   <servlet-mapping>
     <servlet-name>DeleteIdeaServlet</servlet-name>
     <url-pattern>/user/idea/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteIdeaServlet</servlet-name>
+    <url-pattern>/admin/idea/delete</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>

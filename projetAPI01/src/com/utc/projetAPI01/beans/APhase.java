@@ -1,6 +1,6 @@
 package com.utc.projetAPI01.beans;
 
-import java.sql.Date;
+import java.util.Date;
 
 public abstract class APhase {
 	private Integer 		id;

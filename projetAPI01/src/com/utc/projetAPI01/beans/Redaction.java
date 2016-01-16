@@ -1,6 +1,6 @@
 package com.utc.projetAPI01.beans;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Redaction extends APhase{
 	private String			longDescription;

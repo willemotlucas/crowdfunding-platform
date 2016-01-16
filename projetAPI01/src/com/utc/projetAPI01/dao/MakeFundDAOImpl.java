@@ -6,6 +6,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
+import com.utc.projetAPI01.beans.APhase;
 import com.utc.projetAPI01.beans.MakeFund;
 import com.utc.projetAPI01.beans.Utilisateur;
 
@@ -116,6 +117,22 @@ public class MakeFundDAOImpl extends DAOAbstract<MakeFund>{
 	public void delete(MakeFund makeFund)
 	{
 		super.delete(makeFund);
+	}
+	
+	public List<MakeFund> findByPhase(APhase phase){
+		List<MakeFund> funds = new ArrayList<MakeFund>();
+		
+		try
+	    {
+	    	Query query = session.createQuery("from " + objName +" m where fund = :id");
+	    	query.setInteger("id", phase.getId());
+	    	funds = query.list();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return funds;
 	}
 
 }

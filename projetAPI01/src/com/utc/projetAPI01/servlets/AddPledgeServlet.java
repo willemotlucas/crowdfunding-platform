@@ -67,6 +67,11 @@ public class AddPledgeServlet extends HttpServlet {
 				System.out.println("user already voted for this idea !");
 			}
 		}
+		
+		if(user.getAccountType().equals("admin"))
+		{
+			response.sendRedirect(request.getContextPath() + "/admin/ideaDetails?id=" + request.getParameter("id"));
+		}
 	}
 
 }

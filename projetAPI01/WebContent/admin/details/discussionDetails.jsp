@@ -37,7 +37,10 @@
 			<div class="row">
 				<div class="col-md-6">
 					<img src="http://placehold.it/500x300">
-					<h4><span class="glyphicon glyphicon-tags"></span> ${idea.applicationField}  <span class="glyphicon glyphicon-bookmark"></span>${context.currentPhase}</h4>
+					<h4>
+					<a href="/projetAPI01/search?method=applicationField&applicationField=${idea.applicationField}"><span class="glyphicon glyphicon-tags"></span> ${idea.applicationField}</a>  
+					<a href="/projetAPI01/search?method=phase&currentPhase=${context.currentPhase}"><span class="glyphicon glyphicon-bookmark"></span>${context.currentPhase}</a>
+					</h4>
 					<h3>${idea.shortDescription}</h3>
 				</div>
 				<div class="col-md-2">
@@ -105,5 +108,38 @@
 			<jsp:include page="../templates/addComment.jsp"/>
 		</div>
 	</div>
+		
+		<div class="row">	
+		<div class="container">
+			<div class="page-header">
+		 		<h3>Management des Thumbs</h3>
+		 	</div>
+			<c:choose>
+					<c:when test="${not empty requestScope.thumbs}">
+						<table id="manageThumbs" class="table table-striped ">
+							<thead>
+								<tr>
+					                <th>Id</th>
+					                <th>Valeur</th>
+					                <th>Utilisateur</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="thumb" items="${thumbs}">
+									<tr>
+					                    <td>${thumb.id}</td>
+					                    <td>${thumb.score}</td>
+					                    <td>${thumb.utilisateur.email}</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</c:when>
+							
+					<c:otherwise>
+					<p>Il n'y a pas de thumb associé</p>
+					</c:otherwise> 
+				</c:choose>
+		</div>
 </body>
 </html>

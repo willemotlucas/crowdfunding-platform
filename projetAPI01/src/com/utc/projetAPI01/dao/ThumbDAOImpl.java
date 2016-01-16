@@ -7,7 +7,9 @@ import java.util.Map;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 
+import com.utc.projetAPI01.beans.APhase;
 import com.utc.projetAPI01.beans.Discussion;
+import com.utc.projetAPI01.beans.PhaseContext;
 import com.utc.projetAPI01.beans.Thumb;
 import com.utc.projetAPI01.beans.Utilisateur;
 
@@ -87,6 +89,23 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 	    	e.printStackTrace();
 	    }
 	    
+		return thumbs;
+	}
+	
+	public List<Thumb> findByPhase(APhase phase){
+		List<Thumb> thumbs = null;
+
+	    try
+	    {
+	    	Integer phaseId = phase.getId();
+	    	Query query = session.createQuery("from " + objName +" where discussion = :id");
+	    	query.setInteger("id", phaseId);
+	    	thumbs = query.list();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
 		return thumbs;
 	}
 	

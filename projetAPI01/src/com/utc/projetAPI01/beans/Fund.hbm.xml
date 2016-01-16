@@ -8,7 +8,7 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <property name="datePhase" type="java.sql.Date">
+        <property name="datePhase" type="java.util.Date">
             <column name="DATEPHASE" />
         </property>
         <many-to-one name="context" class="com.utc.projetAPI01.beans.PhaseContext" fetch="join">

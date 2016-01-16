@@ -80,14 +80,18 @@ public class EditIdeaServlet extends HttpServlet {
 			&& !applicationField.isEmpty()
 			&& fundingRequested > 0){
 			
-			if(!longDescription.isEmpty() && longDescription.length() >= 5 && longDescription.length() <= 255){
-				RedactionDAOImpl redactionDAO = new RedactionDAOImpl();
-				PhaseContext context = contextDAO.findByIdea(idea.getId());
-				Redaction redaction = redactionDAO.findByContext(context.getId());
-				
-				redaction.setLongDescription(longDescription);
-				redactionDAO.save(redaction);
+			if(longDescription != null)
+			{
+				if(!longDescription.isEmpty() && longDescription.length() >= 5 && longDescription.length() <= 255){
+					RedactionDAOImpl redactionDAO = new RedactionDAOImpl();
+					PhaseContext context = contextDAO.findByIdea(idea.getId());
+					Redaction redaction = redactionDAO.findByContext(context.getId());
+					
+					redaction.setLongDescription(longDescription);
+					redactionDAO.save(redaction);
+				}
 			}
+			
 			
 			idea.setName(name);
 			idea.setShortDescription(shortDescription);

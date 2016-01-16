@@ -45,13 +45,13 @@ public class AddCommentServlet extends HttpServlet {
 		
 		String content = request.getParameter("comment");
 		int idIdea = Integer.parseInt(request.getParameter("idIdea"));
+		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 		
 		if(!content.isEmpty() && content.length() >= 2 && content.length() <= 255){
 			CommentsDAOImpl commentsDAO = new CommentsDAOImpl();
 			IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
 			
 			Idea currentIdea = ideaDAO.findById(idIdea);
-			Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 			
 			Comments comment = new Comments(content, new Date(), currentUser, currentIdea);
 			try{
@@ -60,8 +60,15 @@ public class AddCommentServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-				
-		response.sendRedirect(request.getContextPath() + "/user/ideaDetails?id=" + idIdea);
+		
+		if(currentUser.getAccountType().equals("admin"))
+		{
+			response.sendRedirect(request.getContextPath() + "/admin/ideaDetails?id=" + idIdea);
+		}
+		else
+		{
+			response.sendRedirect(request.getContextPath() + "/user/ideaDetails?id=" + idIdea);
+		}
 	}
 
 }
