@@ -49,9 +49,10 @@ public class LoadUserHomepage extends HttpServlet {
 		Iterator<Fund> it = Last3IdeasInFunding.iterator();
 		while(it.hasNext()){
 			Fund fund = it.next();
-			Long amountCollected = makeFundDAO.findCollectedAmountByFund(fund.getId());
-			Integer percentage = Math.round((amountCollected / fund.getContext().getIdea().getFundingRequested())*100);
-			System.out.println("percentage : " + percentage);
+			int amountCollected = makeFundDAO.findCollectedAmountByFund(fund.getId()).intValue();
+			int currentFund = fund.getContext().getIdea().getFundingRequested();
+			Double percentage2 = new Double((double)amountCollected/currentFund*100);
+			int percentage = percentage2.intValue();
 			Last3IdeasInFundingWithPercentage.put(fund, percentage);
 		}
 		
