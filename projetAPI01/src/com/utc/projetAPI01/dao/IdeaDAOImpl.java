@@ -156,11 +156,13 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 		}
 		
 		CommentsDAOImpl commentsDao = new CommentsDAOImpl();
-		Iterator<Comments> itCo = idea.getComments().iterator();
-		while(itCo.hasNext())
-		{
-			Comments comment = itCo.next();
-			commentsDao.delete(comment);
+		if(idea.getComments() != null){
+			Iterator<Comments> itCo = idea.getComments().iterator();
+			while(itCo.hasNext())
+			{
+				Comments comment = itCo.next();
+				commentsDao.delete(comment);
+			}
 		}
 		
 		super.delete(idea);

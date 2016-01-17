@@ -76,18 +76,21 @@
 									      <input id="feasibility" type="number" class="form-control" min="0" max="10">
 									    </div>
 									    <div class="help-block with-errors"></div>					
+										<p class="sub-details">faisabilité</p>
 									</div>
 									<div class="col-md-3 col-lg-3">
 										<div class="input-group">
 									      <input id="marketInterest" type="number" class="form-control" min="0" max="10">
 									    </div>
 									    <div class="help-block with-errors"></div>
+										<p class="sub-details">intérêt du marché</p>
 									</div>
 									<div class="col-md-3 col-lg-3">
 										<div class="input-group">
 									      <input id="impact" type="number" class="form-control" min="0" max="10">
 									    </div>
 									    <div class="help-block with-errors"></div>	
+										<p class="sub-details">impact</p>
 									</div>
 									<div class="col-md-3">
 								    	<div class="input-group">
