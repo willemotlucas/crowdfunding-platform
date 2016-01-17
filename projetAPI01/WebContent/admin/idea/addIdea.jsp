@@ -20,6 +20,9 @@
 	<jsp:include page="../templates/menu.jsp"></jsp:include>
 	
 	<div class="container">
+		<div class="page-header">
+			   <h2>Ajouter une idée</h2>
+		</div>
 		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="add">
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="name">Nom de l'idée :</label>

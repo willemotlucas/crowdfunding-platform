@@ -61,9 +61,6 @@
 		  </div>
 		  
 		  <div class="form-group">
-		  	<div class="col-sm-offset-2 col-sm-1">
-		      <button type="reset" class="btn btn-primary">Annuler</button>
-		    </div>
 		    <div class="col-sm-1">
 		      <button type="submit" class="btn btn-success">Sauvegarder</button>
 		    </div>

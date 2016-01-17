@@ -53,7 +53,7 @@
 							<c:forEach var="Fund" items="${sessionScope.allMakeFunds}">
 								<tr>
 				                    <td>${Fund.id}</td>
-				                    <td>${Fund.utilisateur.prenom} ${Fund.utilisateur.nom}</td>
+				                    <td>${Fund.utilisateur.email}</td>
 				                    <td>${Fund.fund.context.idea.name}</td>
 				                    <td>${Fund.amount}</td>
 									<td><a href="/projetAPI01/admin/seeFund?id=${Fund.id}" class="btn btn-success" role="button">Voir</a></td>

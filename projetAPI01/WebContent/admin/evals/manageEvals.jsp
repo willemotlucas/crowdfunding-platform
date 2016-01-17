@@ -46,6 +46,9 @@
 				                <th>Faisabilité</th>
 				                <th>Interet du marche</th>
 				                <th>Impact</th>
+				                <th>Voir</th>
+				                <th>Modifier</th>
+				                <th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -53,7 +56,7 @@
 								<tr>
 				                    <td>${eval.id}</td>
 				                    <td>${eval.evaluation.context.idea.name}</td>
-				                    <td>${eval.utilisateur.prenom} ${eval.utilisateur.nom}</td>
+				                    <td>${eval.utilisateur.email}</td>
 				                    <td>${eval.feasibility}</td>
 				                    <td>${eval.marketInterest}</td>
 				                    <td>${eval.impact}</td>

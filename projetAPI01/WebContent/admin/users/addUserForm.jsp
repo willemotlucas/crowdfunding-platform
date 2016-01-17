@@ -20,10 +20,11 @@
 	<script src="/projetAPI01/public/js/validator-min.js"></script>
 </head>
 <body>
+	<jsp:include page="../templates/menu.jsp"></jsp:include>
     <div class="container">
-        <div id="header" class="jumbotron">
-            <h1>Creation d'un nouvel utilisateur</h1>
-        </div>
+        <div class="page-header">
+			   <h2>Ajout d'un nouvel utilisateur</h2>
+		</div>
         <c:if test="${not empty error}">
 	        <div class="alert alert-warning">
 	            ${error}

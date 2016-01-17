@@ -25,6 +25,9 @@
 	<jsp:include page="../templates/menu.jsp"></jsp:include>
 	
 	<div class="container">
+		<div class="page-header">
+			   <h2>Modifier l'idée ${idea.name }</h2>
+		</div>
 		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="edit">
 		  <input type="hidden" name="id" value="${idea.id}"/>
 		  <div class="form-group">
@@ -54,22 +57,144 @@
 		  <div class="form-group">
 		    <label class="control-label col-sm-2" for="applicationField">Catégorie de l'idée :</label>
 		    <div class="col-sm-10">
-		      <select name="applicationField" id="applicationField" required>
-		      	<option>Art</option>
-		      	<option>BD</option>
-		     	<option>Artisanat</option>
-		      	<option>Danse</option>
-		      	<option>Design</option>
-		      	<option>Mode</option>
-		      	<option>Cinéma & Vidéo</option>
-		      	<option>Gastronomie</option>
-		      	<option>Jeux</option>
-		      	<option>Journalisme</option>
-		      	<option>Musique</option>
-		      	<option>Photographie</option>
-		      	<option>Edition</option>
-		      	<option>Technologie</option>
-		      	<option>Théâtre</option>
+		       <select name="applicationField" id="applicationField" required>
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Art'}">
+				      	<option selected="true">Art</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Art</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'BD'}">
+				      	<option selected="true">BD</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>BD</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Artisanat'}">
+				      	<option selected="true">Artisanat</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Artisanat</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Danse'}">
+				      	<option selected="true">Danse</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Danse</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Design'}">
+				      	<option selected="true">Design</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Design</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Mode'}">
+				      	<option selected="true">Mode</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Mode</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      			      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Cinema'}">
+				      	<option selected="true">Cinéma</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Cinéma et vidéo</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Gastronomie'}">
+				      	<option selected="true">Gastronomie</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Gastronomie</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Jeux'}">
+				      	<option selected="true">Jeux</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Jeux</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Journalisme'}">
+				      	<option selected="true">Journalisme</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Journalisme</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Musique'}">
+				      	<option selected="true">Musique</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Musique</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Photographie'}">
+				      	<option selected="true">Photographie</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Photographie</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Edition'}">
+				      	<option selected="true">Edition</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Edition</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Technologie'}">
+				      	<option selected="true">Technologie</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Technologie</option>
+		      		</c:otherwise>
+		      	</c:choose>
+		      	
+		      	<c:choose>
+		      		<c:when test="${idea.applicationField == 'Theatre'}">
+				      	<option selected="true">Theatre</option>      		
+		      		</c:when>
+		      		<c:otherwise>
+		      			<option>Theatre</option>
+		      		</c:otherwise>
+		      	</c:choose>
 		      </select>
 		    </div>
 		  </div>
@@ -84,9 +209,6 @@
 		  </div>
 		  
 		  <div class="form-group">
-		  	<div class="col-sm-offset-2 col-sm-1">
-		      <button type="reset" class="btn btn-primary">Annuler</button>
-		    </div>
 		    <div class="col-sm-1">
 		      <button type="submit" class="btn btn-success">Sauvegarder</button>
 		    </div>

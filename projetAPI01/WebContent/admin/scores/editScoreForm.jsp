@@ -24,10 +24,11 @@
 	<script src="/projetAPI01/public/js/validator-min.js"></script>
 </head>
 <body>    
+	<jsp:include page="../templates/menu.jsp"></jsp:include>
     <div class="container">
-        <div id="header" class="jumbotron">
-            <h1>Edition du score ayant l'ID : <jsp:getProperty name="scoreBean" property="id" /></h1>
-        </div>
+        <div class="page-header">
+		    <h1>Edition du score ayant l'ID : <jsp:getProperty name="scoreBean" property="id" /></h1>
+		</div>
         <c:if test="${not empty error}">
 	        <div class="alert alert-warning">
 	            ${error}

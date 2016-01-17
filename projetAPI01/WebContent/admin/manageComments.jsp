@@ -19,9 +19,9 @@
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
 </head>
 <body>
-	
-	<div class="container">
 	<jsp:include page="templates/menu.jsp"/>
+	<div class="container">
+	
 		<div class="page-header">
 		   <h1>Gestion des commentaires</h1>
 		</div>

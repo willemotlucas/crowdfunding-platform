@@ -44,6 +44,9 @@
 				                <th>Idee</th>
 				                <th>Utilisateur</th>
 				                <th>Score</th>
+				                <th>Voir</th>
+				                <th>Modifier</th>
+				                <th>Supprimer</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -51,7 +54,7 @@
 								<tr>
 				                    <td>${score.id}</td>
 				                    <td>${score.discussion.context.idea.name}</td>
-				                    <td>${score.utilisateur.prenom} ${eval.utilisateur.nom}</td>
+				                    <td>${score.utilisateur.email}</td>
 				                    <td>${score.score}</td>
 									<td><a href="/projetAPI01/admin/seeScore?id=${score.id}" class="btn btn-success" role="button">Voir</a></td>
 									<td><a href="/projetAPI01/admin/editScore?id=${score.id}" class="btn btn-primary" role="button">Modifier</a></td>

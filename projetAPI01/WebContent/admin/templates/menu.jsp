@@ -27,7 +27,7 @@
         </div>
         <button type="submit" class="btn btn-default">Rechercher</button>
       </form -->
-      <form class="navbar-form navbar-right" method="GET" action="/user/addIdea">
+      <form class="navbar-form navbar-right" method="GET" action="/projetAPI01/admin/idea/addIdea.jsp">
 	      <div class="form-group">
 	      	<button type="submit" class="btn btn-success">Proposer mon idée</button>
 	      </div>

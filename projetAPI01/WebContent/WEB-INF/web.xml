@@ -34,6 +34,14 @@
     <url-pattern>/user/homepage</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>LoadAdminHomepageServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.LoadAdminHomepageServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoadAdminHomepageServlet</servlet-name>
+    <url-pattern>/admin/homepage</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>IdeaDetailsServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.IdeaDetailsServlet</servlet-class>
   </servlet>

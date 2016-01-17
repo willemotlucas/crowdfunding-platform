@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Test</title>
+<title>Management des idées</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
@@ -19,9 +19,9 @@
     <script src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
 </head>
 <body>
-	
-	<div class="container">
 	<jsp:include page="templates/menu.jsp"/>
+	<div class="container">
+	
 		<div class="page-header">
 		   <h1>Gestion des idées</h1>
 		</div>

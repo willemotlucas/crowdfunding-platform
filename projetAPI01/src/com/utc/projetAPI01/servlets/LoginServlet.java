@@ -59,7 +59,7 @@ public class LoginServlet extends HttpServlet {
 			if(user != null && user.getPassword().equals(password)){
 				if(user.getAccountType().equals("admin")){
 					System.out.println("redirection vers admin");
-					request.getRequestDispatcher("/admin/homeAdmin.jsp").forward(request, response);
+					response.sendRedirect(request.getContextPath() + "/admin/homepage");
 				}
 				else{
 					System.out.println("redirection vers normal user");

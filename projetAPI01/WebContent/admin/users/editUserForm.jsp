@@ -23,10 +23,11 @@
 	<script src="/projetAPI01/public/js/validator-min.js"></script>
 </head>
 <body>    
+	<jsp:include page="../templates/menu.jsp"></jsp:include>
     <div class="container">
-        <div id="header" class="jumbotron">
-            <h1>Edition de l'utilisateur ayant l'ID : <jsp:getProperty name="userBean" property="id" /></h1>
-        </div>
+        <div class="page-header">
+			   <h2>Edition de l'utilisateur ayant l'ID : <jsp:getProperty name="userBean" property="id" /></h2>
+		</div>
         <c:if test="${not empty error}">
 	        <div class="alert alert-warning">
 	            ${error}

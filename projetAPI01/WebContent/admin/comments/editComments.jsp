@@ -25,6 +25,9 @@
 	<jsp:include page="../templates/menu.jsp"></jsp:include>
 	
 	<div class="container">
+		<div class="page-header">
+		   <h1>Modification du commentaire</h1>
+		</div>
 		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="edit">
 		  <input type="hidden" name="id" value="${comments.id}"/>
 		  <div class="form-group">
@@ -71,9 +74,6 @@
 		  </div>
 		  
 		  <div class="form-group">
-		  	<div class="col-sm-offset-2 col-sm-1">
-		      <button type="reset" class="btn btn-primary">Annuler</button>
-		    </div>
 		    <div class="col-sm-1">
 		      <button type="submit" class="btn btn-success">Sauvegarder</button>
 		    </div>
