@@ -35,11 +35,13 @@ public class DiscussionDAOImpl extends DAOAbstract<Discussion>{
 	public void delete (Discussion discussion)
 	{
 		ThumbDAOImpl thumbDao = new ThumbDAOImpl();
-		Iterator<Thumb> itThumb = discussion.getThumbs().iterator();
-		while(itThumb.hasNext())
-		{
-			Thumb thumb = itThumb.next();
-			thumbDao.delete(thumb);
+		if(discussion.getThumbs() != null){
+			Iterator<Thumb> itThumb = discussion.getThumbs().iterator();
+			while(itThumb.hasNext())
+			{
+				Thumb thumb = itThumb.next();
+				thumbDao.delete(thumb);
+			}			
 		}
 		
 		super.delete(discussion);
