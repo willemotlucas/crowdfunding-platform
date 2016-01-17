@@ -42,7 +42,7 @@
 				<div class="help-block with-errors"></div>
 			</div>
             <div class="form-group">
-                <label for="idea">Idee</label>
+                <label for="idea">Idée</label>
                 <select name="idea" id="idea" required class="form-control">
 					<option selected disabled>Selectionnez l'idee</option>
 					<c:forEach var="Idea" items="${sessionScope.allIdeas}">

@@ -31,10 +31,10 @@
 		</div>
 	 	<div class="row">
 			Nom : <span class="marge"></span> <jsp:getProperty name="userBean" property="nom" /></br>
-			Prenom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
+			Prénom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
 			Email : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
 			Mot de passe : <span class="marge"></span> <jsp:getProperty name="userBean" property="password" /></br>
-			Telephone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
+			Téléphone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
 			Adresse : <span class="marge"></span> <jsp:getProperty name="adressBean" property="num" /> &nbsp; <jsp:getProperty name="adressBean" property="rue" /> &nbsp; </br>
 			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>
 			Statut : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountStatus" /></br>

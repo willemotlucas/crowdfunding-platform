@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation de creation de l'utilisateur</title>
+<title>Confirmation de création de l'utilisateur</title>
 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
@@ -26,14 +26,14 @@
 		   <h1 class="page-header">Ajout d'un utilisateur</h1>
 		</div>
 		<div class="page-header">
-			<h3> Vous avez bien ajouté l'utilisateur <jsp:getProperty name="userBean" property="email" /> de la maniere suivante :</h3>
+			<h3> Vous avez bien ajouté l'utilisateur <jsp:getProperty name="userBean" property="email" /> de la manière suivante :</h3>
 		</div>
 	 	<div class="row">
 			Nom : <span class="marge"></span> <jsp:getProperty name="userBean" property="nom" /></br>
-			Prenom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
+			Prénom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
 			Email : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
 			Mdp : <span class="marge"></span> <jsp:getProperty name="userBean" property="password" /></br>
-			Telephone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
+			Téléphone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
 			Adresse : <span class="marge"></span> <jsp:getProperty name="adressBean" property="num" /> &nbsp; <jsp:getProperty name="adressBean" property="rue" /> &nbsp; </br>
 			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>
 			Statut : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountStatus" /></br>
@@ -43,7 +43,7 @@
 	 	<div class="row">
 	 	</div>
 	 	<div class="row">
-			<a href="/projetAPI01/index.jsp" class="btn btn-success"><i class="fa fa-home"></i>&nbsp;&nbsp;Retour a l'accueil</a>
+			<a href="/projetAPI01/index.jsp" class="btn btn-success"><i class="fa fa-home"></i>&nbsp;&nbsp;Retour à l'accueil</a>
 		</div>
 	</div>
 </body>
