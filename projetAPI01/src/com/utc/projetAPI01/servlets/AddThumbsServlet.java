@@ -3,6 +3,7 @@ package com.utc.projetAPI01.servlets;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.utc.projetAPI01.beans.Discussion;
+import com.utc.projetAPI01.beans.Idea;
 import com.utc.projetAPI01.beans.PhaseContext;
 import com.utc.projetAPI01.beans.Redaction;
 import com.utc.projetAPI01.beans.Thumb;
@@ -20,6 +22,7 @@ import com.utc.projetAPI01.dao.IdeaDAOImpl;
 import com.utc.projetAPI01.dao.PhaseContextDAOImpl;
 import com.utc.projetAPI01.dao.RedactionDAOImpl;
 import com.utc.projetAPI01.dao.ThumbDAOImpl;
+import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
  * Servlet implementation class AddThumbsServlet
@@ -39,6 +42,18 @@ public class AddThumbsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        int idUser = Integer.parseInt(request.getParameter("id"));
+        Utilisateur user = userDAO.findById(idUser);
+        
+        IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+        List<Idea> allIdeas = ideaDAO.findByPhase("discussion");
+		
+		if(user != null && allIdeas != null){
+			request.setAttribute("userBean", user);
+	        request.getSession().setAttribute("allIdeas", allIdeas);
+			request.getRequestDispatcher("/admin/scores/addScoreForm.jsp").forward(request, response);
+		}
 	}
 
 	/**

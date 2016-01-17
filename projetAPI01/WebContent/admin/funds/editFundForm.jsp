@@ -35,6 +35,8 @@
         </c:if>
         
 		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="/projetAPI01/admin/editFund">
+        	<input type="hidden" name="id" value="<jsp:getProperty name="makeFundBean" property="id" />">
+        	<input type="hidden" name="idIdea" value="<jsp:getProperty name="ideaBean" property="id" />">
 			<div class="form-group">
 		        <label for="utilisateur">Utilisateur</label>
                 <div class="input-group">
@@ -45,12 +47,13 @@
 			</div>
             <div class="form-group">
                 <label for="idea">Idee</label>
-                <select name="idea" id="idea" value="<jsp:getProperty name="ideaBean" property="name" />" required class="form-control">
+                <input type="text" class="form-control" name="idea" id="idea" maxLength="40" data-minlength="2" required  value="<jsp:getProperty name="ideaBean" property="name" />" placeholder="Entrez l'idée">
+				<!-- select name="idea" id="idea" required class="form-control">
 					<option selected disabled>Selectionnez l'idee</option>
 					<c:forEach var="Idea" items="${sessionScope.allIdeas}">
 	                    <option value="${Idea.id}">${Idea.name}</option>
 	                </c:forEach>
-                </select>
+                </select -->
             </div>
             <div class="form-group">
                 <label for="montant">Montant</label>

@@ -50,7 +50,7 @@ public class AddFundServlet extends HttpServlet {
         Utilisateur user = userDAO.findById(idUser);
         
         IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
-        List<Idea> allIdeas = ideaDAO.findAll();
+        List<Idea> allIdeas = ideaDAO.findByPhase("fund");
 		
 		if(user != null && allIdeas != null){
 			request.setAttribute("userBean", user);

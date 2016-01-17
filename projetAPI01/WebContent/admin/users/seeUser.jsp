@@ -77,7 +77,7 @@
 					</table>
 				</c:when>						
 				<c:otherwise>
-				<p>Cette utilisateur n'a pas créé d'idée</p>
+				<p>Cet utilisateur n'a pas créé d'idée</p>
 				</c:otherwise> 
 			</c:choose>
 		</div>
@@ -112,7 +112,7 @@
 					</table>
 				</c:when>						
 				<c:otherwise>
-				<p>Cette utilisateur n'a pas créé de commentaire</p>
+				<p>Cet utilisateur n'a pas créé de commentaire</p>
 				</c:otherwise> 
 			</c:choose>
 		</div>
@@ -145,7 +145,7 @@
 					</table>
 				</c:when>						
 				<c:otherwise>
-				<p>Cette utilisateur n'a pas créé de thumb</p>
+				<p>Cet utilisateur n'a pas créé de thumb</p>
 				</c:otherwise> 
 			</c:choose>
 		</div>
@@ -182,7 +182,7 @@
 					</table>
 				</c:when>						
 				<c:otherwise>
-				<p>Cette utilisateur n'a pas créé d'evaluation</p>
+				<p>Cet utilisateur n'a pas créé d'evaluation</p>
 				</c:otherwise> 
 			</c:choose>
 		</div>
@@ -215,7 +215,7 @@
 					</table>
 				</c:when>						
 				<c:otherwise>
-				<p>Cette utilisateur n'a pas créé de financement</p>
+				<p>Cet utilisateur n'a pas créé de financement</p>
 				</c:otherwise> 
 			</c:choose>
 		</div>

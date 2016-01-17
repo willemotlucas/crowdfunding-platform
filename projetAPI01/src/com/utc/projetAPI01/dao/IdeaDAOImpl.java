@@ -39,6 +39,23 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	    }
 		return ideas;
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Idea> findByPhase(String phase){
+		List<Idea> ideas = new ArrayList<Idea>();
+		System.out.println("received search : " + phase);
+	    try
+	    {
+	    	Query query = session.createQuery("select idea from PhaseContext where currentPhase like :phase");
+	    	query.setString("phase", "%"+phase+"%");
+			ideas = (List<Idea>) query.list();
+	    }
+	    catch(HibernateException e)
+	    {
+	    	e.printStackTrace();
+	    }
+		return ideas;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public List<Idea> findByApplicationField(String applicationField){
