@@ -70,6 +70,8 @@ public class EvaluationScoreDAOImpl extends DAOAbstract<EvaluationScore>{
 	@Override
 	public void delete(EvaluationScore evaluationScore)
 	{
+		evaluationScore.getEvaluation().getEvaluations().remove(evaluationScore);
+		evaluationScore.getUtilisateur().getScores().remove(evaluationScore);
 		super.delete(evaluationScore);
 	}
 	

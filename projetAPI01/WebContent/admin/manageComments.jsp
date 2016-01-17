@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Test</title>
+<title>Management des commentaires</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
@@ -23,49 +23,41 @@
 	<div class="container">
 	<jsp:include page="templates/menu.jsp"/>
 		<div class="page-header">
-		   <h1>Gestion des idées</h1>
+		   <h1>Gestion des commentaires</h1>
 		</div>
 		
 		<script>$(document).ready(function() {
-		    $('#manageIdeas').DataTable();
+		    $('#manageComments').DataTable();
 		} );</script>
 	
 	 	<div class="page-header">
-	 		<h2>Liste des idées de Launch-My-Idea</h2>
+	 		<h2>Liste des commentaires Launch-My-Idea</h2>
 	 	</div>
-		<a href="/projetAPI01/admin/idea/addIdea.jsp" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter une idée</a>
+		<a href="/projetAPI01/admin/addCommentsAdmin" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter un commentaire</a>
 		<c:choose>
-			<c:when test="${not empty sessionScope.allIdeas}">
-				<table id="manageIdeas" class="table table-striped ">
+			<c:when test="${not empty requestScope.allComments}">
+				<table id="manageComments" class="table table-striped ">
 					<thead>
 						<tr>
 			                <th>Id</th>
-			                <th>Nom</th>
-			                <th>Catégorie</th>
-			                <th>Fonds demandés</th>
+			                <th>Description</th>
 			                <th>Date</th>
 			                <th>Utilisateur</th>
-			                <th>Phase</th>
-			                <th>Voir</th>
+			                <th>Idée</th>
 			                <th>Modifier</th>
-			                <th>Modifier Phase</th>
 			                <th>Supprimer</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var="idea" items="${sessionScope.allIdeas}">
+						<c:forEach var="comment" items="${requestScope.allComments}">
 							<tr>
-			                    <td>${idea.id}</td>
-			                    <td>${idea.name}</td>
-			                    <td>${idea.applicationField}</td>
-			                    <td>${idea.fundingRequested}</td>
-			                    <td>${idea.proposedDate}</td>
-			                    <td>${idea.madeBy.email}</td>
-			                    <td>${idea.phaseContext.currentPhase}</td>
-								<td><a href="/projetAPI01/admin/ideaDetails?id=${idea.id}" class="btn btn-success" role="button">Voir</a></td>
-								<td><a href="/projetAPI01/admin/idea/edit?id=${idea.id}" class="btn btn-primary" role="button">Modifier</a></td>
-								<td><a href="/projetAPI01/admin/ideaPhase/edit?id=${idea.id}" class="btn btn-primary" role="button">Modifier la phase</a></td>
-								<td><a href="/projetAPI01/admin/idea/delete?idIdea=${idea.id}" class="btn btn-danger" role="button">Supprimer</a></td>
+			                    <td>${comment.id}</td>
+			                    <td>${comment.description}</td>
+			                    <td>${comment.commentDate}</td>
+			                    <td>${comment.utilisateur.email}</td>
+			                    <td>${comment.idea.name}</td>
+								<td><a href="/projetAPI01/admin/comments/edit?id=${comment.id}" class="btn btn-primary" role="button">Modifier</a></td>
+								<td><a href="/projetAPI01/admin/comments/delete?id=${comment.id}" class="btn btn-danger" role="button">Supprimer</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
@@ -73,7 +65,7 @@
 			</c:when>
 					
 			<c:otherwise>
-			<p>Il n'y a pas d'idées</p>
+			<p>Il n'y a pas de commentaires</p>
 			</c:otherwise> 
 		</c:choose>
 	</div>

@@ -76,6 +76,8 @@ public class CommentsDAOImpl extends DAOAbstract<Comments>{
 	@Override
 	public void delete(Comments comments)
 	{
+		comments.getIdea().getComments().remove(comments);
+		comments.getUtilisateur().getComments().remove(comments);
 		super.delete(comments);
 	}
 	

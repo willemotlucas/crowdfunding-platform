@@ -98,6 +98,14 @@
     <url-pattern>/admin/comment/add</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>AddCommentsAdminServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddCommentsAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddCommentsAdminServlet</servlet-name>
+    <url-pattern>/admin/addCommentsAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>AddThumbsServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.AddThumbsServlet</servlet-class>
   </servlet>
@@ -166,6 +174,18 @@
     <url-pattern>/admin/idea/edit</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>EditCommentsServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditCommentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditCommentsServlet</servlet-name>
+    <url-pattern>/user/comments/edit</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditCommentsServlet</servlet-name>
+    <url-pattern>/admin/comments/edit</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>DeleteIdeaServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.DeleteIdeaServlet</servlet-class>
   </servlet>
@@ -176,6 +196,18 @@
   <servlet-mapping>
     <servlet-name>DeleteIdeaServlet</servlet-name>
     <url-pattern>/admin/idea/delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteCommentsServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.DeleteCommentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteCommentsServlet</servlet-name>
+    <url-pattern>/user/comments/delete</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteCommentsServlet</servlet-name>
+    <url-pattern>/admin/comments/delete</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>LogoutServlet</servlet-name>
@@ -200,6 +232,14 @@
   <servlet-mapping>
     <servlet-name>ManageUsersServlet</servlet-name>
     <url-pattern>/admin/manageUsers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ManageCommentsServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.ManageCommentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageCommentsServlet</servlet-name>
+    <url-pattern>/admin/manageComments</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>ManageIdeasServlet</servlet-name>

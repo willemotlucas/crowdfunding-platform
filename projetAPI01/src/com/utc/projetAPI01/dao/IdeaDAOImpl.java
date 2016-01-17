@@ -147,6 +147,8 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	@Override
 	public void delete(Idea idea)
 	{
+		idea.getMadeBy().getIdeas().remove(idea);
+		
 		PhaseContextDAOImpl phaseContextDao = new PhaseContextDAOImpl();
 		PhaseContext phaseContext = phaseContextDao.findByIdea(idea.getId());
 		

@@ -112,6 +112,8 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 	@Override
 	public void delete(Thumb thumb)
 	{
+		thumb.getDiscussion().getThumbs().remove(thumb);
+		thumb.getUtilisateur().getThumbs().remove(thumb);
 		super.delete(thumb);
 	}
 	

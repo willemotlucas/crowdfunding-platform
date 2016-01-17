@@ -116,6 +116,8 @@ public class MakeFundDAOImpl extends DAOAbstract<MakeFund>{
 	@Override
 	public void delete(MakeFund makeFund)
 	{
+		makeFund.getFund().getFunds().remove(makeFund);
+		makeFund.getUtilisateur().getFunds().remove(makeFund);
 		super.delete(makeFund);
 	}
 	

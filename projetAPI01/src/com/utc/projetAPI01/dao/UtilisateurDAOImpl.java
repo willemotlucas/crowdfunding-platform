@@ -43,6 +43,8 @@ public class UtilisateurDAOImpl extends DAOAbstract<Utilisateur> {
 	@Override
 	public void delete(Utilisateur utilisateur)
 	{
+		utilisateur.getAdress().getUtilisateurs().remove(utilisateur);
+		
 		IdeaDAOImpl ideaDao = new IdeaDAOImpl();
 		Iterator<Idea> itIdea = utilisateur.getIdeas().iterator();
 		while(itIdea.hasNext())
