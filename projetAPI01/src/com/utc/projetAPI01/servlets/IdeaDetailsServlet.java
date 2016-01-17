@@ -2,10 +2,12 @@ package com.utc.projetAPI01.servlets;
 
 import com.utc.projetAPI01.beans.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -58,7 +60,7 @@ public class IdeaDetailsServlet extends HttpServlet {
 
 		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 		Idea idea = ideaDAO.findById(Integer.parseInt(request.getParameter("id")));
-		PhaseContext context = contextDAO.findByIdea(idea.getId());
+		PhaseContext context = idea.getPhaseContext();
 		List<Comments> comments = commentsDAO.findByIdea(idea.getId());
 		int nbIdeasProposed = ideaDAO.findNbIdeaByUser(idea.getMadeBy());
 		int nbMakeFund = makeFundDAO.findNbMakeFundByUser(idea.getMadeBy());
@@ -82,6 +84,7 @@ public class IdeaDetailsServlet extends HttpServlet {
 			int negativeScore = thumbDAO.findNegativeScoreByDiscussion(discussion.getId());
 			int score = positiveScore - negativeScore;
 			Thumb thumb = thumbDAO.findByUserAndDiscussion(currentUser, discussion.getId());
+			List<Thumb> thumbs = thumbDAO.findByPhase(discussion);
 			
 			if(thumb != null){
 				System.out.println("score given !");
@@ -90,10 +93,12 @@ public class IdeaDetailsServlet extends HttpServlet {
 				System.out.println("score not given !");
 			}
 			
+			
 			request.setAttribute("discussion", discussion);
 			request.setAttribute("positiveScore", positiveScore);
 			request.setAttribute("negativeScore", negativeScore);
 			request.setAttribute("score", score);
+			request.setAttribute("thumbs", thumbs);
 		}
 		
 		//The idea requested is in redaction phase
@@ -161,6 +166,7 @@ public class IdeaDetailsServlet extends HttpServlet {
 				System.out.println("evaluation score never given !");	
 			}
 			
+			request.setAttribute("evaluationScores", evaluationScores);
 			request.setAttribute("evaluation", evaluation);
 		}
 		
@@ -186,6 +192,9 @@ public class IdeaDetailsServlet extends HttpServlet {
 				System.out.println("fund never done !");
 			}
 			
+			List<MakeFund> funds = makeFundDAO.findByPhase(fund);
+			
+			request.setAttribute("funds", funds);
 			request.setAttribute("nbDaysRemains", nbDaysRemains);
 			request.setAttribute("nbPledge", nbPledge);
 			request.setAttribute("amountCollected", amountCollected.intValue());

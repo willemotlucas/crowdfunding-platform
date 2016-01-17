@@ -22,56 +22,12 @@
 	<jsp:include page="../templates/menu.jsp"></jsp:include>
 	
 	<div class="container">
+		<div class="page-header">
+	 		<h2>Modification de la phase de l'idée ${requestScope.idea.name}</h2>
+	 	</div>
 		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="edit">
 		  <input type="hidden" name="id" value="${idea.id}"/>
-		  <div class="form-group">
-		    <label class="control-label col-sm-2" for="name">Nom de l'idée :</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control" name="name" id="name" maxLength="50" data-minlength="3" value="${idea.name}" required>
-		      <div class="help-block with-errors"></div>
-		    </div>
-		  </div>
-		  <div class="form-group">
-		    <label class="control-label col-sm-2" for="shortDescription">Courte description de l'idée :</label>
-		    <div class="col-sm-10">
-		    	<textarea class="form-control" id="shortDescription" name="shortDescription" rows="3" cols="10" maxLength="255" data-minlength="5" required>${idea.shortDescription}</textarea>
-			    <div class="help-block with-errors"></div>
-		    </div>
-		  </div>
-		  <c:if test="${not empty redaction}">
-		  	<div class="form-group">
-			    <label class="control-label col-sm-2" for="longDescription">Longue description de l'idée :</label>
-			    <div class="col-sm-10">
-			    	<textarea class="form-control" id="longDescription" name="longDescription" rows="3" cols="10" maxLength="255" data-minlength="5" required>${redaction.longDescription}</textarea>
-				    <div class="help-block with-errors"></div>
-			    </div>
-			  </div>
-		  </c:if>
-		  
-		  <div class="form-group">
-		    <label class="control-label col-sm-2" for="applicationField">Catégorie de l'idée :</label>
-		    <div class="col-sm-10">
-		      <select name="applicationField" id="applicationField" required>
-		      	<option>Art</option>
-		      	<option>BD</option>
-		     	<option>Artisanat</option>
-		      	<option>Danse</option>
-		      	<option>Design</option>
-		      	<option>Mode</option>
-		      	<option>Cinéma & Vidéo</option>
-		      	<option>Gastronomie</option>
-		      	<option>Jeux</option>
-		      	<option>Journalisme</option>
-		      	<option>Musique</option>
-		      	<option>Photographie</option>
-		      	<option>Edition</option>
-		      	<option>Technologie</option>
-		      	<option>Théâtre</option>
-		      </select>
-		    </div>
-		  </div>
-		  
-		  
+
 		   <div class="form-group">
 		    <label class="control-label col-sm-2" for="phase">Phase de l'idée :</label>
 		    <div class="col-sm-10">
@@ -112,23 +68,12 @@
 		    </div>
 		  </div>
 		  
-		  
 		  <div class="form-group">
-		    <label class="control-label col-sm-2" for="fundingRequested">Montant demandé :</label>
-		    <div class="col-sm-10">
-		      <input type="number" class="form-control" id="fundingRequested" name="fundingRequested" min="0" value="${idea.fundingRequested}" required>
-			  <div class="help-block with-errors"></div>
-		    </div>
-		  </div>
-		  
-		  <div class="form-group">
-		  	<div class="col-sm-offset-2 col-sm-1">
-		      <button type="reset" class="btn btn-primary">Annuler</button>
-		    </div>
 		    <div class="col-sm-1">
 		      <button type="submit" class="btn btn-success">Sauvegarder</button>
 		    </div>
 		  </div>
+
 		</form>
 	</div>
 </body>

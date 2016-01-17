@@ -30,6 +30,8 @@ public class DeleteIdeaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("entre dans le doGet");
+		doPost(request, response);
 	}
 
 	/**
@@ -42,9 +44,21 @@ public class DeleteIdeaServlet extends HttpServlet {
 		int idIdea = Integer.parseInt(request.getParameter("idIdea"));
 		Idea idea = ideaDAO.findById(idIdea);
 		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
-		if(idea.getMadeBy() == currentUser){ //If the current user is the owner of the idea, he may delete it
-			System.out.println("delete idea");
-			ideaDAO.delete(idea);
+		if(currentUser.getAccountType().equals("normalUser") && idea.getMadeBy() == currentUser){ //If the current user is the owner of the idea, he may delete it
+			if(idea != null)
+			{
+				ideaDAO.delete(idea);
+			}
+			
+		}
+		else if(currentUser.getAccountType().equals("admin"))
+		{
+			System.out.println("entre dans le else if");
+			if(idea != null)
+			{
+				ideaDAO.delete(idea);
+			}
+			response.sendRedirect(request.getContextPath() + "/admin/manageIdeas");
 		}
 		
 	}

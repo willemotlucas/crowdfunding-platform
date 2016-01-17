@@ -1,6 +1,6 @@
 package com.utc.projetAPI01.beans;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 
 public class Discussion extends APhase {
