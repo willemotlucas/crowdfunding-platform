@@ -114,4 +114,13 @@ public class ThumbDAOImpl extends DAOAbstract<Thumb>{
 	{
 		super.delete(thumb);
 	}
+	
+	@Override
+	public Thumb save(Thumb thumb)
+	{
+		thumb.getDiscussion().getThumbs().add(thumb);
+		thumb.getUtilisateur().getThumbs().add(thumb);
+		super.save(thumb);
+		return thumb;
+	}
 }

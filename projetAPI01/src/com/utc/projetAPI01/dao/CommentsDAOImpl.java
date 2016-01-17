@@ -79,4 +79,13 @@ public class CommentsDAOImpl extends DAOAbstract<Comments>{
 		super.delete(comments);
 	}
 	
+	@Override
+	public Comments save(Comments comments)
+	{
+		comments.getIdea().getComments().add(comments);
+		comments.getUtilisateur().getComments().add(comments);
+		Comments obj = super.save(comments);
+		return obj;
+	}
+	
 }

@@ -41,11 +41,15 @@
 						<tr>
 			                <th>Id</th>
 			                <th>Nom</th>
-			                <th>Marché</th>
+			                <th>Catégorie</th>
 			                <th>Fonds demandés</th>
 			                <th>Date</th>
 			                <th>Utilisateur</th>
 			                <th>Phase</th>
+			                <th>Voir</th>
+			                <th>Modifier</th>
+			                <th>Modifier Phase</th>
+			                <th>Supprimer</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,7 +57,7 @@
 							<tr>
 			                    <td>${idea.id}</td>
 			                    <td>${idea.name}</td>
-			                    <td>${idea.targetedMarket}</td>
+			                    <td>${idea.applicationField}</td>
 			                    <td>${idea.fundingRequested}</td>
 			                    <td>${idea.proposedDate}</td>
 			                    <td>${idea.madeBy.email}</td>

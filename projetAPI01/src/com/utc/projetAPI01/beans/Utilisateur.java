@@ -1,6 +1,7 @@
 package com.utc.projetAPI01.beans;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Utilisateur {
@@ -14,11 +15,11 @@ public class Utilisateur {
 	private String				accountStatus;
 	private String				accountType;
 	private Adress				adress;
-	private Set<Idea>			ideas;
-	private Set<Comments>		comments;
-	private Set<EvaluationScore> scores;
-	private Set<MakeFund>		funds;
-	private	Set<Thumb>			thumbs;
+	private Set<Idea>			ideas = new HashSet<Idea>();
+	private Set<Comments>		comments = new HashSet<Comments>();
+	private Set<EvaluationScore> scores = new HashSet<EvaluationScore>();
+	private Set<MakeFund>		funds = new HashSet<MakeFund>();
+	private	Set<Thumb>			thumbs = new HashSet<Thumb>();
 	
 	public Utilisateur(String e, String pwd, String n, String p, String t, Date d, String aS, String aT, Adress add)
 	{

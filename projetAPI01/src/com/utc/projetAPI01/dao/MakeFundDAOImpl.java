@@ -134,5 +134,14 @@ public class MakeFundDAOImpl extends DAOAbstract<MakeFund>{
 	    }
 		return funds;
 	}
+	
+	@Override
+	public MakeFund save(MakeFund makeFund)
+	{
+		makeFund.getFund().getFunds().add(makeFund);
+		makeFund.getUtilisateur().getFunds().add(makeFund);
+		super.save(makeFund);
+		return makeFund;
+	}
 
 }

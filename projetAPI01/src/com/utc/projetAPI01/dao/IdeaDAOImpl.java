@@ -165,4 +165,12 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 		
 		super.delete(idea);
 	}
+	
+	@Override
+	public Idea save(Idea idea)
+	{
+		idea.getMadeBy().getIdeas().add(idea);
+		super.save(idea);
+		return idea;
+	}
 }

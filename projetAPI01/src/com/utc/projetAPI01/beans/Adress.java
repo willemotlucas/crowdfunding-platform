@@ -1,5 +1,6 @@
 package com.utc.projetAPI01.beans;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Adress {
@@ -8,7 +9,7 @@ public class Adress {
 	private String		rue;
 	private String		codePostale;
 	private String		ville;
-	private Set<Utilisateur>	utilisateurs;
+	private Set<Utilisateur>	utilisateurs = new HashSet<Utilisateur>();
 	
 	public Adress(Integer n, String r, String cp, String v)
 	{

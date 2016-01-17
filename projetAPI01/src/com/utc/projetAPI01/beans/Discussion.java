@@ -1,11 +1,12 @@
 package com.utc.projetAPI01.beans;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Discussion extends APhase {
 	
-	private Set<Thumb> thumbs;
+	private Set<Thumb> thumbs = new HashSet<Thumb>();
 	
 	public Discussion(){
 		super();

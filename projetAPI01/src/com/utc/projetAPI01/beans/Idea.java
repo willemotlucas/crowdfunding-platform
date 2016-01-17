@@ -1,6 +1,7 @@
 package com.utc.projetAPI01.beans;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 public class Idea {
@@ -13,7 +14,7 @@ public class Idea {
 	private Integer fundingRequested;
 	private Date proposedDate;
 	private Utilisateur madeBy;
-	private Set<Comments> comments;
+	private Set<Comments> comments = new HashSet<Comments>();
 	private PhaseContext phaseContext;
 
 	public Idea(String n, String sD, String aF, String tM, Integer fR, Date p, Utilisateur m) {

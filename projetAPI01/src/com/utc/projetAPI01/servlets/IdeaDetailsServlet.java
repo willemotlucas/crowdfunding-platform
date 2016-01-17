@@ -61,7 +61,8 @@ public class IdeaDetailsServlet extends HttpServlet {
 		Utilisateur currentUser = (Utilisateur) request.getSession().getAttribute("userSession");
 		Idea idea = ideaDAO.findById(Integer.parseInt(request.getParameter("id")));
 		PhaseContext context = idea.getPhaseContext();
-		List<Comments> comments = commentsDAO.findByIdea(idea.getId());
+		//List<Comments> comments = commentsDAO.findByIdea(idea.getId());
+		Set<Comments> comments = idea.getComments();
 		int nbIdeasProposed = ideaDAO.findNbIdeaByUser(idea.getMadeBy());
 		int nbMakeFund = makeFundDAO.findNbMakeFundByUser(idea.getMadeBy());
 

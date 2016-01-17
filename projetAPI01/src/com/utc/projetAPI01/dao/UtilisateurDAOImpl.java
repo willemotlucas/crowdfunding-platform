@@ -93,5 +93,13 @@ public class UtilisateurDAOImpl extends DAOAbstract<Utilisateur> {
 			adressDao.delete(adress);
 		}
 	}
+	
+	@Override
+	public Utilisateur save(Utilisateur utilisateur)
+	{
+		utilisateur.getAdress().getUtilisateurs().add(utilisateur);
+		super.save(utilisateur);
+		return utilisateur;
+	}
 
 }

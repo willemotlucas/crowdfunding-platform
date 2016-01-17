@@ -72,4 +72,13 @@ public class EvaluationScoreDAOImpl extends DAOAbstract<EvaluationScore>{
 	{
 		super.delete(evaluationScore);
 	}
+	
+	@Override
+	public EvaluationScore save(EvaluationScore evaluationScore)
+	{
+		evaluationScore.getEvaluation().getEvaluations().add(evaluationScore);
+		evaluationScore.getUtilisateur().getScores().add(evaluationScore);
+		super.save(evaluationScore);
+		return evaluationScore;
+	}
 }

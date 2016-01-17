@@ -110,4 +110,12 @@ public class PhaseContextDAOImpl extends DAOAbstract<PhaseContext>{
 		
 		super.delete(phaseContext);
 	}
+	
+	@Override
+	public PhaseContext save(PhaseContext phaseContext)
+	{
+		phaseContext.getIdea().setPhaseContext(phaseContext);
+		super.save(phaseContext);
+		return phaseContext;
+	}
 }
