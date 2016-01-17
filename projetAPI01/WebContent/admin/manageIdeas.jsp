@@ -33,7 +33,7 @@
 	 	<div class="page-header">
 	 		<h2>Liste des idées de Launch-My-Idea</h2>
 	 	</div>
-		<a href="/projetAPI01/admin/addIdea.jsp" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter une idée</a>
+		<a href="/projetAPI01/admin/idea/addIdea.jsp" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter une idée</a>
 		<c:choose>
 			<c:when test="${not empty sessionScope.allIdeas}">
 				<table id="manageIdeas" class="table table-striped ">

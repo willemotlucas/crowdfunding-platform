@@ -72,7 +72,14 @@ public class AddIdeaServlet extends HttpServlet {
 			proposalDAO.save(proposal);
 			discussionDAO.save(discussion);
 			
-			response.sendRedirect(request.getContextPath() + "/user/ideas/proposed");
+			if(currentUser.getAccountType().equals("normalUser"))
+			{
+				response.sendRedirect(request.getContextPath() + "/user/ideas/proposed");
+			}
+			else if (currentUser.getAccountType().equals("admin"))
+			{
+				response.sendRedirect(request.getContextPath() + "/admin/manageIdeas");
+			}
 		}
 	}
 
