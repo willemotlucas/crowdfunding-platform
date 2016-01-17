@@ -27,6 +27,19 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>		
+		<% 		com.utc.projetAPI01.beans.Utilisateur currentUser = (com.utc.projetAPI01.beans.Utilisateur) request.getSession().getAttribute("userSession");
+				if(currentUser != null)
+				{
+					if(currentUser.getAccountType().equals("admin"))
+					{
+						request.getRequestDispatcher("/admin/homeAdmin.jsp").forward(request, response);
+					}
+					else if(currentUser.getAccountType().equals("normalUser"))
+					{
+						response.sendRedirect(request.getContextPath() + "/user/homepage");
+					}
+				}
+		%>
 		<div class="container">
 		<div id="header" class="jumbotron">
 			<h1>Bienvenue à Launch my idea!</h1>
