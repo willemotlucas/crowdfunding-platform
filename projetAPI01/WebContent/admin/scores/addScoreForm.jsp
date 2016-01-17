@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Creation d'un nouveau financement</title>
+    <title>Creation d'un nouveau score</title>
     <jsp:useBean id="userBean" class="com.utc.projetAPI01.beans.Utilisateur" scope="session" />
     
     <!-- Latest compiled and minified CSS -->
@@ -19,11 +19,12 @@
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 	<script src="/projetAPI01/public/js/validator-min.js"></script>
+	<script src="/projetAPI01/public/js/thumb.js"></script>
 </head>
 <body>
     <div class="container">
         <div id="header" class="jumbotron">
-            <h1>Creation d'un nouveau financement</h1>
+            <h1>Creation d'un nouveau score</h1>
         </div>
         <c:if test="${not empty error}">
 	        <div class="alert alert-warning">
@@ -31,7 +32,7 @@
 	        </div> 
         </c:if>
 
-		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="/projetAPI01/admin/addFund">
+		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="/projetAPI01/admin/addScore">
         	<input type="hidden" name="id" value="<jsp:getProperty name="userBean" property="id" />">
 			<div class="form-group">
 		        <label for="utilisateur">Utilisateur</label>
@@ -44,16 +45,19 @@
             <div class="form-group">
                 <label for="idea">Idée</label>
                 <select name="idea" id="idea" required class="form-control">
-					<option selected disabled>Selectionnez l'idee</option>
+					<option selected disabled>Sélectionnez l'idee</option>
 					<c:forEach var="Idea" items="${sessionScope.allIdeas}">
 	                    <option value="${Idea.id}">${Idea.name}</option>
 	                </c:forEach>
                 </select>
             </div>
             <div class="form-group">
-                <label for="montant">Montant</label>
-                <input type="number" name="montant" class="form-control" id="montant" required placeholder="Entrez le montant">
-                <div class="help-block with-errors"></div>   
+                <label for="score">Score</label>
+                <select name="score" id="score" required class="form-control">
+					<option selected disabled>Sélectionnez le score</option>
+	                    <option value="1">1</option>
+	                    <option value="-1">-1</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-default">Sauvegarder</button>
         </form>    

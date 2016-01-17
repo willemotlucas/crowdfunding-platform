@@ -17,8 +17,8 @@
         <li><a href="/projetAPI01/admin/manageUsers"><i class="fa fa-user"></i>&nbsp;&nbsp;Utilisateurs</a></li>
         <li><a href="/projetAPI01/admin/manageIdeas"><i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;Idees</a></li>
         <li><a href=""><i class="fa fa-commenting"></i>&nbsp;&nbsp;Commentaires</a></li>
-        <li><a href=""><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;Scores</a></li>
-        <li><a href=""><i class="fa fa-star-o"></i>&nbsp;&nbsp;Evaluations</a></li>
+        <li><a href="/projetAPI01/admin/manageScores"><i class="fa fa-thumbs-o-up"></i>&nbsp;&nbsp;Scores</a></li>
+        <li><a href="/projetAPI01/admin/manageEvals"><i class="fa fa-star-o"></i>&nbsp;&nbsp;Evaluations</a></li>
         <li><a href="/projetAPI01/admin/manageFunds"><i class="fa fa-usd"></i>&nbsp;&nbsp;Financements</a></li>
       </ul>
       <!-- form class="navbar-form navbar-left" role="search" method="POST" action="/projetAPI01/search">

@@ -6,7 +6,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Creation d'un nouveau financement</title>
+    <title>Creation d'une nouvelle evaluation</title>
     <jsp:useBean id="userBean" class="com.utc.projetAPI01.beans.Utilisateur" scope="session" />
     
     <!-- Latest compiled and minified CSS -->
@@ -23,7 +23,7 @@
 <body>
     <div class="container">
         <div id="header" class="jumbotron">
-            <h1>Creation d'un nouveau financement</h1>
+            <h1>Creation d'une nouvelle evaluation</h1>
         </div>
         <c:if test="${not empty error}">
 	        <div class="alert alert-warning">
@@ -31,7 +31,7 @@
 	        </div> 
         </c:if>
 
-		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="/projetAPI01/admin/addFund">
+		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="/projetAPI01/admin/addEval">
         	<input type="hidden" name="id" value="<jsp:getProperty name="userBean" property="id" />">
 			<div class="form-group">
 		        <label for="utilisateur">Utilisateur</label>
@@ -42,7 +42,7 @@
 				<div class="help-block with-errors"></div>
 			</div>
             <div class="form-group">
-                <label for="idea">Idée</label>
+                <label for="idea">Idee</label>
                 <select name="idea" id="idea" required class="form-control">
 					<option selected disabled>Selectionnez l'idee</option>
 					<c:forEach var="Idea" items="${sessionScope.allIdeas}">
@@ -51,8 +51,18 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="montant">Montant</label>
-                <input type="number" name="montant" class="form-control" id="montant" required placeholder="Entrez le montant">
+                <label for="feasibility">Faisabilité</label>
+                <input type="number" name="feasibility" class="form-control" id="feasibility" required placeholder="Entrez le score pour la faisabilite">
+                <div class="help-block with-errors"></div>   
+            </div>
+            <div class="form-group">
+                <label for="marketInterest">Interet du marche</label>
+                <input type="number" name="marketInterest" class="form-control" id="marketInterest" required placeholder="Entrez le score pour l'interet du marche">
+                <div class="help-block with-errors"></div>   
+            </div>
+            <div class="form-group">
+                <label for="impact">Impact</label>
+                <input type="number" name="impact" class="form-control" id="impact" required placeholder="Entrez le score pour l'impact">
                 <div class="help-block with-errors"></div>   
             </div>
             <button type="submit" class="btn btn-default">Sauvegarder</button>

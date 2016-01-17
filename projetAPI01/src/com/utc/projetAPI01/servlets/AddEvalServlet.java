@@ -25,16 +25,16 @@ import com.utc.projetAPI01.dao.PhaseContextDAOImpl;
 import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
- * Servlet implementation class EditFundServlet
+ * Servlet implementation class AddEvalServlet
  */
-@WebServlet("/EditFundServlet")
-public class EditFundServlet extends HttpServlet {
+@WebServlet("/AddEvalServlet")
+public class AddEvalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditFundServlet() {
+    public AddEvalServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,16 +44,19 @@ public class EditFundServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+        //UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        int idUser = Integer.parseInt(request.getParameter("id"));
+        Utilisateur user = userDAO.findById(idUser);
+        
+        IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+        List<Idea> allIdeas = ideaDAO.findByPhase("evaluation");
 		
-		MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
-		int idFund = Integer.parseInt(request.getParameter("id"));
-        MakeFund makeFund = makeFundDAO.findById(idFund);
-		
-		if(makeFund != null){
-			request.setAttribute("makeFundBean", makeFund);
-			request.setAttribute("userBean", makeFund.getUtilisateur());
-			request.setAttribute("ideaBean", makeFund.getFund().getContext().getIdea());
-			request.getRequestDispatcher("/admin/funds/editFundForm.jsp").forward(request, response);
+		if(user != null && allIdeas != null){
+			request.setAttribute("userBean", user);
+	        request.getSession().setAttribute("allIdeas", allIdeas);
+			request.getRequestDispatcher("/admin/evals/addEvalForm.jsp").forward(request, response);
 		}
 	}
 
@@ -62,15 +65,14 @@ public class EditFundServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("edit fund");
-
-        MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
-        int idMakeFund = Integer.parseInt(request.getParameter("id"));
-        MakeFund makeFund = makeFundDAO.findById(idMakeFund);        
+		System.out.println("add fund");
+        
 
         String utilisateur = request.getParameter("utilisateur");
-        int idea = Integer.parseInt(request.getParameter("idIdea"));
-        int amount = Integer.parseInt(request.getParameter("montant"));
+        int idea = Integer.parseInt(request.getParameter("idea"));
+        int feasibility = Integer.parseInt(request.getParameter("feasibility"));
+        int marketInterest = Integer.parseInt(request.getParameter("marketInterest"));
+        int impact = Integer.parseInt(request.getParameter("impact"));
 
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         Utilisateur user = userDAO.findByEmail(utilisateur);
@@ -81,36 +83,32 @@ public class EditFundServlet extends HttpServlet {
 		
 		if(!utilisateur.isEmpty()
 			&& idea > 0
-			&& amount > 0
-			&& context.getCurrentPhase().equals("fund")
+			&& feasibility >= 0
+			&& marketInterest >= 0
+			&& impact >= 0
+			&& context.getCurrentPhase().equals("evaluation")
 			) {
 
-			FundDAOImpl fundDAO = new FundDAOImpl();
-			Fund fund = fundDAO.findByContext(context.getId());
-			makeFund.setAmount(amount);
-			makeFund.setFund(fund);
-			makeFund.setUtilisateur(user);
+			EvaluationDAOImpl evalDAO = new EvaluationDAOImpl();
+			Evaluation eval = evalDAO.findByContext(context.getId());
+			EvaluationScoreDAOImpl evalScoreDAO = new EvaluationScoreDAOImpl();
+			EvaluationScore evalScore = new EvaluationScore(feasibility,marketInterest,impact,user,eval);
 	        
-			makeFundDAO.save(makeFund);
-
+			evalScoreDAO.save(evalScore);
+			
 			IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
 			Idea ideaBean = ideaDAO.findById(idea);
 
 	        request.getSession().setAttribute("userBean", user);
-	        request.getSession().setAttribute("makeFundBean", makeFund);
+	        request.getSession().setAttribute("evalScoreBean", evalScore);
 	        request.getSession().setAttribute("ideaBean", ideaBean);
-	        request.getRequestDispatcher("/admin/funds/editFundResult.jsp").forward(request, response);
+	        request.getRequestDispatcher("/admin/evals/addEvalResult.jsp").forward(request, response);
 			
 		}
-		else{
-			String idUser = request.getParameter("idUser");
-			request.setAttribute("id", idUser);
-			String id = request.getParameter("id");
-			request.setAttribute("id", id);
-			request.setAttribute("error","Erreur : Vous n'avez pas respecté les contraintes des champs");
-			doGet(request, response);
-		}
-	
+		String idUser = request.getParameter("idUser");
+		request.setAttribute("id", idUser);
+		request.setAttribute("error","Erreur : Vous n'avez pas respecté les contraintes des champs");
+		doGet(request, response);
 	}
 
 }

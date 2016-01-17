@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Inscription à Lunch-My-Idea</title>
+	<title>Inscription à Launch my idea!</title>
 	
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -37,8 +37,8 @@
 				<div class="help-block with-errors"></div>
 			</div>
             <div class="form-group">
-                <label for="name">Prenom</label>
-                <input type="text" name="prenom" class="form-control" id="prenom" maxLength="40" data-minlength="2" required placeholder="Entrez le prenom">
+                <label for="name">Prénom</label>
+                <input type="text" name="prenom" class="form-control" id="prenom" maxLength="40" data-minlength="2" required placeholder="Entrez le prénom">
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
@@ -51,7 +51,7 @@
             </div>
             <div class="form-group">
                 <label for="password">Mot De Passe</label>
-                <input type="password" name="password" class="form-control" id="password" maxLength="40" data-minlength="6" required placeholder="Entrez le mot de passe (6 caracteres min)">
+                <input type="password" name="password" class="form-control" id="password" maxLength="40" data-minlength="6" required placeholder="Entrez le mot de passe (6 caractères min)">
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
@@ -60,12 +60,12 @@
                 <div class="help-block with-errors"></div>
             </div>
 			<div class="form-group">
-				<label for="telephone">Telephone</label>
-				<input type="text" name="telephone" class="form-control" id="telephone" maxLength="15" data-minlength="5" placeholder="Entrez le telephone">
+				<label for="telephone">Téléphone</label>
+				<input type="text" name="telephone" class="form-control" id="telephone" maxLength="15" data-minlength="5" placeholder="Entrez le téléphone">
 			</div>
             <div class="form-group">
-                <label for="numRue">Numero de rue</label>
-                <input type="number" name="numRue" class="form-control" id="numRue"  min="0" required placeholder="Entrez le numero de le rue">
+                <label for="numRue">Numéro de rue</label>
+                <input type="number" name="numRue" class="form-control" id="numRue"  min="0" required placeholder="Entrez le numéro de le rue">
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
@@ -74,7 +74,7 @@
                 <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-                <label for="codePostale">Code Postale</label>
+                <label for="codePostale">Code Postal</label>
                 <input type="text" name="codePostale" class="form-control" id="codePostale" placeholder="Entrez le code postal">
                 <div class="help-block with-errors"></div>
             </div>

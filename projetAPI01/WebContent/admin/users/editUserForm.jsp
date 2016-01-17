@@ -39,8 +39,8 @@
                 <input type="text" name="nom" class="form-control" id="nom" value="<jsp:getProperty name="userBean" property="nom" />" placeholder="Entrez le nom">
             </div>
             <div class="form-group">
-                <label for="surname">Prenom</label>
-                <input type="text" name="prenom" class="form-control" id="prenom" value="<jsp:getProperty name="userBean" property="prenom" />" placeholder="Entrez le prenom">
+                <label for="surname">Prénom</label>
+                <input type="text" name="prenom" class="form-control" id="prenom" value="<jsp:getProperty name="userBean" property="prenom" />" placeholder="Entrez le prénom">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -52,26 +52,26 @@
             </div>
             <div class="form-group">
                 <label for="password">Mot De Passe</label>
-                <input type="password" name="password" class="form-control" id="password" value="<jsp:getProperty name="userBean" property="password" />" placeholder="Entrez le mot de passe (6 characteres min)">
+                <input type="password" name="password" class="form-control" id="password" value="<jsp:getProperty name="userBean" property="password" />" placeholder="Entrez le mot de passe (6 caractères min)">
             </div>
             <div class="form-group">
                 <label for="confPass">Confirmation</label>
                 <input type="password" name="confPass" class="form-control" id="confPass" value="<jsp:getProperty name="userBean" property="password" />" placeholder="Confirmez le mot de passe">
             </div>
 			<div class="form-group">
-				<label for="telephone">Telephone</label>
-				<input type="text" name="telephone" class="form-control" id="telephone" value="<jsp:getProperty name="userBean" property="telephone" />" placeholder="Entrez le telephone">
+				<label for="telephone">Téléphone</label>
+				<input type="text" name="telephone" class="form-control" id="telephone" value="<jsp:getProperty name="userBean" property="telephone" />" placeholder="Entrez le téléphone">
 			</div>
             <div class="form-group">	
-                <label for="numRue">Numero de rue</label>
-                <input type="number" name="numRue" class="form-control" id="numRue" value="<jsp:getProperty name="adressBean" property="num" />" placeholder="Entrez le numero de rue">
+                <label for="numRue">Numéro de rue</label>
+                <input type="number" name="numRue" class="form-control" id="numRue" value="<jsp:getProperty name="adressBean" property="num" />" placeholder="Entrez le numéro de rue">
             </div>
             <div class="form-group">
                 <label for="rue">Rue</label>
                 <input type="text" name="rue" class="form-control" id="rue" value="<jsp:getProperty name="adressBean" property="rue" />" placeholder="Entrez la rue">
             </div>
             <div class="form-group">
-                <label for="codePostale">Code Postale</label>
+                <label for="codePostale">Code Postal</label>
                 <input type="text" name="codePostale" class="form-control" id="codePostale" value="<jsp:getProperty name="adressBean" property="codePostale" />" placeholder="Entrez le code postal">
             </div>
             <div class="form-group">
@@ -81,7 +81,7 @@
             <div class="form-group">
                 <label for="statut">Statut</label>
                 <select name="statut" class="form-control">
-					<option selected disabled>Selectionnez le statut</option>
+					<option selected disabled>Sélectionnez le statut</option>
                     <option value="active">Actif</option>
                     <option value="inactive">Inactif</option>
                 </select>
@@ -89,7 +89,7 @@
             <div class="form-group">
                 <label for="type">Type</label>
                 <select name="type" class="form-control">
-					<option selected disabled>Selectionnez le type</option>
+					<option selected disabled>Sélectionnez le type</option>
                     <option value="normalUser">Normal</option>
                     <option value="admin">Admin</option>
                 </select>

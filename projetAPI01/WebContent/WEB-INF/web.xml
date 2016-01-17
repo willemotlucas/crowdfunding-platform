@@ -210,6 +210,22 @@
     <url-pattern>/admin/manageIdeas</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ManageScoresServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.ManageScoresServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageScoresServlet</servlet-name>
+    <url-pattern>/admin/manageScores</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ManageEvalsServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.ManageEvalsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ManageEvalsServlet</servlet-name>
+    <url-pattern>/admin/manageEvals</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ManageFundsServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.ManageFundsServlet</servlet-class>
   </servlet>
@@ -224,6 +240,22 @@
   <servlet-mapping>
     <servlet-name>AddUserServlet</servlet-name>
     <url-pattern>/admin/addUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddScoreServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddScoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddScoreServlet</servlet-name>
+    <url-pattern>/admin/addScore</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddEvalServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.AddEvalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddEvalServlet</servlet-name>
+    <url-pattern>/admin/addEval</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>AddFundServlet</servlet-name>
@@ -242,6 +274,22 @@
     <url-pattern>/admin/seeUser</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>SeeScoreServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.SeeScoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeeScoreServlet</servlet-name>
+    <url-pattern>/admin/seeScore</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SeeEvalServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.SeeEvalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SeeEvalServlet</servlet-name>
+    <url-pattern>/admin/seeEval</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>SeeFundServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.SeeFundServlet</servlet-class>
   </servlet>
@@ -258,6 +306,22 @@
     <url-pattern>/admin/editUser</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>EditScoreServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditScoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditScoreServlet</servlet-name>
+    <url-pattern>/admin/editScore</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditEvalServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.EditEvalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditEvalServlet</servlet-name>
+    <url-pattern>/admin/editEval</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>EditFundServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.EditFundServlet</servlet-class>
   </servlet>
@@ -272,6 +336,22 @@
   <servlet-mapping>
     <servlet-name>RemoveUserServlet</servlet-name>
     <url-pattern>/admin/removeUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RemoveScoreServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.RemoveScoreServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveScoreServlet</servlet-name>
+    <url-pattern>/admin/removeScore</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>RemoveEvalServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.RemoveEvalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RemoveEvalServlet</servlet-name>
+    <url-pattern>/admin/removeEval</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>RemoveFundServlet</servlet-name>

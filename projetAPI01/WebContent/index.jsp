@@ -29,7 +29,7 @@
 <body>		
 		<div class="container">
 		<div id="header" class="jumbotron">
-			<h1>Bienvenue à Lunch-My-Idea</h1>
+			<h1>Bienvenue à Launch my idea!</h1>
 		</div>
         <div class="row">
             <div class="col-md-4 col-md-offset-4">

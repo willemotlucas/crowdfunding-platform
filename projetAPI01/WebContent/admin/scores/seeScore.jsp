@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation de modification de l'utilisateur</title>
+<title>Visualisation du score</title>
     <jsp:useBean id="userBean" class="com.utc.projetAPI01.beans.Utilisateur" scope="session" />
-    <jsp:useBean id="adressBean" class="com.utc.projetAPI01.beans.Adress" scope="session" />
+    <jsp:useBean id="scoreBean" class="com.utc.projetAPI01.beans.Thumb" scope="session" />
+    <jsp:useBean id="ideaBean" class="com.utc.projetAPI01.beans.Idea" scope="session" />
     
 <!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -19,27 +20,21 @@
     
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
 </head>
 <body>
 	<jsp:include page="/admin/templates/menu.jsp"/>
 	<div class="container">
 		<div class="row">
-		   <h1 class="page-header">Modification d'un utilisateur</h1>
+		   <h1 class="page-header">Visualisation d'un score</h1>
 		</div>
 		<div class="page-header">
-			<h3> Vous avez bien modifié l'utilisateur <jsp:getProperty name="userBean" property="email" /> de la maniere suivante :</h3>
+			<h3> Voici le score ayant l'id : <jsp:getProperty name="scoreBean" property="id" /></h3>
 		</div>
 	 	<div class="row">
-			Nom : <span class="marge"></span> <jsp:getProperty name="userBean" property="nom" /></br>
-			Prénom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
-			Email : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
-			Mot de passe : <span class="marge"></span> <jsp:getProperty name="userBean" property="password" /></br>
-			Téléphone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
-			Adresse : <span class="marge"></span> <jsp:getProperty name="adressBean" property="num" /> &nbsp; <jsp:getProperty name="adressBean" property="rue" /> &nbsp; </br>
-			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>
-			Statut : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountStatus" /></br>
-			Type : <span class="marge"></span> <jsp:getProperty name="userBean" property="accountType" /></br>
-			Date de création : <span class="marge"></span> <jsp:getProperty name="userBean" property="dateCreation" /></br>
+			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /> <jsp:getProperty name="userBean" property="nom" /></br>
+			Idee : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
+			Score : <span class="marge"></span> <jsp:getProperty name="scoreBean" property="score" /></br>
 		</div>
 	</div>
 </body>

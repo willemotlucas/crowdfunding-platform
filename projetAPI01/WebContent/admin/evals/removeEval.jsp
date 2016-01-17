@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirmation de modification du financement</title>
+<title>Confirmation de suppression de l'évaluation</title>
     <jsp:useBean id="userBean" class="com.utc.projetAPI01.beans.Utilisateur" scope="session" />
-    <jsp:useBean id="makeFundBean" class="com.utc.projetAPI01.beans.MakeFund" scope="session" />
+    <jsp:useBean id="evalScoreBean" class="com.utc.projetAPI01.beans.EvaluationScore" scope="session" />
     <jsp:useBean id="ideaBean" class="com.utc.projetAPI01.beans.Idea" scope="session" />
     
 <!-- Latest compiled and minified CSS -->
@@ -20,21 +20,20 @@
     
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
 </head>
 <body>
 	<jsp:include page="/admin/templates/menu.jsp"/>
 	<div class="container">
 		<div class="row">
-		   <h1 class="page-header">Modification d'un financement</h1>
+		   <h1 class="page-header">Suppression de l'évaluation</h1>
 		</div>
 		<div class="page-header">
-			<h3> Vous avez bien modifié le financement ayant l'id : <jsp:getProperty name="makeFundBean" property="id" /></h3>
-		</div>
-	 	<div class="row">
+			<h3> Vous avez bien supprimé l'évaluation ayant l'ID <jsp:getProperty name="evalScoreBean" property="id" /> avec les caractéristiques suivantes :</h3>
 			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /> <jsp:getProperty name="userBean" property="nom" /></br>
-			Idée : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
-			Montant : <span class="marge"></span> <jsp:getProperty name="makeFundBean" property="amount" /></br>
+			Idee : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
+			Faisabilité : <span class="marge"></span> <jsp:getProperty name="evalScoreBean" property="feasibility" /></br>
+			Intêret du marché : <span class="marge"></span> <jsp:getProperty name="evalScoreBean" property="marketInterest" /></br>
+			Impact : <span class="marge"></span> <jsp:getProperty name="evalScoreBean" property="impact" /></br>
 		</div>
 	</div>
 </body>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Gestion des financements</title>
+<title>Gestion des scores</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
@@ -21,44 +21,41 @@
 	<jsp:include page="/admin/templates/menu.jsp"/>
 	<div class="container">
 		<div class="row">
-		   <h1 class="page-header">Gestion des financements</h1>
+		   <h1 class="page-header">Gestion des scores</h1>
 		</div>
 	
 		<script>$(document).ready(function() {
-		    $('#manageFunds').DataTable();
+		    $('#manageScores').DataTable();
 		} );</script>
 	
 	 	<div class="page-header">
-	 		<h2>Liste des financements de l'application</h2>
+	 		<h2>Liste des scores de l'application</h2>
 	 	</div>
 	 	<div class="row">
-			<a href="/projetAPI01/admin/addFund?id=${sessionScope.userSession.id}" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter un financement</a>
+			<a href="/projetAPI01/admin/addScore?id=${sessionScope.userSession.id}" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter un score</a>
 	    </div>
 	    <div class="row">
 			<c:choose>
-				<c:when test="${not empty sessionScope.allMakeFunds}">
-					<table id="manageFunds" class="table table-striped ">
+				<c:when test="${not empty sessionScope.allScores}">
+					<table id="manageScores" class="table table-striped ">
 						<thead>
 							<tr>
 				                <th>Id</th>
-				                <th>Utilisateur</th>
 				                <th>Idee</th>
-				                <th>Montant</th>
-								<th>Voir</th>
-								<th>Modifier</th>
-								<th>Supprimer</th>
+				                <th>Utilisateur</th>
+				                <th>Score</th>
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="Fund" items="${sessionScope.allMakeFunds}">
+							<c:forEach var="score" items="${sessionScope.allScores}">
 								<tr>
-				                    <td>${Fund.id}</td>
-				                    <td>${Fund.utilisateur.prenom} ${Fund.utilisateur.nom}</td>
-				                    <td>${Fund.fund.context.idea.name}</td>
-				                    <td>${Fund.amount}</td>
-									<td><a href="/projetAPI01/admin/seeFund?id=${Fund.id}" class="btn btn-success" role="button">Voir</a></td>
-									<td><a href="/projetAPI01/admin/editFund?id=${Fund.id}" class="btn btn-primary" role="button">Modifier</a></td>
-									<td><a href="/projetAPI01/admin/removeFund?id=${Fund.id}" class="btn btn-danger" role="button">Supprimer</a></td>
+				                    <td>${score.id}</td>
+				                    <td>${score.discussion.context.idea.name}</td>
+				                    <td>${score.utilisateur.prenom} ${eval.utilisateur.nom}</td>
+				                    <td>${score.score}</td>
+									<td><a href="/projetAPI01/admin/seeScore?id=${score.id}" class="btn btn-success" role="button">Voir</a></td>
+									<td><a href="/projetAPI01/admin/editScore?id=${score.id}" class="btn btn-primary" role="button">Modifier</a></td>
+									<td><a href="/projetAPI01/admin/removeScore?id=${score.id}" class="btn btn-danger" role="button">Supprimer</a></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -66,7 +63,7 @@
 				</c:when>
 						
 				<c:otherwise>
-				<p>Il n'y a aucun financement</p>
+				<p>Il n'y a aucun score</p>
 				</c:otherwise> 
 			</c:choose>
 		</div>

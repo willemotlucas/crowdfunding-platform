@@ -25,16 +25,16 @@ import com.utc.projetAPI01.dao.PhaseContextDAOImpl;
 import com.utc.projetAPI01.dao.UtilisateurDAOImpl;
 
 /**
- * Servlet implementation class EditFundServlet
+ * Servlet implementation class EditEvalServlet
  */
-@WebServlet("/EditFundServlet")
-public class EditFundServlet extends HttpServlet {
+@WebServlet("/EditEvalServlet")
+public class EditEvalServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditFundServlet() {
+    public EditEvalServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,16 +44,16 @@ public class EditFundServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		EvaluationScoreDAOImpl evalScoreDAO = new EvaluationScoreDAOImpl();
+		int idEval = Integer.parseInt(request.getParameter("id"));
+        EvaluationScore evalScore = evalScoreDAO.findById(idEval);
+        
 		
-		MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
-		int idFund = Integer.parseInt(request.getParameter("id"));
-        MakeFund makeFund = makeFundDAO.findById(idFund);
-		
-		if(makeFund != null){
-			request.setAttribute("makeFundBean", makeFund);
-			request.setAttribute("userBean", makeFund.getUtilisateur());
-			request.setAttribute("ideaBean", makeFund.getFund().getContext().getIdea());
-			request.getRequestDispatcher("/admin/funds/editFundForm.jsp").forward(request, response);
+		if(evalScore != null){
+			request.setAttribute("evalScoreBean", evalScore);
+			request.setAttribute("userBean", evalScore.getUtilisateur());
+			request.setAttribute("ideaBean", evalScore.getEvaluation().getContext().getIdea());
+			request.getRequestDispatcher("/admin/evals/editEvalForm.jsp").forward(request, response);
 		}
 	}
 
@@ -62,15 +62,17 @@ public class EditFundServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("edit fund");
+		System.out.println("edit eval");
 
-        MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
-        int idMakeFund = Integer.parseInt(request.getParameter("id"));
-        MakeFund makeFund = makeFundDAO.findById(idMakeFund);        
-
+        EvaluationScoreDAOImpl evalScoreDAO = new EvaluationScoreDAOImpl();
+        int idEvalScore = Integer.parseInt(request.getParameter("id"));
+        EvaluationScore evalScore = evalScoreDAO.findById(idEvalScore);
+        
         String utilisateur = request.getParameter("utilisateur");
         int idea = Integer.parseInt(request.getParameter("idIdea"));
-        int amount = Integer.parseInt(request.getParameter("montant"));
+        int feasibility = Integer.parseInt(request.getParameter("feasibility"));
+        int marketInterest = Integer.parseInt(request.getParameter("marketInterest"));
+        int impact = Integer.parseInt(request.getParameter("impact"));
 
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         Utilisateur user = userDAO.findByEmail(utilisateur);
@@ -81,25 +83,30 @@ public class EditFundServlet extends HttpServlet {
 		
 		if(!utilisateur.isEmpty()
 			&& idea > 0
-			&& amount > 0
-			&& context.getCurrentPhase().equals("fund")
+			&& feasibility > 0
+			&& marketInterest > 0
+			&& impact > 0
 			) {
 
-			FundDAOImpl fundDAO = new FundDAOImpl();
-			Fund fund = fundDAO.findByContext(context.getId());
-			makeFund.setAmount(amount);
-			makeFund.setFund(fund);
-			makeFund.setUtilisateur(user);
+
+	        EvaluationDAOImpl evalDAO = new EvaluationDAOImpl();
+			Evaluation eval = evalDAO.findByContext(context.getId());
+			
+			evalScore.setEvaluation(eval);
+			evalScore.setFeasibility(feasibility);
+			evalScore.setImpact(impact);
+			evalScore.setMarketInterest(marketInterest);
+			evalScore.setUtilisateur(user);
 	        
-			makeFundDAO.save(makeFund);
+			evalScoreDAO.save(evalScore);
 
 			IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
 			Idea ideaBean = ideaDAO.findById(idea);
 
 	        request.getSession().setAttribute("userBean", user);
-	        request.getSession().setAttribute("makeFundBean", makeFund);
+	        request.getSession().setAttribute("evalScoreBean", evalScore);
 	        request.getSession().setAttribute("ideaBean", ideaBean);
-	        request.getRequestDispatcher("/admin/funds/editFundResult.jsp").forward(request, response);
+	        request.getRequestDispatcher("/admin/evals/editEvalResult.jsp").forward(request, response);
 			
 		}
 		else{
