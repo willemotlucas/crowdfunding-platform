@@ -3,7 +3,11 @@
 }
 
 .home-most-popular {
-	background-image: url('../img/bg.jpg');
+	background-image: url('../img/bg4.jpg');
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 
 .thumbnail-most-popular{

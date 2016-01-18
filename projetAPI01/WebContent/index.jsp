@@ -13,7 +13,9 @@
 	
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="public/css/index.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	
     <!-- MetisMenu CSS -->
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
@@ -26,7 +28,7 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
-<body>		
+<body style="background-image: url(public/img/bg2.jpg); width: 100%;">		
 		<% 		com.utc.projetAPI01.beans.Utilisateur currentUser = (com.utc.projetAPI01.beans.Utilisateur) request.getSession().getAttribute("userSession");
 				if(currentUser != null)
 				{
@@ -40,34 +42,32 @@
 					}
 				}
 		%>
-		<div class="container">
-		<div id="header" class="jumbotron">
-			<h1>Bienvenue à Launch my idea!</h1>
+		<div class="row">
+			<div class="container">
+				<h1>Launch my idea</h1>
+			</div>
 		</div>
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Connexion</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" method="POST" action="login">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Login" name="email" type="text" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Mot de passe" name="password" type="password" value="">
-                                </div>
-								<button type="submit" class="btn btn-default">Se connecter</button>
-                            </fieldset>
-                        </form>
-                        
-						<p>Pas encore de compte utilisateur ? <a href="inscription.jsp">Inscrivez-vous !</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+		
+		<div class="row">
+			<div class="container">
+				<div class="col-md-4 col-md-offset-4">
+	                        <form role="form" method="POST" action="login">
+	                            <fieldset>
+	                                <div class="form-group">
+	                                    <input class="form-control" placeholder="Email" name="email" type="email" autofocus>
+	                                </div>
+	                                <div class="form-group">
+	                                    <input class="form-control" placeholder="Mot de passe" name="password" type="password" value="">
+	                                </div>
+	                                <div class="col-md-offset-4">
+										<button type="submit" class="btn btn-success">Se connecter</button>	                                
+	                                </div>
+	                            </fieldset>
+	                        </form>
+	                        <br>
+							<p>Pas encore de compte utilisateur ? <a href="inscription.jsp">Inscrivez-vous !</a></p>
+	            </div>
+			</div>
+		</div>
 </body>
 </html>
