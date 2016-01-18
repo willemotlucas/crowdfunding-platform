@@ -39,6 +39,42 @@ public class IdeaDAOImpl extends DAOAbstract<Idea>{
 	    }
 		return ideas;
 	}
+	
+	public List<Idea> findAllRedaction()
+	{
+		List<Idea> ideasRedaction = new ArrayList<Idea>();
+		List<Idea> allIdeas = findAll();
+		
+		Iterator<Idea> itIdea = allIdeas.iterator();
+		while(itIdea.hasNext())
+		{
+			Idea idea = itIdea.next();
+			if(idea.getPhaseContext().getCurrentPhase().equals("redaction"))
+			{
+				ideasRedaction.add(idea);
+			}
+		}
+		
+		return ideasRedaction;
+	}
+	
+	public List<Idea> findAllEvaluation()
+	{
+		List<Idea> ideasEvaluation = new ArrayList<Idea>();
+		List<Idea> allIdeas = findAll();
+		
+		Iterator<Idea> itIdea = allIdeas.iterator();
+		while(itIdea.hasNext())
+		{
+			Idea idea = itIdea.next();
+			if(idea.getPhaseContext().getCurrentPhase().equals("evaluation"))
+			{
+				ideasEvaluation.add(idea);
+			}
+		}
+		
+		return ideasEvaluation;
+	}
 
 	@SuppressWarnings("unchecked")
 	public List<Idea> findByPhase(String phase){
