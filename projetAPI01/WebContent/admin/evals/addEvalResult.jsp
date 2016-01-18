@@ -32,8 +32,8 @@
 			<h3> Vous avez bien ajouté l evaluation ayant l'id : <jsp:getProperty name="evalScoreBean" property="id" /></h3>
 		</div>
 	 	<div class="row">
-			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /> <jsp:getProperty name="userBean" property="nom" /></br>
-			Idee : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
+			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
+			Idée : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
 			Faisabilite : <span class="marge"></span> <jsp:getProperty name="evalScoreBean" property="feasibility" /></br>
 			Interet du marche : <span class="marge"></span> <jsp:getProperty name="evalScoreBean" property="marketInterest" /></br>
 			Impact : <span class="marge"></span> <jsp:getProperty name="evalScoreBean" property="impact" /></br>

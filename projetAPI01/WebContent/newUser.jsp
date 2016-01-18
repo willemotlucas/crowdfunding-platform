@@ -32,7 +32,6 @@
 			Nom : <span class="marge"></span> <jsp:getProperty name="userBean" property="nom" /></br>
 			Prénom : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /></br>
 			Email : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
-			Mdp : <span class="marge"></span> <jsp:getProperty name="userBean" property="password" /></br>
 			Téléphone : <span class="marge"></span> <jsp:getProperty name="userBean" property="telephone" /></br>
 			Adresse : <span class="marge"></span> <jsp:getProperty name="adressBean" property="num" /> &nbsp; <jsp:getProperty name="adressBean" property="rue" /> &nbsp; </br>
 			 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<jsp:getProperty name="adressBean" property="codePostale" /> &nbsp; <jsp:getProperty name="adressBean" property="ville" /></br>

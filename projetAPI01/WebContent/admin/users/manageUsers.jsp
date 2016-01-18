@@ -44,7 +44,6 @@
 				                <th>Nom</th>
 				                <th>Prénom</th>
 				                <th>Email</th>
-				                <th>Mot de passe</th>
 				                <th>Téléphone</th>
 				                <th>Date de creation</th>
 				                <th>Statut</th>
@@ -62,7 +61,6 @@
 				                    <td>${user.nom}</td>
 				                    <td>${user.prenom}</td>
 				                    <td>${user.email}</td>
-				                    <td>${user.password}</td>
 				                    <td>${user.telephone}</td>
 				                    <td>${user.dateCreation}</td>
 				                    <td>${user.accountStatus}</td>

@@ -29,8 +29,8 @@
 		</div>
 		<div class="page-header">
 			<h3> Vous avez bien supprimé le score ayant l'ID <jsp:getProperty name="scoreBean" property="id" /> avec les caractéristiques suivantes :</h3>
-			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /> <jsp:getProperty name="userBean" property="nom" /></br>
-			Idee : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
+			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
+			Idée : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
 			Score : <span class="marge"></span> <jsp:getProperty name="scoreBean" property="score" /></br>
 		</div>
 	</div>

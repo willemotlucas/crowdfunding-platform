@@ -1,6 +1,8 @@
 package com.utc.projetAPI01.servlets;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,8 +45,16 @@ public class EditScoreServlet extends HttpServlet {
 		ThumbDAOImpl thumbDAO = new ThumbDAOImpl();
 		int idThumb = Integer.parseInt(request.getParameter("id"));
         Thumb thumb = thumbDAO.findById(idThumb);
+
+        UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        List<Utilisateur> allUsers = userDAO.findAll();
+
+        IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+        List<Idea> allIdeas = ideaDAO.findAll();
         
 		if(thumb != null){
+			request.setAttribute("allUsers", allUsers);
+			request.setAttribute("allIdeas", allIdeas);
 			request.setAttribute("scoreBean", thumb);
 			request.setAttribute("userBean", thumb.getUtilisateur());
 			request.setAttribute("ideaBean", thumb.getDiscussion().getContext().getIdea());
@@ -84,7 +94,6 @@ public class EditScoreServlet extends HttpServlet {
 		if(!utilisateur.isEmpty()
 			&& idea > 0
 			&& (score == -1 || score == 1)
-			&& context.getCurrentPhase().equals("discussion")
 			) {
 
 			thumb.setDiscussion(discuss);

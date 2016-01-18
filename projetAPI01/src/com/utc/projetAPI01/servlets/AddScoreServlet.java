@@ -45,17 +45,18 @@ public class AddScoreServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-        //UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         int idUser = Integer.parseInt(request.getParameter("id"));
         Utilisateur user = userDAO.findById(idUser);
+        List<Utilisateur> allUsers = userDAO.findAll();
         
         IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
         List<Idea> allIdeas = ideaDAO.findByPhase("discussion");
-		
+        
 		if(user != null && allIdeas != null){
 			request.setAttribute("userBean", user);
-	        request.getSession().setAttribute("allIdeas", allIdeas);
+	        request.setAttribute("allIdeas", allIdeas);
+	        request.setAttribute("allUsers", allUsers);
 			request.getRequestDispatcher("/admin/scores/addScoreForm.jsp").forward(request, response);
 		}
 	}

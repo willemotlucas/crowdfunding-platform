@@ -49,13 +49,15 @@ public class AddEvalServlet extends HttpServlet {
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         int idUser = Integer.parseInt(request.getParameter("id"));
         Utilisateur user = userDAO.findById(idUser);
+        List<Utilisateur> allUsers = userDAO.findAll();
         
         IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
         List<Idea> allIdeas = ideaDAO.findByPhase("evaluation");
-		
+        
 		if(user != null && allIdeas != null){
 			request.setAttribute("userBean", user);
-	        request.getSession().setAttribute("allIdeas", allIdeas);
+	        request.setAttribute("allIdeas", allIdeas);
+	        request.setAttribute("allUsers", allUsers);
 			request.getRequestDispatcher("/admin/evals/addEvalForm.jsp").forward(request, response);
 		}
 	}
@@ -79,7 +81,15 @@ public class AddEvalServlet extends HttpServlet {
 
 		PhaseContextDAOImpl contextDAO = new PhaseContextDAOImpl();
 		PhaseContext context = contextDAO.findByIdea(idea);
+
+		EvaluationDAOImpl evalDAO = new EvaluationDAOImpl();
+		Evaluation eval = evalDAO.findByContext(context.getId());
+		EvaluationScoreDAOImpl evalScoreDAO = new EvaluationScoreDAOImpl();
 		
+		if(evalScoreDAO.findByUserAndEvaluation(user, eval.getId()) != null){
+			request.setAttribute("error","Cet utilisateur a déjà évalué cette idée");
+			doGet(request, response);
+		}
 		
 		if(!utilisateur.isEmpty()
 			&& idea > 0
@@ -89,9 +99,6 @@ public class AddEvalServlet extends HttpServlet {
 			&& context.getCurrentPhase().equals("evaluation")
 			) {
 
-			EvaluationDAOImpl evalDAO = new EvaluationDAOImpl();
-			Evaluation eval = evalDAO.findByContext(context.getId());
-			EvaluationScoreDAOImpl evalScoreDAO = new EvaluationScoreDAOImpl();
 			EvaluationScore evalScore = new EvaluationScore(feasibility,marketInterest,impact,user,eval);
 	        
 			evalScoreDAO.save(evalScore);
