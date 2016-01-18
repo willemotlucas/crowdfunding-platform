@@ -114,6 +114,14 @@
     <url-pattern>/admin/addCommentsAdmin</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ChangePhaseServlet</servlet-name>
+    <servlet-class>com.utc.projetAPI01.servlets.ChangePhaseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangePhaseServlet</servlet-name>
+    <url-pattern>/admin/changePhase</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>AddThumbsServlet</servlet-name>
     <servlet-class>com.utc.projetAPI01.servlets.AddThumbsServlet</servlet-class>
   </servlet>

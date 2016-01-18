@@ -59,21 +59,21 @@
 					</thead>
 					<tbody>
 						<c:forEach var="evaluation" items="${requestScope.allEvaluations}">
-							<tr>
-			                    <td>${evaluation.id}</td>
-			                    <td>${evaluation.name}</td>
-			                    <td>${evaluation.applicationField}</td>
-			                    <td>${evaluation.fundingRequested}</td>
-			                    <td><fmt:formatDate type="date" dateStyle="long" value="${requestScope.evaluations[evaluation.id].datePhase}"/></td>
-			                    <td>${evaluation.madeBy.email}</td>
-			                    <td>${evaluation.phaseContext.currentPhase}</td>
-			                    <td>${requestScope.joursRestant[evaluation.id] }</td>
-								<td>
-									<c:if test="${requestScope.joursRestant[evaluation.id] == 0}">
-										<a href="/projetAPI01/admin/ideaPhase/edit?id=${evaluation.id}" class="btn btn-primary" role="button">Modifier la phase</a>
-									</c:if>
-								</td>
-							</tr>
+								<tr>
+				                    <td>${evaluation.id}</td>
+				                    <td>${evaluation.name}</td>
+				                    <td>${evaluation.applicationField}</td>
+				                    <td>${evaluation.fundingRequested}</td>
+				                    <td><fmt:formatDate type="date" dateStyle="long" value="${requestScope.evaluations[evaluation.id].datePhase}"/></td>
+				                    <td>${evaluation.madeBy.email}</td>
+				                    <td>${evaluation.phaseContext.currentPhase}</td>
+				                    <td>${requestScope.joursRestant[evaluation.id] }</td>
+									<td>
+										<c:if test="${requestScope.joursRestant[evaluation.id] == 0}">
+											<a href="/projetAPI01/admin/changePhase?id=${evaluation.id}" class="btn btn-primary" role="button">Passer en fund</a>
+										</c:if>
+									</td>
+								</tr>
 						</c:forEach>
 					</tbody>
 				</table>
@@ -105,21 +105,21 @@
 					</thead>
 					<tbody>
 						<c:forEach var="redaction" items="${allRedactions}">
-							<tr>
-			                    <td>${redaction.id}</td>
-			                    <td>${redaction.name}</td>
-			                    <td>${redaction.applicationField}</td>
-			                    <td>${redaction.fundingRequested}</td>
-			                    <td>${requestScope.redactions[redaction.id].datePhase}</td>
-			                    <td>${redaction.madeBy.email}</td>
-			                    <td>${redaction.phaseContext.currentPhase}</td>
-			                    <td>${requestScope.joursRestant[redaction.id] }</td>
-								<td>
-									<c:if test="${requestScope.joursRestant[redaction.id] == 0}">
-										<a href="/projetAPI01/admin/ideaPhase/edit?id=${redaction.id}" class="btn btn-primary" role="button">Modifier la phase</a>
-									</c:if>
-								</td>
-							</tr>
+								<tr>
+				                    <td>${redaction.id}</td>
+				                    <td>${redaction.name}</td>
+				                    <td>${redaction.applicationField}</td>
+				                    <td>${redaction.fundingRequested}</td>
+				                    <td><fmt:formatDate type="date" dateStyle="long" value="${requestScope.redactions[redaction.id].datePhase}"/></td>
+				                    <td>${redaction.madeBy.email}</td>
+				                    <td>${redaction.phaseContext.currentPhase}</td>
+				                    <td>${requestScope.joursRestant[redaction.id] }</td>
+									<td>
+										<c:if test="${requestScope.joursRestant[redaction.id] == 0}">
+											<a href="/projetAPI01/admin/changePhase?id=${redaction.id}" class="btn btn-primary" role="button">Passer en evaluation</a>
+										</c:if>
+									</td>
+								</tr>
 						</c:forEach>
 					</tbody>
 				</table>
