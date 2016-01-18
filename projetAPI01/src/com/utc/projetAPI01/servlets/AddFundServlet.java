@@ -48,13 +48,15 @@ public class AddFundServlet extends HttpServlet {
         UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
         int idUser = Integer.parseInt(request.getParameter("id"));
         Utilisateur user = userDAO.findById(idUser);
+        List<Utilisateur> allUsers = userDAO.findAll();
         
         IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
         List<Idea> allIdeas = ideaDAO.findByPhase("fund");
-		
+        
 		if(user != null && allIdeas != null){
 			request.setAttribute("userBean", user);
-	        request.getSession().setAttribute("allIdeas", allIdeas);
+	        request.setAttribute("allIdeas", allIdeas);
+	        request.setAttribute("allUsers", allUsers);
 			request.getRequestDispatcher("/admin/funds/addFundForm.jsp").forward(request, response);
 		}
 	}

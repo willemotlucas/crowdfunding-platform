@@ -83,22 +83,6 @@
                 <input type="text" name="ville" class="form-control" id="ville" placeholder="Entrez la ville">
                 <div class="help-block with-errors"></div>
             </div>
-            <div class="form-group">
-                <label for="statut">Statut</label>
-                <select name="statut" id="statut" required class="form-control">
-					<option selected disabled>Selectionnez le statut</option>
-                    <option value="active">Actif</option>
-                    <option value="inactive">Inactif</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="type">Type</label>
-                <select name="type" id="statut" required class="form-control">
-					<option selected disabled>Selectionnez le type</option>
-                    <option value="normalUser">Normal</option>
-                    <option value="admin">Admin</option>
-                </select>
-            </div>
             <button type="submit" class="btn btn-default">Sauvegarder</button>
         </form>    
     </div>

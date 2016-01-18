@@ -18,6 +18,9 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
     <!-- Latest compiled and minified JavaScript -->
 	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -38,23 +41,37 @@
 		<form data-toggle="validator" class="form-horizontal" role="form" method="POST" action="/projetAPI01/admin/editEval">
         	<input type="hidden" name="id" value="<jsp:getProperty name="evalScoreBean" property="id" />">
         	<input type="hidden" name="idIdea" value="<jsp:getProperty name="ideaBean" property="id" />">
-			<div class="form-group">
-		        <label for="utilisateur">Utilisateur</label>
-                <div class="input-group">
-                	<span class="input-group-addon">@</span>
-					<input type="text" class="form-control" name="utilisateur" id="utilisateur" maxLength="40" data-minlength="2" required  value="<jsp:getProperty name="userBean" property="email" />" placeholder="Entrez le login de l'utilisateur">
-				</div>
-				<div class="help-block with-errors"></div>
-			</div>
             <div class="form-group">
-                <label for="idea">Idee</label>
-                <input type="text" class="form-control" name="idea" id="idea" maxLength="40" data-minlength="2" required  value="<jsp:getProperty name="ideaBean" property="name" />" placeholder="Entrez l'idée">
-				<!-- select name="idea" id="idea" required class="form-control">
-					<option selected disabled>Selectionnez l'idee</option>
-					<c:forEach var="Idea" items="${sessionScope.allIdeas}">
-	                    <option value="${Idea.id}">${Idea.name}</option>
+		        <label for="utilisateur">Utilisateur</label>
+                <select name="utilisateur" id="utilisateur" required class="form-control">
+					<option selected disabled>Sélectionnez l'utilisateur</option>
+					<c:forEach var="User" items="${requestScope.allUsers}">
+						<c:choose>
+							<c:when test="${requestScope.userBean.email == User.email }">
+	                    		<option selected="true">${User.email}</option>
+	                    	</c:when>
+	                    	<c:otherwise>
+	                    		<option>${User.email}</option>
+	                    	</c:otherwise>
+	                    </c:choose>
 	                </c:forEach>
-                </select -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="idea">Idée</label>
+                <select name="idea" id="idea" required class="form-control">
+					<option selected disabled>Sélectionnez l'idée</option>
+					<c:forEach var="Idea" items="${requestScope.allIdeas}">
+						<c:choose>
+							<c:when test="${requestScope.ideaBean.name == Idea.name}">
+	                    		<option selected="true">${Idea.name}</option>
+	                    	</c:when>
+	                    	<c:otherwise>
+	                    		<option>${Idea.name}</option>
+	                    	</c:otherwise>
+	                    </c:choose>
+	                </c:forEach>
+                </select>
             </div>
             <div class="form-group">
                 <label for="feasibility">Faisabilité</label>

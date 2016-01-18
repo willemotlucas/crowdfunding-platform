@@ -47,9 +47,16 @@ public class EditEvalServlet extends HttpServlet {
 		EvaluationScoreDAOImpl evalScoreDAO = new EvaluationScoreDAOImpl();
 		int idEval = Integer.parseInt(request.getParameter("id"));
         EvaluationScore evalScore = evalScoreDAO.findById(idEval);
+
+        UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        List<Utilisateur> allUsers = userDAO.findAll();
+
+        IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+        List<Idea> allIdeas = ideaDAO.findAll();
         
-		
 		if(evalScore != null){
+			request.setAttribute("allUsers", allUsers);
+			request.setAttribute("allIdeas", allIdeas);
 			request.setAttribute("evalScoreBean", evalScore);
 			request.setAttribute("userBean", evalScore.getUtilisateur());
 			request.setAttribute("ideaBean", evalScore.getEvaluation().getContext().getIdea());

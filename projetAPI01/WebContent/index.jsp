@@ -59,11 +59,6 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Mot de passe" name="password" type="password" value="">
                                 </div>
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Se souvenir de moi
-                                    </label>
-                                </div>
 								<button type="submit" class="btn btn-default">Se connecter</button>
                             </fieldset>
                         </form>

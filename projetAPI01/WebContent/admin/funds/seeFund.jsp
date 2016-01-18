@@ -32,8 +32,8 @@
 			<h3> Voici le financement ayant l'id : <jsp:getProperty name="makeFundBean" property="id" /></h3>
 		</div>
 	 	<div class="row">
-			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /> <jsp:getProperty name="userBean" property="nom" /></br>
-			Idee : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
+			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
+			Idée : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
 			Montant : <span class="marge"></span> <jsp:getProperty name="makeFundBean" property="amount" /></br>
 		</div>
 	</div>

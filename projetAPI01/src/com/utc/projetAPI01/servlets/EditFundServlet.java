@@ -48,8 +48,16 @@ public class EditFundServlet extends HttpServlet {
 		MakeFundDAOImpl makeFundDAO = new MakeFundDAOImpl();
 		int idFund = Integer.parseInt(request.getParameter("id"));
         MakeFund makeFund = makeFundDAO.findById(idFund);
-		
+
+        UtilisateurDAOImpl userDAO = new UtilisateurDAOImpl();
+        List<Utilisateur> allUsers = userDAO.findAll();
+
+        IdeaDAOImpl ideaDAO = new IdeaDAOImpl();
+        List<Idea> allIdeas = ideaDAO.findAll();
+
 		if(makeFund != null){
+			request.setAttribute("allUsers", allUsers);
+			request.setAttribute("allIdeas", allIdeas);		
 			request.setAttribute("makeFundBean", makeFund);
 			request.setAttribute("userBean", makeFund.getUtilisateur());
 			request.setAttribute("ideaBean", makeFund.getFund().getContext().getIdea());

@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" 
            uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,7 +64,7 @@
 			                    <td>${evaluation.name}</td>
 			                    <td>${evaluation.applicationField}</td>
 			                    <td>${evaluation.fundingRequested}</td>
-			                    <td>${requestScope.evaluations[evaluation.id].datePhase}</td>
+			                    <td><fmt:formatDate type="date" dateStyle="long" value="${requestScope.evaluations[evaluation.id].datePhase}"/></td>
 			                    <td>${evaluation.madeBy.email}</td>
 			                    <td>${evaluation.phaseContext.currentPhase}</td>
 			                    <td>${requestScope.joursRestant[evaluation.id] }</td>

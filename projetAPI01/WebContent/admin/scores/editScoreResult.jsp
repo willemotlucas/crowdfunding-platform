@@ -32,8 +32,8 @@
 			<h3> Vous avez bien modifié le score ayant l'id : <jsp:getProperty name="scoreBean" property="id" /></h3>
 		</div>
 	 	<div class="row">
-			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="prenom" /> <jsp:getProperty name="userBean" property="nom" /></br>
-			Idee : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
+			Utilisateur : <span class="marge"></span> <jsp:getProperty name="userBean" property="email" /></br>
+			Idée : <span class="marge"></span> <jsp:getProperty name="ideaBean" property="name" /></br>
 			Score : <span class="marge"></span> <jsp:getProperty name="scoreBean" property="score" /></br>
 		</div>
 	</div>
