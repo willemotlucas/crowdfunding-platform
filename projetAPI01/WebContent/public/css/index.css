@@ -1,0 +1,19 @@
+.form-control {
+	background-color: transparent;
+	color: white;
+}
+
+p {
+	color: white;
+}
+
+.col-md-4 {
+	margin-top: 10%;
+}
+
+h1 {
+	font-family: 'Pacifico', cursive;
+	font-size: 8em;
+	color: white;
+	text-align: center;
+}
