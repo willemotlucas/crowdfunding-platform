@@ -32,7 +32,7 @@
 				{
 					if(currentUser.getAccountType().equals("admin"))
 					{
-						response.sendRedirect(request.getContextPath() + "/admin/homeAdmin.jsp");
+						response.sendRedirect(request.getContextPath() + "/admin/homepage");
 					}
 					else if(currentUser.getAccountType().equals("normalUser"))
 					{
