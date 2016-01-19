@@ -50,8 +50,8 @@ public class LoadAdminHomepageServlet extends HttpServlet {
 		List<Idea> allEvaluations = ideaDao.findAllEvaluation();
 		List<Idea> allRedactions = ideaDao.findAllRedaction();
 		
-		Map<Integer, Evaluation> evaluations = new HashMap<Integer, Evaluation>();
-		Map<Integer, Redaction> redactions = new HashMap<Integer, Redaction>();
+		Map<Idea, Evaluation> evaluations = new HashMap<Idea, Evaluation>();
+		Map<Idea, Redaction> redactions = new HashMap<Idea, Redaction>();
 		Map<Integer, Integer> joursRestant = new HashMap<Integer, Integer>();
 		
 		Iterator<Idea> itRedac = allRedactions.iterator();
@@ -59,13 +59,15 @@ public class LoadAdminHomepageServlet extends HttpServlet {
 		{
 			Idea idea = itRedac.next();
 			Redaction redaction = redactionDao.findByContext(idea.getPhaseContext().getId());
-			redactions.put(idea.getId(), redaction);
 			int nbDaysSincePhase = (int) ((new Date().getTime() - redaction.getDatePhase().getTime()) / DAY_IN_MILLIS);
 			int nbDaysRemains = NB_DAYS_REDACTION - nbDaysSincePhase;
 			if(nbDaysRemains < 0){
 				nbDaysRemains = 0;
 			}
-			joursRestant.put(idea.getId(), nbDaysRemains);
+			if(nbDaysRemains == 0){
+				joursRestant.put(idea.getId(), nbDaysRemains);				
+				redactions.put(idea, redaction);			
+			}
 		}
 		
 		Iterator<Idea> itEval = allEvaluations.iterator();
@@ -73,13 +75,15 @@ public class LoadAdminHomepageServlet extends HttpServlet {
 		{
 			Idea idea = itEval.next();
 			Evaluation evaluation = evaluationDao.findByContext(idea.getPhaseContext().getId());
-			evaluations.put(idea.getId(), evaluation);
 			int nbDaysSincePhase = (int) ((new Date().getTime() - evaluation.getDatePhase().getTime()) / DAY_IN_MILLIS);
 			int nbDaysRemains = NB_DAYS_EVALUATION - nbDaysSincePhase;
 			if(nbDaysRemains < 0){
 				nbDaysRemains = 0;
 			}
-			joursRestant.put(idea.getId(), nbDaysRemains);
+			if(nbDaysRemains == 0){
+				joursRestant.put(idea.getId(), nbDaysRemains);
+				evaluations.put(idea, evaluation);
+			}
 		}
 		
 		request.setAttribute("allEvaluations", allEvaluations);
